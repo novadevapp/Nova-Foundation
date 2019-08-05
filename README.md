@@ -18,23 +18,10 @@ Clone repo:
 
 In your terminal, navigate into the root of the repo and install dependencies
 
-```npm i```
+`npm start` in the repo folder
 
-From the root, navigate into the client folder and install front end dependencies
+and then a new terminal `npm run start:react` it should run everything 
 
-```cd client && npm i```
-
-Navigate back to the root and start express server
-
-```cd .. && npm run dev:server```
-
-Open another terminal window and run react server
-
-```npm run dev:client```
-
-Now that you've started the project, you'll need to create a ```config.env``` file in the root the project.
-To run our project, contact one of the maintainers for the necessary keys. You can follow the
-```config.env.example``` template for an example of how to structure your ```config.env``` .
 
 ## Configuration
 
