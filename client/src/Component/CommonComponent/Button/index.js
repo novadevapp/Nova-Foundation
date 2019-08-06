@@ -1,7 +1,7 @@
 import React from "react";
 import "./style.css";
 
-const registerButton = () => {
+export const RegisterButton = () => {
   return (
     <div>
       <button className="register__button">Register</button>
@@ -9,4 +9,10 @@ const registerButton = () => {
   );
 };
 
-export default registerButton;
+export const ProceedButton = () => {
+  return (
+    <div>
+      <button className="proceed__button">Proceed</button>
+    </div>
+  );
+};
