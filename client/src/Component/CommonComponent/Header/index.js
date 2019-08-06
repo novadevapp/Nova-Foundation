@@ -16,11 +16,14 @@ const Header = ({ isLogged, className }) => {
       <Star className="star-six" />
       <Star className="star-seven" />
       <Star className="star-eight" />
-      <h1> Create Account</h1>
-      <h3>
+     {className === "register" ? <React.Fragment><h1> Create Account</h1> <h3>
         Complete your account <br /> to get our support <br /> services
-      </h3>
-      <Cloud />
+      </h3></React.Fragment> : null} 
+      {className === "register" ?  <Cloud /> : null } 
+      {className === "home" ?  <h3 className="home-h3" >
+       Discover our resources. We hope <br /> they make you feel better!
+      </h3>: null } 
+     
     </div>
   );
 };
