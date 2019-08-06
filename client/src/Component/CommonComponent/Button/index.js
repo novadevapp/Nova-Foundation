@@ -16,3 +16,11 @@ export const ProceedButton = () => {
     </div>
   );
 };
+
+export const SmallBackButton = () => {
+  return (
+    <div>
+      <button className="small-back__button">Back</button>
+    </div>
+  );
+};
