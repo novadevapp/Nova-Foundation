@@ -7,7 +7,7 @@
     "start": "node src/index.js",
     "test": "echo \"Error: no test specified\" && exit 1",
     "nodemon": "nodemon src/index.js",
-    "start:react": "cd client && npm i && npm run build" 
+    "start:react": "cd client && npm i && npm run build"
   },
   "repository": {
     "type": "git",
@@ -21,7 +21,6 @@
   },
   "homepage": "https://github.com/fac-graduate-programme/Nova-Foundation#readme",
   "dependencies": {
-    "body-parser": "^1.19.0",
     "compression": "^1.7.4",
     "express": "^4.17.1",
     "helmet": "^3.20.0"
