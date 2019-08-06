@@ -18,23 +18,10 @@ Clone repo:
 
 In your terminal, navigate into the root of the repo and install dependencies
 
-```npm i```
+`npm start` in the repo folder
 
-From the root, navigate into the client folder and install front end dependencies
+and then a new terminal `npm run start:react` it should run everything 
 
-```cd client && npm i```
-
-Navigate back to the root and start express server
-
-```cd .. && npm run dev:server```
-
-Open another terminal window and run react server
-
-```npm run dev:client```
-
-Now that you've started the project, you'll need to create a ```config.env``` file in the root the project.
-To run our project, contact one of the maintainers for the necessary keys. You can follow the
-```config.env.example``` template for an example of how to structure your ```config.env``` .
 
 ## Configuration
 
@@ -42,10 +29,40 @@ To run our project, contact one of the maintainers for the necessary keys. You c
 
 ## Stack
 
-
+- **FrontEnd**: Reactjs
+- **BackEnd**: Nodejs
+- **Server**: Expressjs
+- **Database**: PostgreSQL? MongoDB? Firebase
 
 ## Team
+|     <a href="https://github.com/Dalmano" target="_blank">**Dylan**</a>      |      <a href="https://github.com/engshorouq" target="_blank">**Shorouq**</a>       |
+| :-------------------------------------------------------------------------------------: | :-----------------------------------------------------------------------------------------: |
+|       [![Dylan](https://avatars2.githubusercontent.com/u/30301023?s=400&v=4)]()        |        [![Shorouq](https://avatars1.githubusercontent.com/u/34021892?s=400&v=4)]()         |
+| <a href="https://github.com/Dalmano" target="_blank">`https://github.com/Dalmano`</a> | <a href="https://github.com/engshorouq" target="_blank">`https://github.com/engshorouq`</a> |
 
+|     <a href="https://github.com/IsraaSulaiman" target="_blank">**Israa**</a>      |          <a href="https://github.com/Oliversw" target="_blank">**Kate**</a>           |
+| :---------------------------------------------------------------------------------------------------: | :-------------------------------------------------------------------------------------: |
+|             [![Israa](https://avatars0.githubusercontent.com/u/35868173?s=400&v=4)]()              |   [![Kate](https://avatars2.githubusercontent.com/u/39469813?s=460&v=4)]()   |
+| <a href="https://github.com/IsraaSulaiman" target="_blank">`https://github.com/IsraaSulaiman`</a> | <a href="https://github.com/dubhcait" target="_blank">`https://github.com/dubhcait`</a> |
 
 ## Process
+
+### All User Stories/Backlog Items
+- As a user, I want to see a disclaimer before I proceed to navigate the page. 
+- As a user, I want to know what Nova is about.
+- As a user, I want to create a new account in Nova app.
+- As a user, I want to login to my account.
+- As a user, I want to navigate through the pages easily on my mobile. 
+- As a user, I want to feel not alone and like somebody cares by asking me about my feelings/thoughts.
+- As a user, I want to know what kind of support Nova provides to make me feel better.
+- As a user, I want to find good resources of information and suggestions to help me let go of negative feelings/trauma.
+- As a user, I want to have a non-judmental space where I write my diaries during trigger times.
+- As a user, I want to have a place to save lillies/pictures for my loved ones.
+- As a user, I want to delete any picture any time I want.
+- As a user, I want to see all the pictures I save in my personal corner.
+- As a user, I want to do some exercises when I feel overwhelmed/bereaved.
+- As a user, I want to find some distractions, like reading poems.
+- As a user, I want to add a poem that helped me/that I love.
+- As a user, I want to read the stories of other people who experienced loss of loved ones.
+- As a user, I want to be able to share my story when I feel I am ready for that.
 

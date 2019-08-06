@@ -1,0 +1,28 @@
+{
+  "name": "nova-foundation",
+  "version": "1.0.0",
+  "description": "Repository for the Founders Program project \"Nova\". Aug 2019",
+  "main": "index.js",
+  "scripts": {
+    "start": "node src/index.js",
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "nodemon": "nodemon src/index.js",
+    "start:react": "cd client && npm i && npm run build"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/fac-graduate-programme/Nova-Foundation.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/fac-graduate-programme/Nova-Foundation/issues"
+  },
+  "homepage": "https://github.com/fac-graduate-programme/Nova-Foundation#readme",
+  "dependencies": {
+    "compression": "^1.7.4",
+    "express": "^4.17.1",
+    "helmet": "^3.20.0"
+  }
+}
