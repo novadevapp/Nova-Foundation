@@ -6,8 +6,22 @@ import Logo from "./logo";
 import Triangle from "./triangle";
 
 const Header = ({ isLogged, className }) => {
+if(className == null) {
+    return (
+        <div className={`header minimal`}>
+          <Logo />
+          <Star className="star-two" />
+          <Star className="star-three" />
+          <Star className="star-nine" />
+          <Star className="star-ten" />
+          <Star className="star-eleven" />
+          <Star className="star-twelve" />
+        </div>
+      );
+}
+
   return (
-    <div className={`header ${className}`}>
+    <div className={`header`}>
       <Logo />
       <Star className="star-one" />
       <Star className="star-two" />
