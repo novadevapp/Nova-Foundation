@@ -5,6 +5,7 @@
   box-shadow: 0px 4px 4px rgba(239, 83, 120, 0.25);
   background: linear-gradient(90deg, #f27088 -4%, #c33650 96.67%);
   border-radius: 20px;
+  border-style: hidden;
 
   /* font-family: Roboto; */
   font-weight: bold;
@@ -20,6 +21,7 @@
   box-shadow: 0px 4px 4px rgba(239, 83, 120, 0.25);
   background: linear-gradient(90deg, #f27088 -4%, #c33650 96.67%);
   border-radius: 5px;
+  border-style: hidden;
 
   /* font-family: Roboto; */
   font-weight: normal;
@@ -36,6 +38,7 @@
   box-shadow: 0px 4px 4px rgba(239, 83, 120, 0.25);
   background: #a0a3a6;
   border-radius: 20px;
+  border-style: hidden;
 
   /* font-family: Roboto; */
   font-weight: bold;
@@ -50,6 +53,7 @@
   box-shadow: 0px 4px 4px rgba(239, 83, 120, 0.25);
   background: linear-gradient(90deg, #f27088 -4%, #c33650 96.67%);
   border-radius: 20px;
+  border-style: hidden;
 
   /* font-family: Roboto; */
   font-weight: bold;
@@ -64,6 +68,7 @@
   box-shadow: 0px 4px 4px rgba(239, 83, 120, 0.25);
   background: linear-gradient(90deg, #f27088 -4%, #c33650 96.67%);
   border-radius: 5px;
+  border-style: hidden;
 
   /* font-family: Roboto; */
   font-weight: normal;
@@ -80,6 +85,7 @@
   box-shadow: 0px 4px 4px rgba(239, 83, 120, 0.25);
   background: rgba(196, 196, 196, 0.35);
   border-radius: 5px;
+  border-style: hidden;
 
   /* font-family: Roboto; */
   font-weight: normal;
@@ -96,6 +102,7 @@
   box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
   background: linear-gradient(90deg, #f27088 -4%, #c33650 96.67%);
   border-radius: 20px;
+  border-style: hidden;
 
   /* font-family: Roboto; */
   font-weight: normal;
@@ -108,9 +115,10 @@
   width: 65px;
   height: 35.23px;
 
-  box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+  box-shadow: 0px 4px 4px rgba(239, 83, 120, 0.25);
   background: linear-gradient(90deg, #f27088 -4%, #c33650 96.67%);
   border-radius: 5px;
+  border-style: hidden;
 
   /* font-family: Roboto; */
   font-weight: normal;
@@ -126,6 +134,7 @@
   box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
   background: rgba(196, 196, 196, 0.35);
   border-radius: 5px;
+  border-style: hidden;
 
   /* font-family: Roboto; */
   font-weight: normal;
@@ -138,13 +147,14 @@
   width: 80px;
   height: 40px;
 
-  box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
   background: linear-gradient(
     90deg,
     rgba(242, 112, 136, 0.8) -4%,
     rgba(195, 54, 80, 0.8) 96.67%
   );
+  border-style: hidden;
   border-radius: 5px;
+  box-shadow: 0px 4px 4px rgba(239, 83, 120, 0.25);
 
   /* font-family: Roboto; */
   font-weight: normal;
