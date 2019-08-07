@@ -1,12 +1,33 @@
 import React, { Component } from "react";
 import { withRouter } from "react-router-dom";
+import ReactNotification from "react-notifications-component";
+import "react-notifications-component/dist/theme.css";
 
 import "./style.css";
 
 class Menu extends Component {
-  state = {};
+  notificationDOMRef = React.createRef();
   handleClick = value => e => {
-    this.props.history.push(value);
+    if (value === "/logout") {
+      fetch("/api/v1/logout")
+        .then(res => res.json())
+        .then(res => {})
+        .catch(() => {
+            this.notificationDOMRef.current.addNotification({
+                title: "Server Error",
+                message: "Can not Logout",
+                type: "danger",
+                insert: "top",
+                container: "top-right",
+                animationIn: ["animated", "fadeIn"],
+                animationOut: ["animated", "fadeOut"],
+                dismiss: { duration: 2000 },
+                dismissable: { click: true }
+              });
+        });
+    } else {
+      this.props.history.push(value);
+    }
   };
   render() {
     const { isLogged } = this.props;
@@ -31,20 +52,23 @@ class Menu extends Component {
           <li onClick={this.handleClick("/logout")} className="menu__item">
             LOGOUT
           </li>
+          <ReactNotification ref={this.notificationDOMRef} />
         </div>
       );
 
-      return <div className="menu">
-      <li onClick={this.handleClick("/")} className="menu__item">
-        NOVA HOME
-      </li>
-      <li onClick={this.handleClick("/login")} className="menu__item">
-        LOGIN
-      </li>
-      <li onClick={this.handleClick("/register")} className="menu__item">
-        SIGN UP
-      </li>
-    </div>
+    return (
+      <div className="menu">
+        <li onClick={this.handleClick("/")} className="menu__item">
+          NOVA HOME
+        </li>
+        <li onClick={this.handleClick("/login")} className="menu__item">
+          LOGIN
+        </li>
+        <li onClick={this.handleClick("/register")} className="menu__item">
+          SIGN UP
+        </li>
+      </div>
+    );
   }
 }
 

@@ -2,16 +2,20 @@
   background: #c4d5ed;
   border: 1px solid #6690d0;
   font-size: 12px;
-  /* align-items: center; */
   color: #000000;
 }
 
 .menu__item {
-    list-style: none;
-    border-bottom: 1px solid #6690d0;
-    padding: 10px;
-    cursor: pointer;
+  list-style: none;
+  border-bottom: 1px solid #6690d0;
+  padding: 10px;
+  cursor: pointer;
+  transition: all 0.3s ease;
 }
-.menu:last-child{
-    border-bottom: none;
+.menu:last-child {
+  border-bottom: none;
+}
+.menu__item:hover {
+  background: #b1c7e7;
+  font-weight: bold;
 }
