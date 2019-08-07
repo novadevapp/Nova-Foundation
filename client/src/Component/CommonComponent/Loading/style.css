@@ -1,0 +1,11 @@
+.loader {
+    width: 35px;
+    height: 35px;
+    border-radius: 50%;
+    border: 5px solid #f3f3f3;
+    border-left: 5px solid #5E6BE1;
+    animation: load infinite  1s linear;
+}
+@keyframes load{
+    100%{transform: rotate(360deg)}
+}
