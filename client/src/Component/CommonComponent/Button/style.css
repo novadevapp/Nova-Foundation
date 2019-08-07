@@ -2,6 +2,7 @@
   width: 284px;
   height: 48px;
 
+  box-shadow: 0px 4px 4px rgba(239, 83, 120, 0.25);
   background: linear-gradient(90deg, #f27088 -4%, #c33650 96.67%);
   border-radius: 20px;
 
@@ -16,6 +17,7 @@
   width: 100px;
   height: 35px;
 
+  box-shadow: 0px 4px 4px rgba(239, 83, 120, 0.25);
   background: linear-gradient(90deg, #f27088 -4%, #c33650 96.67%);
   border-radius: 5px;
 
@@ -38,5 +40,115 @@
   /* font-family: Roboto; */
   font-weight: bold;
   font-size: 16px;
+  color: #ffffff;
+}
+
+.small-next__button {
+  width: 119px;
+  height: 33.2px;
+
+  box-shadow: 0px 4px 4px rgba(239, 83, 120, 0.25);
+  background: linear-gradient(90deg, #f27088 -4%, #c33650 96.67%);
+  border-radius: 20px;
+
+  /* font-family: Roboto; */
+  font-weight: bold;
+  font-size: 16px;
+  color: #ffffff;
+}
+
+.large-save__button {
+  width: 200px;
+  height: 36px;
+
+  box-shadow: 0px 4px 4px rgba(239, 83, 120, 0.25);
+  background: linear-gradient(90deg, #f27088 -4%, #c33650 96.67%);
+  border-radius: 5px;
+
+  /* font-family: Roboto; */
+  font-weight: normal;
+  font-size: 14px;
+  line-height: 160.7%;
+  letter-spacing: 0.15px;
+  color: #ffffff;
+}
+
+.large-skip__button {
+  width: 200px;
+  height: 36px;
+
+  box-shadow: 0px 4px 4px rgba(239, 83, 120, 0.25);
+  background: rgba(196, 196, 196, 0.35);
+  border-radius: 5px;
+
+  /* font-family: Roboto; */
+  font-weight: normal;
+  font-size: 14px;
+  line-height: 160.7%;
+  letter-spacing: 0.15px;
+  color: #000000;
+}
+
+.personal-space__button {
+  width: 110px;
+  height: 65.19px;
+
+  box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+  background: linear-gradient(90deg, #f27088 -4%, #c33650 96.67%);
+  border-radius: 20px;
+
+  /* font-family: Roboto; */
+  font-weight: normal;
+  font-size: 14px;
+  letter-spacing: 0.15px;
+  color: #ffffff;
+}
+
+.small-save__button {
+  width: 65px;
+  height: 35.23px;
+
+  box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+  background: linear-gradient(90deg, #f27088 -4%, #c33650 96.67%);
+  border-radius: 5px;
+
+  /* font-family: Roboto; */
+  font-weight: normal;
+  font-size: 14px;
+  letter-spacing: 0.15px;
+  color: #ffffff;
+}
+
+.small-cancel__button {
+  width: 65px;
+  height: 35.23px;
+
+  box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+  background: rgba(196, 196, 196, 0.35);
+  border-radius: 5px;
+
+  /* font-family: Roboto; */
+  font-weight: normal;
+  font-size: 14px;
+  letter-spacing: 0.15px;
+  color: #000000;
+}
+
+.upload-image__button {
+  width: 80px;
+  height: 40px;
+
+  box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+  background: linear-gradient(
+    90deg,
+    rgba(242, 112, 136, 0.8) -4%,
+    rgba(195, 54, 80, 0.8) 96.67%
+  );
+  border-radius: 5px;
+
+  /* font-family: Roboto; */
+  font-weight: normal;
+  font-size: 14px;
+  letter-spacing: 0.15px;
   color: #ffffff;
 }
