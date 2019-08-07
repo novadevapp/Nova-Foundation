@@ -1,0 +1,17 @@
+select {
+    font-family: Roboto;
+    background: #FAF8F8;
+border: 1px solid #6690D0;
+text-align: center;
+color: #000000;
+padding: 0.2em;
+
+}
+
+option{  background: #FAF8F8;
+    border: 1px solid #6690D0;
+}
+
+option:focus {
+   color: #000000;
+}
