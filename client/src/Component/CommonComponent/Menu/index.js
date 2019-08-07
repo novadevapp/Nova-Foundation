@@ -1,29 +1,41 @@
 import React, { Component } from "react";
 import { withRouter } from "react-router-dom";
 import ReactNotification from "react-notifications-component";
+
 import "react-notifications-component/dist/theme.css";
 
 import "./style.css";
 
 class Menu extends Component {
+
   notificationDOMRef = React.createRef();
+
+  notification = (type, message) => {
+    this.notificationDOMRef.current.addNotification({
+      message,
+      type,
+      insert: "top",
+      container: "top-right",
+      animationIn: ["animated", "fadeIn"],
+      animationOut: ["animated", "fadeOut"],
+      dismiss: { duration: 2000 },
+      dismissable: { click: true }
+    });
+  }
+
   handleClick = value => e => {
     if (value === "/logout") {
       fetch("/api/v1/logout")
         .then(res => res.json())
-        .then(res => {})
+        .then(({error, data}) => {
+          if(error) {
+            this.notification('warning', error)
+          } else {
+            this.props.history.push('/');
+          }
+        })
         .catch(() => {
-            this.notificationDOMRef.current.addNotification({
-                title: "Server Error",
-                message: "Can not Logout",
-                type: "danger",
-                insert: "top",
-                container: "top-right",
-                animationIn: ["animated", "fadeIn"],
-                animationOut: ["animated", "fadeOut"],
-                dismiss: { duration: 2000 },
-                dismissable: { click: true }
-              });
+          this.notification('danger', 'Server Error Can\'t Logout');
         });
     } else {
       this.props.history.push(value);
