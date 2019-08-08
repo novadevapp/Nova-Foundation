@@ -1,0 +1,13 @@
+.land {
+  min-height: 63vh;
+}
+
+.content {
+  position: absolute;
+  background: white;
+  padding: 10px;
+  margin: 10px 60px;
+  width: 64vw;
+  border-radius: 7px;
+  box-shadow: 0 0 5px #808080c7;
+}
