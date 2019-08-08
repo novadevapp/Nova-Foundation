@@ -12,7 +12,7 @@ export default function (props) {
 
   return (
     <>
-      <Header style={{ position: 'relative' }} isLogged='false' className='header' />
+      <Header isLogged='false' className='header'  />
       <main className='home-page'>
         <section className='home-page__section'>
           <h2 className='home-page__title'>Discover our resources. We hope they make you feel better!</h2>

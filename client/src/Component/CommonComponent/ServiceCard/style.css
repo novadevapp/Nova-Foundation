@@ -1,6 +1,6 @@
 .serviceCard {
   min-height: 170px;
-  width: 70%;
+  width: 80%;
   max-width: 500px;
   margin: 1.4rem auto;
   border: none;
@@ -27,4 +27,5 @@
 .serviceCard p {
   padding: 0 1rem;
   font-size: 0.9rem;
+  color: #333;
 }
