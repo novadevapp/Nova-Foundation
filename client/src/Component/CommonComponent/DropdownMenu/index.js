@@ -6,15 +6,14 @@ export default () => {
 
     const [selection,setSelection] = React.useState("information")
 
-    React.useEffect(() => {
-     console.log(selection) ; 
-      }, [selection]);
+
 
     const redirectOnSelect = (e) => {
         setSelection(e.target.value);
       }
 
     return (
+      <>
         <div className="select-container">
         <select onChange={redirectOnSelect}>
   <option value="information">Information & Suggestions</option>
@@ -22,4 +21,5 @@ export default () => {
   <option value="suggestions">What people said</option>
 </select>
 </div>
-    )}
+<p>{selection}</p>
+  </>  )}
