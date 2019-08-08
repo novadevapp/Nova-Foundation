@@ -1,11 +1,10 @@
 import React from 'react';
-
+import Footer from '../Footer'
 import "./style.css";
 
 export default () => {
 
-    const [selection,setSelection] = React.useState("information")
-
+    const [selection,setSelection] = React.useState("footer")
 
 
     const redirectOnSelect = (e) => {
@@ -21,5 +20,5 @@ export default () => {
   <option value="suggestions">What people said</option>
 </select>
 </div>
-<p>{selection}</p>
+ {selection === "footer" ? <Footer/> : null}
   </>  )}
