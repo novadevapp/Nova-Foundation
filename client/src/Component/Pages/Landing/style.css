@@ -1,13 +1,38 @@
 .land {
-  min-height: 63vh;
+  position: relative;
+  min-height: 87vh;
 }
 
 .content {
-  position: absolute;
   background: white;
-  padding: 10px;
-  margin: 10px 60px;
-  width: 64vw;
+  padding: 20px;
+  margin: 10px auto;
+  width: 250px;
+  height: 355px;
   border-radius: 7px;
   box-shadow: 0 0 5px #808080c7;
+}
+.content__paragraph {
+  line-height: 1.5;
+}
+.react-notification-root{
+  position:fixed;
+  z-index:8000;
+  transform:translateX(-50%);
+  top:20%;
+  left:50%
+}
+.land__header {
+  color: #62676b;
+}
+.hidden {
+  animation: fadeOut 1s ease-in-out;
+}
+@keyframes fadeOut {
+  form {
+    opacity: 1;
+  }
+  to {
+    opacity: 0;
+  }
 }
