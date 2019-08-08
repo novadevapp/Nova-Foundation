@@ -1,0 +1,16 @@
+.about-us__section {
+  padding: 1rem;
+  font-family: Roboto;
+  font-weight: 300;
+  font-size: 1.3rem;
+  line-height: 1.5;
+  align-items: center;
+  letter-spacing: 0.15px;
+  color: #000000;
+  padding: 2em .5em;
+}
+
+.about-us__paragraph {
+  text-align: left;
+  padding: 1.2rem;
+}
