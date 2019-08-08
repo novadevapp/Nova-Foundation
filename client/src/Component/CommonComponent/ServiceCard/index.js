@@ -7,7 +7,7 @@ import HomeIcon from './homeIcon';
 export default ({icon, title, description, action}) => {
     
     return (
-      <div onClick={action}>
+      <div className="serviceCard" onClick={action}>
    { icon === "story" ? <StoriesIcon />: null}
    { icon === "home" ? <HomeIcon /> : null}
    { icon === "book" ? <BookIcon /> : null}
