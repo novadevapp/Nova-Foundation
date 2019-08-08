@@ -3,8 +3,8 @@ import ReactNotification from "react-notifications-component";
 
 import Header from "../../CommonComponent/Header";
 import Footer from "../../CommonComponent/Footer";
-import background from "../../assets/background.png";
-import { Button } from "../../CommonComponent/Button";
+import background from "../../../assets/background.png";
+import Button  from "../../CommonComponent/Button";
 import Victor from "./victor";
 
 import "./style.css";
