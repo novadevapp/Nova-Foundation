@@ -12,14 +12,14 @@
 
 }
 
-.icon {
+.serviceCard .icon {
    
     height: 2em;
     width: 2em;
     padding: 1.6em;
     float: left;
 }
-h3{ font-family: Roboto;
+.serviceCard h3{ font-family: Roboto;
     display: inline-block;
     font-size: 1.4em;
     font-weight: 500;
@@ -28,7 +28,7 @@ h3{ font-family: Roboto;
     margin-bottom: 10px;
 }
 
-p {
+.serviceCard p {
     
     padding: 30px;
     margin: auto;
