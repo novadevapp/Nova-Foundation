@@ -1,0 +1,17 @@
+.home-page__title {
+  font-weight: 500;
+  font-size: 1.2rem;
+  letter-spacing: .05em;
+  line-height: 1.5;
+  color: white;
+}
+
+.home-page__section {
+  position: absolute;
+  top: 10rem;
+  padding: 1rem;
+}
+
+.home-page {
+  min-height: 75vh;
+}
