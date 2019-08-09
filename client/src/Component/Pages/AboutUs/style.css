@@ -18,6 +18,7 @@
   font-size: .8em;
   line-height: 1.5;
   max-width: 600px;
+  margin: 0 auto;
 }
 
 .about-us .large-skip__button {
