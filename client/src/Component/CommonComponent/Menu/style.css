@@ -1,7 +1,6 @@
 .menu {
-  position: absolute;
-  top: 24.5vw;
-  width: 100%;
+  grid-column-start: 1;
+  grid-column-end: 10;
   background: #c4d5ed;
   border: 1px solid #6690d0;
   font-size: 12px;
