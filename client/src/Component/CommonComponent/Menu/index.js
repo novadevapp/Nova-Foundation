@@ -1,5 +1,4 @@
 import React, { Component } from "react";
-import { withRouter } from "react-router-dom";
 import ReactNotification from "react-notifications-component";
 
 import "react-notifications-component/dist/theme.css";
@@ -84,4 +83,4 @@ class Menu extends Component {
   }
 }
 
-export default withRouter(Menu);
+export default Menu;
