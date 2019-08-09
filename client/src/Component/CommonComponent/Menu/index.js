@@ -8,6 +8,7 @@ import "./style.css";
 class Menu extends Component {
 
   notificationDOMRef = React.createRef();
+  menuRef = React.createRef();
 
   notification = (type, message) => {
     this.notificationDOMRef.current.addNotification({
@@ -44,7 +45,7 @@ class Menu extends Component {
     const { isLogged } = this.props;
     if (isLogged)
       return (
-        <div className="menu">
+        <div className="menu" ref = {this.menuRef}>
           <li onClick={this.handleClick("/home")} className="menu__item">
             NOVA HOME
           </li>
@@ -68,7 +69,7 @@ class Menu extends Component {
       );
 
     return (
-      <div className="menu">
+      <div className="menu" ref = {this.menuRef}>
         <li onClick={this.handleClick("/")} className="menu__item">
           NOVA HOME
         </li>
