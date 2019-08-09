@@ -47,7 +47,6 @@ export default class Land extends Component {
     } 
   }
   handleClick = () => {
-    console.log(this.notificationDOMRef);
     this.notificationContent.current.classList.add("hidden");
   };
   handleLinks = value => e => {
@@ -61,7 +60,7 @@ export default class Land extends Component {
         <main className="land">
           <div className="land__home">
             <h3 className="land__header"> YOU'RE NOT ALONE</h3>
-            <img src={background} alt="landing image" />
+            <img src={background} alt="landing" />
             <div className="land__links">
               <Button
                 className="register__button"
