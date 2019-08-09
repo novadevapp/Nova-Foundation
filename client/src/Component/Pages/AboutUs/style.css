@@ -23,9 +23,3 @@
 .about-us .large-skip__button {
   margin-top: .8em;
 }
-
-@media(min-width:700px) {
-  .about-us__paragraph {
-    margin: 0 auto;
-  }
-}
