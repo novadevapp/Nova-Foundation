@@ -1,6 +1,7 @@
 import React from "react";
 import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
 import SecureRoutes from "./secureRoutes";
+import navLinksForUsers from "./navLinksForUsers";
 import { Landing, Login, Signup } from "./Component/Pages";
 
 import "./App.css";
@@ -17,9 +18,17 @@ function App() {
     <div className="App">
       <Router>
         <Switch>
-          <SecureRoutes />
           {navLinksForVisitors.map((route, index) => (
             <Route
+              exact
+              path={route.path}
+              key={index}
+              component={route.component}
+            />
+          ))}
+
+          {navLinksForUsers.map((route, index) => (
+            <SecureRoutes
               exact
               path={route.path}
               key={index}
