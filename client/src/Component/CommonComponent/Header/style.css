@@ -3,7 +3,7 @@
     #6690d0;
   display: grid;
   grid-template-columns: 1fr 1fr 1fr 1fr 2fr 1fr 1fr 1fr 1fr;
-  grid-template-rows: 1fr 0.5fr 0.5fr auto;
+  /* grid-template-rows: 1fr 0.5fr 0.5fr auto; */
   color: #ffffff;
 }
 
@@ -157,4 +157,12 @@ h3 {
   justify-self: end;
   fill: rgb(255, 229, 133);
   padding: 1em;
+}
+@media(min-width:700px){
+  .triangle{
+    opacity: 0;
+  }
+  .header{
+    height: 150px;
+  }
 }
