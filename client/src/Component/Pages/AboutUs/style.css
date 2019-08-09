@@ -9,20 +9,23 @@
   color: #000000;
   min-height: 60vh;
   margin: .4em auto 1.5em auto;
-
 }
 
 .about-us__paragraph {
   text-align: left;
   padding: .8rem;
   color: #333;
-  font-size: 1em;
+  font-size: .8em;
   line-height: 1.5;
+  max-width: 600px;
+}
+
+.about-us .large-skip__button {
+  margin-top: .8em;
 }
 
 @media(min-width:700px) {
   .about-us__paragraph {
-    width: 60%;
     margin: 0 auto;
   }
 }
