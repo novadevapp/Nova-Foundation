@@ -6,20 +6,19 @@ import Logo from "./logo";
 import Triangle from "./triangle";
 
 const Header = ({ isLogged, className }) => {
-if(className == null) {
+  if (className == null) {
     return (
-        <div className={`header minimal`}>
-          <Logo />
-          <Star className="star-two" />
-          <Star className="star-three" />
-          <Star className="star-nine" />
-          <Star className="star-ten" />
-          <Star className="star-eleven" />
-          <Star className="star-twelve" />
-        </div>
-      );
-}
-
+      <div className={`header minimal`}>
+        <Logo />
+        <Star className="star-two" />
+        <Star className="star-three" />
+        <Star className="star-nine" />
+        <Star className="star-ten" />
+        <Star className="star-eleven" />
+        <Star className="star-twelve" />
+      </div>
+    );
+  }
   return (
     <div className={`header`}>
       <Logo />
@@ -40,11 +39,6 @@ if(className == null) {
         </React.Fragment>
       ) : null}
       {className === "register" ? <Cloud /> : null}
-      {className === "home" ? (
-        <h3 className="home-h3">
-          Discover our resources. We hope they make you feel better!
-        </h3>
-      ) : null}
       {className === "triangle" ? <Triangle /> : null}
     </div>
   );
