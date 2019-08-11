@@ -2,6 +2,7 @@
   position: absolute;
   top: 100px;
   width: 100%;
+  z-index: 1000;
   background: #c4d5ed;
   border: 1px solid #6690d0;
   font-size: 12px;
