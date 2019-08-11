@@ -43,11 +43,11 @@ export default class Land extends Component {
         container: "top-center",
         dismissable: { click: true }
       });
-      localStorage.setItem("visit", "true");
     } 
   }
   handleClick = () => {
     this.notificationContent.current.classList.add("hidden");
+    localStorage.setItem("visit", "true");
   };
   handleLinks = value => e => {
     this.props.history.push(value);
