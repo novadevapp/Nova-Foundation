@@ -1,0 +1,27 @@
+.status__emoji-container {
+  width: 70%;
+  margin: 0 auto;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+}
+.status__emoji {
+  width: 30%;
+  margin-bottom: 10px;
+}
+.status__username {
+  color: #c33650;
+}
+.status__greeting {
+  text-align: left;
+  margin-left: 15%;
+}
+.status__question {
+  text-align: left;
+  padding: 5px;
+  margin-left: 17%;
+}
+
+.status__error {
+  color: #d14761;
+}
