@@ -1,4 +1,5 @@
 import React from "react";
+import { withRouter } from "react-router-dom"
 
 import Star from "./star";
 import Cloud from "./cloud";
@@ -9,16 +10,16 @@ import Toggle from "./toggle";
 
 import "./style.css";
 
-const Header = ({ isLogged, className }) => {
+const Header = (props) => {
   const menuRef = React.createRef();
 
   function handleClick() {
     menuRef.current.menuRef.current.classList.toggle("menu--show");
   }
-  if (className == null) {
+  if (props.className == null) {
     return (
       <>
-      <div className={`header minimal`}>
+      <div className={`header minimal`} >
         <Logo />
         <Toggle onClick={handleClick} />
         <Star className="star-two" />
@@ -28,7 +29,7 @@ const Header = ({ isLogged, className }) => {
         <Star className="star-eleven" />
         <Star className="star-twelve" />
       </div>
-      <Menu isLogged={isLogged} ref={menuRef} />
+      <Menu isLogged={props.isLogged} ref={menuRef} history = {props.history}/>
       </>
     );
   }
@@ -45,7 +46,7 @@ const Header = ({ isLogged, className }) => {
       <Star className="star-six" />
       <Star className="star-seven" />
       <Star className="star-eight" />
-      {className === "register" ? (
+      {props.className === "register" ? (
         <React.Fragment>
           <h1> Create your Account</h1>{" "}
           <h3>
@@ -53,12 +54,12 @@ const Header = ({ isLogged, className }) => {
           </h3>
         </React.Fragment>
       ) : null}
-      {className === "register" ? <Cloud /> : null}
-      {className === "triangle" ? <Triangle /> : null}
+      {props.className === "register" ? <Cloud /> : null}
+      {props.className === "triangle" ? <Triangle /> : null}
     </div>
-    <Menu isLogged={isLogged} ref={menuRef} />
+    <Menu isLogged={props.isLogged} ref={menuRef} />
     </>
   );
 };
 
-export default Header;
+export default withRouter(Header);
