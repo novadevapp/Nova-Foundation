@@ -1,6 +1,8 @@
 import React, { Component } from "react";
 import ReactNotification from "react-notifications-component";
 
+import notification from '../../helpers/notification';
+
 import "react-notifications-component/dist/theme.css";
 
 import "./style.css";
@@ -10,32 +12,19 @@ class Menu extends Component {
   notificationDOMRef = React.createRef();
   menuRef = React.createRef();
 
-  notification = (type, message) => {
-    this.notificationDOMRef.current.addNotification({
-      message,
-      type,
-      insert: "top",
-      container: "top-right",
-      animationIn: ["animated", "fadeIn"],
-      animationOut: ["animated", "fadeOut"],
-      dismiss: { duration: 2000 },
-      dismissable: { click: true }
-    });
-  }
-
   handleClick = value => e => {
     if (value === "/logout") {
       fetch("/api/v1/logout")
         .then(res => res.json())
         .then(({error, data}) => {
           if(error) {
-            this.notification('warning', error)
+            notification(this.notificationDOMRef, 'warning', error, 'Warning')
           } else {
             this.props.history.push('/');
           }
         })
         .catch(() => {
-          this.notification('danger', 'Server Error Can\'t Logout');
+          notification(this.notificationDOMRef, 'danger', 'Server Error Can\'t Logout', 'Error');
         });
     } else {
       this.props.history.push(value);
