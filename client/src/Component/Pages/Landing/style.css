@@ -1,0 +1,48 @@
+.land {
+  position: relative;
+  min-height: 87vh;
+}
+
+.content {
+  background: white;
+  padding: 32px;
+  margin: 10px auto;
+  width: 250px;
+  height: 355px;
+  border-radius: 7px;
+  box-shadow: 0 0 5px #808080c7;
+}
+
+.content__icon {
+  margin-right: 10px;
+}
+.content__paragraph {
+  line-height: 1.5;
+}
+.land__links{
+  display: flex;
+    flex-wrap: wrap;
+    width: 250px;
+    margin: 0 auto;
+}
+.react-notification-root{
+  position:fixed;
+  z-index:8000;
+  transform:translateX(-50%);
+  top:20%;
+  left:50%
+}
+.land__header {
+  color: #62676b;
+}
+.hidden {
+  animation: fadeOut 1s ease-in-out;
+}
+@keyframes fadeOut {
+  form {
+    opacity: 1;
+  }
+  to {
+    opacity: 0;
+  }
+}
