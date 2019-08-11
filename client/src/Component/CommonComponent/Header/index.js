@@ -1,15 +1,26 @@
 import React from "react";
-import "./style.css";
+
 import Star from "./star";
 import Cloud from "./cloud";
 import Logo from "./logo";
 import Triangle from "./triangle";
+import Menu from "../Menu";
+import Toggle from "./toggle";
+
+import "./style.css";
 
 const Header = ({ isLogged, className }) => {
+  const menuRef = React.createRef();
+
+  function handleClick() {
+    menuRef.current.menuRef.current.classList.toggle("menu--show");
+  }
   if (className == null) {
     return (
+      <>
       <div className={`header minimal`}>
         <Logo />
+        <Toggle onClick={handleClick} />
         <Star className="star-two" />
         <Star className="star-three" />
         <Star className="star-nine" />
@@ -17,11 +28,15 @@ const Header = ({ isLogged, className }) => {
         <Star className="star-eleven" />
         <Star className="star-twelve" />
       </div>
+      <Menu isLogged={isLogged} ref={menuRef} />
+      </>
     );
   }
   return (
+    <>
     <div className={`header`}>
       <Logo />
+      <Toggle onClick={handleClick} />
       <Star className="star-one" />
       <Star className="star-two" />
       <Star className="star-three" />
@@ -41,6 +56,8 @@ const Header = ({ isLogged, className }) => {
       {className === "register" ? <Cloud /> : null}
       {className === "triangle" ? <Triangle /> : null}
     </div>
+    <Menu isLogged={isLogged} ref={menuRef} />
+    </>
   );
 };
 
