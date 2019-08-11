@@ -17,13 +17,13 @@ class Menu extends Component {
         .then(res => res.json())
         .then(({error, data}) => {
           if(error) {
-            notification(this.notificationDOMRef, 'warning', error)
+            notification(this.notificationDOMRef, 'warning', error, 'Warning')
           } else {
             this.props.history.push('/');
           }
         })
         .catch(() => {
-          notification(this.notificationDOMRef, 'danger', 'Server Error Can\'t Logout');
+          notification(this.notificationDOMRef, 'danger', 'Server Error Can\'t Logout', 'Error');
         });
     } else {
       this.props.history.push(value);
