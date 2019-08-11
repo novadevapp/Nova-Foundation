@@ -3,6 +3,8 @@ import React from 'react';
 import Header from '../../CommonComponent/Header';
 import HomeIcon from '../../CommonComponent/ServiceCard/homeIcon';
 import Button from '../../CommonComponent/Button';
+import Footer from '../../CommonComponent/Footer';
+
 import './style.css'
 
 export default function (props) {
@@ -53,6 +55,7 @@ export default function (props) {
           />
         </section>
       </main>
+      <Footer />
     </>
 
   )
