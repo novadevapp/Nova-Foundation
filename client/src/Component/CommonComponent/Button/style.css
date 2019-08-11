@@ -12,6 +12,8 @@
   font-size: 16px;
   align-items: center;
   color: #ffffff;
+  margin-bottom: 20px;
+  cursor: pointer;
 }
 
 .proceed__button {
