@@ -1,7 +1,8 @@
-export default (ref, type, message) => {
+export default (ref, type, message, title) => {
     ref.current.addNotification({
         message,
         type,
+        title,
         insert: "top",
         container: "top-right",
         animationIn: ["animated", "fadeIn"],
