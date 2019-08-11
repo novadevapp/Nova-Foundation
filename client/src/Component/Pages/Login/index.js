@@ -1,9 +1,12 @@
 import React, { Component } from "react";
+import ReactNotification from "react-notifications-component";
 
+import notification from "../../helpers/notification";
 import Header from "../../CommonComponent/Header";
 import Input from "../../CommonComponent/Input";
 import Button from "../../CommonComponent/Button";
 
+import "react-notifications-component/dist/theme.css";
 import "./style.css";
 
 export default class Login extends Component {
@@ -17,6 +20,7 @@ export default class Login extends Component {
       error: ""
     }
   };
+  notificationDOMRef = React.createRef();
   handleInput = e => {
     let { name, value } = e.target;
     if (name === "email") value = value.trim();
@@ -30,7 +34,9 @@ export default class Login extends Component {
     const { email, password } = this.state;
     if (!email.value || !password.value) {
       const emailError = email.value ? "" : "please fill the email field";
-      const passwordError = password.value ? "" : "please fill the password field";
+      const passwordError = password.value
+        ? ""
+        : "please fill the password field";
       this.setState(prev => {
         return {
           email: { ...prev.email, error: emailError },
@@ -47,11 +53,20 @@ export default class Login extends Component {
         })
       })
         .then(res => res.json())
-        .then(res => {
-
+        .then(({ error, data }) => {
+          if (error) {
+            notification(this.notificationDOMRef, "warning", error, "Warning");
+          } else {
+            this.props.history.push("/home");
+          }
         })
         .catch(() => {
-            
+          notification(
+            this.notificationDOMRef,
+            "danger",
+            "Can't login please try again",
+            "Error"
+          );
         });
     }
   };
@@ -86,6 +101,7 @@ export default class Login extends Component {
             />
           </form>
         </div>
+        <ReactNotification ref={this.notificationDOMRef} />
       </>
     );
   }
