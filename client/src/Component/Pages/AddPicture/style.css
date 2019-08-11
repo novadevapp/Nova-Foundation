@@ -1,0 +1,86 @@
+.add-pic-page__title {
+  font-family: Roboto;
+  font-size: 1.6em;
+}
+
+.add-pic-page__section {
+  background: #ffffff;
+  box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.25);
+  padding: 1em;
+  width: 80%;
+  max-width: 800px;
+  margin: 10px auto;
+}
+
+.add-pic-page__form {
+  padding: 1em;
+  max-width: 800px;
+  margin: auto;
+}
+
+#new-pic__file::-webkit-file-upload-button {
+  visibility: hidden;
+}
+#new-pic__file {
+  display: flex;
+}
+#new-pic__file::before {
+  content: "Upload Image";
+  text-align: center;
+  margin: -12px;
+  margin-bottom: -2.2em;
+  margin-top: 2em;
+  padding: 1.2em 0.8em;
+
+  outline: none;
+  cursor: pointer;
+  color: #fff;
+  font-weight: 700;
+
+  background: linear-gradient(
+    90deg,
+    rgba(242, 112, 136, 0.8) -4%,
+    rgba(195, 54, 80, 0.8) 96.67%
+  );
+  border-style: hidden;
+  border-radius: 5px;
+  box-shadow: 0px 4px 4px rgba(239, 83, 120, 0.25);
+
+  /* font-family: Roboto; */
+  font-weight: normal;
+  font-size: 14pt;
+  letter-spacing: 0.15px;
+  color: #ffffff;
+}
+
+#new-pic__file::after {
+  color: #646769;
+}
+
+#new-pic__file:hover::before {
+  float: right;
+}
+
+#new-pic__file:active::before {
+  background: -webkit-linear-gradient(top, #e3e3e3, #f9f9f9);
+}
+
+.add-pic-page__form_buttons {
+  display: flex;
+  justify-content: flex-end;
+  flex-wrap: wrap;
+  margin: 3em 0;
+}
+
+.add-pic-page__form_buttons button {
+  margin: 5px;
+}
+
+.add-pic-page__form_buttons a {
+  text-decoration: none;
+  display: flex;
+  align-content: center;
+  margin: 5px;
+  justify-content: center;
+  line-height: 45px;
+}

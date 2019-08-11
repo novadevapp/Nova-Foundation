@@ -62,8 +62,8 @@
 }
 
 .large-save__button {
-  width: 200px;
-  height: 36px;
+  width: 260px;
+  height: 45px;
 
   box-shadow: 0px 4px 4px rgba(239, 83, 120, 0.25);
   background: linear-gradient(90deg, #f27088 -4%, #c33650 96.67%);
@@ -71,8 +71,8 @@
   border-style: hidden;
 
   /* font-family: Roboto; */
-  font-weight: normal;
-  font-size: 14px;
+  font-weight: bold;
+  font-size: 1em;
   line-height: 160.7%;
   letter-spacing: 0.15px;
   color: #ffffff;
@@ -89,7 +89,7 @@
 
   font-family: Roboto;
   font-weight: normal;
-  font-size: .9em;
+  font-size: 0.9em;
   line-height: 160.7%;
   letter-spacing: 0.15px;
   color: #333;
