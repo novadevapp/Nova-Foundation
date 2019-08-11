@@ -194,7 +194,7 @@ export default class SignUp extends Component {
               onClick={this.submitForm} />
             <p className='register-page__login-message'>
               Have an account?
-            <span className='register-page__login-anchor'> Log in</span>
+            <span className='register-page__login-anchor' onClick={()=>{this.props.history.push('/login')}}> Log in</span>
             </p>
           </form>
         </main>
