@@ -16,6 +16,7 @@ import SingleStory from "./SingleStory";
 import Status from "./Status";
 import Stories from "./Stories";
 import Suggestion from "./Suggestion";
+import FourOFour from "./404";
 
 export {
   Landing,
@@ -35,5 +36,6 @@ export {
   SingleStory,
   Status,
   Stories,
-  Suggestion
+  Suggestion,
+  FourOFour
 };

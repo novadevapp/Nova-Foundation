@@ -2,13 +2,13 @@ import React from "react";
 import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
 import SecureRoutes from "./secureRoutes";
 import navLinksForUsers from "./navLinksForUsers";
-import { Landing, Login, Signup } from "./Component/Pages";
+import { Landing, Login, Signup, FourOFour } from "./Component/Pages";
 
 import "./App.css";
 
 //if not logged in
 const navLinksForVisitors = [
-  { path: "/", component: Landing }
+  // { path: "/", component: Landing }
   // { path: "/login", component: Login },
   // { path: "/signup", component: Signup }
 ];
@@ -36,7 +36,7 @@ function App() {
             />
           ))}
 
-          <Route render={() => <div>Not Found</div>} />
+          <Route render={() => <FourOFour />} />
         </Switch>
       </Router>
     </div>
