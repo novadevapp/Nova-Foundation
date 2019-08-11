@@ -1,5 +1,4 @@
 import React, { Component } from "react";
-import { withRouter } from "react-router-dom";
 import ReactNotification from "react-notifications-component";
 
 import notification from '../../helpers/notification';
