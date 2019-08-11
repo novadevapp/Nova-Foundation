@@ -85,7 +85,11 @@ export default class Status extends Component {
       this.setState({status: {error: 'Please at least answer one question'}});
     }
     else {
-      fetch('/api/v1/status')
+      fetch('/api/v1/status', {
+          method: 'POST',
+          headers: {'conentent-type': 'application/json'},
+          body: JSON.stringify({data: {value, select}})
+      })
       .then(res => res.json())
       .then(({error, data}) => {
         if(error) {
