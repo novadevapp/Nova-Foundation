@@ -6,21 +6,8 @@ import Logo from "./logo";
 import Triangle from "./triangle";
 
 const Header = ({ isLogged, className }) => {
-  if (className == null) {
-    return (
-      <div className={`header minimal`}>
-        <Logo />
-        <Star className="star-two" />
-        <Star className="star-three" />
-        <Star className="star-nine" />
-        <Star className="star-ten" />
-        <Star className="star-eleven" />
-        <Star className="star-twelve" />
-      </div>
-    );
-  }
   return (
-    <div className={`header`}>
+    <div className={`header ${className.includes('minimal') ? 'minimal' : 'big'}`}>
       <Logo />
       <Star className="star-one" />
       <Star className="star-two" />
@@ -30,7 +17,7 @@ const Header = ({ isLogged, className }) => {
       <Star className="star-six" />
       <Star className="star-seven" />
       <Star className="star-eight" />
-      {className === "register" ? (
+      {className.includes("register") ? (
         <React.Fragment>
           <h1> Create your Account</h1>{" "}
           <h3>
@@ -38,8 +25,8 @@ const Header = ({ isLogged, className }) => {
           </h3>
         </React.Fragment>
       ) : null}
-      {className === "register" ? <Cloud /> : null}
-      {className === "triangle" ? <Triangle /> : null}
+      {className.includes("register") ? <Cloud /> : null}
+      {className.includes("triangle") ? <Triangle /> : null}
     </div>
   );
 };
