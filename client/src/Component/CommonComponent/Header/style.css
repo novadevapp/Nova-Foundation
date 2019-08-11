@@ -171,4 +171,7 @@
   .header {
     height: 150px;
   }
+  .cloud{
+    opacity: 0;
+  }
 }
