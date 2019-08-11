@@ -1,0 +1,19 @@
+.register-page {
+  padding: 1.3em;
+}
+
+.register-page input {
+  margin-bottom: 1em;
+}
+
+.register-page button {
+  margin: auto;
+}
+
+.register-page__login-message{
+  color: #333;
+}
+
+.register-page__login-anchor {
+  color: #5E6BE1
+}
