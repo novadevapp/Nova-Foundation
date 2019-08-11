@@ -1,8 +1,10 @@
 import React, { Component } from "react";
+import ReactNotification from "react-notifications-component";
 
 import Header from "../../CommonComponent/Header";
 import Input from "../../CommonComponent/Input";
 import Button from "../../CommonComponent/Button";
+import notification from '../../helpers/notification';
 import {
   Sad,
   Laugh,
@@ -16,13 +18,15 @@ import {
 } from "./Emogi";
 
 import "./style.css";
+import "react-notifications-component/dist/theme.css";
 
 export default class Status extends Component {
   state = {
     name: "Tara",
     status: {
       select: "",
-      value: ""
+      value: "",
+      error: ""
     },
     colors: {
       sad: {
@@ -54,6 +58,7 @@ export default class Status extends Component {
       }
     }
   };
+  notificationDOMRef = React.createRef();
 
   handleClick = value => e => {
     this.setState(prevState => {
@@ -63,20 +68,47 @@ export default class Status extends Component {
         return acc;
       }, {});
       newColor[value] = { color: "#c33650" };
-      return { colors: newColor, status: { select: value } };
+      return { colors: newColor, status: {value: prevState.status.value, select: value } };
     });
   };
   handleChange = e => {
     const value = e.target.value;
     this.setState(prevState => {
-      return { status: { ...prevState.status, value } };
+      return { status: { select: prevState.status.select, value } };
     });
   };
+
+  handleSave = () => {
+    const {status: {value, select}} = this.state;
+    const newValue = value.trim();
+    if(!newValue && !select) {
+      this.setState({status: {error: 'Please at least answer one question'}});
+    }
+    else {
+      fetch('/api/v1/status')
+      .then(res => res.json())
+      .then(({error, data}) => {
+        if(error) {
+          notification(this.notificationDOMRef, 'warning', error, 'Warning')
+        } else {
+          this.handleSkipe();
+        }
+      })
+      .catch(() => {
+        notification(this.notificationDOMRef, 'danger', 'Server Error Please Try Again', 'Error');
+      })
+    }
+  }
+
+  handleSkipe = () => {
+    this.props.history.push('/home');
+  }
 
   render() {
     const {
       name,
-      colors: { sad, laugh, meh, mehRolling, grimace, frown, cry, tired, smile }
+      colors: { sad, laugh, meh, mehRolling, grimace, frown, cry, tired, smile },
+      status: {error}
     } = this.state;
     return (
       <>
@@ -157,10 +189,12 @@ export default class Status extends Component {
             action={this.handleChange}
           />
           <div>
-            <Button name="Save" className="large-save__button" />
-            <Button name="Skip" className="large-skip__button" />
+            {error && <p className = "status__error">{error}</p>}
+            <Button name="Save" className="large-save__button" onClick = {this.handleSave}/>
+            <Button name="Skip" className="large-skip__button" onClick = {this.handleSkipe}/>
           </div>
         </div>
+        <ReactNotification ref={this.notificationDOMRef} />
       </>
     );
   }
