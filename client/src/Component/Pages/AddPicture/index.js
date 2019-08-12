@@ -15,7 +15,7 @@ export default function(props) {
   const [fetchError, SetfetchError] = React.useState(false);
   const [buttonContent, setbuttonContent] = React.useState("Save");
   const acceptedTypes = ["jpeg", "jpg", "gif", "png"];
-  let type = file.split(".")[1];
+  let type = file.split(".")[file.split('.').length-1];
 
   const message = {
     default: "Please add a title and upload a file",
