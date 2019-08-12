@@ -1,15 +1,16 @@
 import React, { Component } from 'react';
 import ReactNotification from "react-notifications-component";
 
-import "react-notifications-component/dist/theme.css";
 
 import Footer from '../../CommonComponent/Footer';
 import Header from '../../CommonComponent/Header';
 import Input from '../../CommonComponent/Input';
 import Button from '../../CommonComponent/Button';
 import validateField from './validation';
+import notification from '../../helpers/notification';
 import Error from './error';
 
+import "react-notifications-component/dist/theme.css";
 import './style.css';
 
 export default class SignUp extends Component {
@@ -52,27 +53,15 @@ export default class SignUp extends Component {
     this.notificationDOMRef = React.createRef();
   }
 
-  notification = (type, message) => {
-    this.notificationDOMRef.current.addNotification({
-      message,
-      type,
-      insert: "top",
-      container: "top-right",
-      animationIn: ["animated", "fadeIn"],
-      animationOut: ["animated", "fadeOut"],
-      dismiss: { duration: 5000 },
-      dismissable: { click: true },
-    });
-  }
 
   validateInput = ({ target: { value, name } }) => {
     let errorMessage;
     let passwordsError;
-    
+
     // Check if inputs are valid
 
     const value2 = name === 'confirmPassword' && this.state.password.value;
-    
+
     errorMessage = this.validateField(name, value, value2);
 
     // Check passwords: if they match or not...
@@ -113,22 +102,63 @@ export default class SignUp extends Component {
 
     Object.keys(this.state).some(element => !(element.value))
       ?
-      this.notification('warning', 'Please check all fields')
+      notification(
+        this.notificationDOMRef,
+        'warning',
+        'Please check all fields',
+        'Validation Error',
+      )
       :
       Object.keys(this.state).some(element => element.error)
         ?
-        this.notification('warning', 'Please check all fields')
+        notification(
+          this.notificationDOMRef,
+          'warning',
+          'Please check all fields',
+          'Validation Error',
+        )
         :
         // submit form
-        console.log({
-          data: {
-            name: name.value,
-            babyName: babyName.value,
-            nickName: nickName.value,
-            email: email.value,
-            password: password.value,
-          }
-        });
+        fetch('/api/v1/register', {
+          method: 'POST',
+          headers: { 'content-type': 'application/json' },
+          body: JSON.stringify({
+            data: {
+              name: name.value,
+              babyName: babyName.value,
+              nickName: nickName.value,
+              email: email.value,
+              password: password.value,
+            }
+          }),
+        }).then(response => response.json())
+          .then((error, data) => {
+            // if 401 change authenticated in auth.js to false
+            //Redirect to login
+
+            if (error === 'unauthorized') this.props.history.push('/login');
+
+            //Other errors
+
+            if (error) return notification(
+              this.notificationDOMRef,
+              'warning',
+              error,
+              'ERROR',
+            );
+
+            // Success
+
+            this.props.history.push('/home');
+          })
+          .catch(error => {
+            notification(
+              this.notificationDOMRef,
+              'warning',
+              error,
+              'ERROR',
+            );
+          });
   }
 
   render() {
@@ -194,7 +224,7 @@ export default class SignUp extends Component {
               onClick={this.submitForm} />
             <p className='register-page__login-message'>
               Have an account?
-            <span className='register-page__login-anchor' onClick={()=>{this.props.history.push('/login')}}> Log in</span>
+            <span className='register-page__login-anchor' onClick={() => { this.props.history.push('/login') }}> Log in</span>
             </p>
           </form>
         </main>
