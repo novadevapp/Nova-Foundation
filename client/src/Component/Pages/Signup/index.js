@@ -55,22 +55,24 @@ export default class SignUp extends Component {
 
 
   validateInput = ({ target: { value, name } }) => {
-    let errorMessage;
-    let passwordsError;
+    let errorMessage;             
+    let passwordsError;          
 
     // Check if inputs are valid
 
+    // Check passwords: value1 is pas2, value2 is pas1 from the state
+  
     const value2 = name === 'confirmPassword' && this.state.password.value;
 
     errorMessage = this.validateField(name, value, value2);
 
-    // Check passwords: if they match or not...
+    // each change to pas1, compare both passwords
 
-    name === 'password' && value !== this.state.confirmPassword.value
+    name === 'password' && value === this.state.confirmPassword.value
       ?
-      passwordsError = 'Passwords dont\' match'
+      passwordsError = false
       :
-      passwordsError = false;
+      passwordsError = 'Passwords dont\' match'
 
     // Update State & Error Messages if Exists
 
@@ -90,7 +92,7 @@ export default class SignUp extends Component {
       this.setState({ [name]: { value, error: errorMessage } });
   }
 
-  submitForm = async (e) => {
+  submitForm = (e) => {
     e.preventDefault();
     const {
       name,
@@ -99,6 +101,8 @@ export default class SignUp extends Component {
       email,
       password,
     } = this.state;
+
+    // check if some of the fields are no empty
 
     Object.keys(this.state).some(element => !(element.value))
       ?
@@ -109,6 +113,9 @@ export default class SignUp extends Component {
         'Validation Error',
       )
       :
+
+      // check if there is any error
+
       Object.keys(this.state).some(element => element.error)
         ?
         notification(
@@ -118,7 +125,9 @@ export default class SignUp extends Component {
           'Validation Error',
         )
         :
+
         // submit form
+        
         fetch('/api/v1/register', {
           method: 'POST',
           headers: { 'content-type': 'application/json' },
