@@ -1,28 +1,26 @@
 .all-pictures__title {
   font-family: roboto;
   font-size: 4vh;
-
   letter-spacing: 0.15px;
-
   margin-top: 10vh;
+  width: 100%;
+  display: block;
 }
 
-.image-grid {
+.collage-container {
   display: flex;
   flex-flow: row wrap;
   justify-content: center;
-  /* grid-template-columns: 2fr 2fr;
-  grid-template-rows: 2fr 2fr; */
-  padding: 2em;
   margin: 2em;
-  max-width: auto;
-  height: auto;
 }
 
-/* .box {
-  position: relative;
-  width: 60%;
+.img__single {
+  height: 40vw;
+  width: 40vw;
   max-width: 600px;
   height: 60%;
-  margin: 2rem;
-} */
+  margin: 2em;
+}
+.pic__buttons {
+  margin: 1em;
+}
