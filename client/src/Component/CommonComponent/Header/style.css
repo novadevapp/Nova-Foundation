@@ -15,13 +15,21 @@
 }
 
 .logo {
+  grid-column-start: 1;
+  grid-column-end: 1;
   padding: 1em;
-  width: 5em;
+  width: 3em;
+}
+.toggle {
+  grid-column-end: 10;
+  grid-row-start: 1;
+  margin-top: 2rem;
+  padding: 1em;
 }
 
 .triangle {
   grid-column-start: 1;
-  grid-column-end: 9;
+  grid-column-end: 10;
   grid-row-start: 4;
   align-self: end;
 }
@@ -38,10 +46,10 @@
 
 .header h3 {
   font-family: Roboto;
-  grid-column-start: 1;
-  grid-column-end: 10;
+  grid-column-start: 2;
+  grid-column-end: 9;
   grid-row-start: 3;
-  font-size: 1em;
+  font-size: 1.1em;
   line-height: 1.705em;
   font-weight: 400;
   margin: 0;
@@ -155,7 +163,6 @@
   fill: rgb(240, 141, 153);
   padding: 1em;
 }
-
 .star-twelve {
   grid-column-start: 7;
   align-self: start;
@@ -163,9 +170,8 @@
   fill: rgb(255, 229, 133);
   padding: 1em;
 }
-
-@media(min-width:700px) {
-  .triangle {
+@media(min-width:700px){
+  .triangle{
     opacity: 0;
   }
   .header {
