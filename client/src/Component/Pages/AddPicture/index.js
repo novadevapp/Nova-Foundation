@@ -13,7 +13,7 @@ export default function(props) {
   const [error, SetError] = React.useState(false);
   const [typeError, SetTypeError] = React.useState(false);
   const [fetchError, SetfetchError] = React.useState(false);
-
+  const [buttonContent, setbuttonContent] = React.useState("Save");
   const acceptedTypes = ["jpeg", "jpg", "gif", "png"];
   let type = file.split(".")[1];
 
@@ -24,7 +24,6 @@ export default function(props) {
   };
 
   const handleSubmit = e => {
-    const Button = document.querySelector(".large-save__button");
     e.preventDefault();
     if ((title === "") | (file === "")) {
       SetError(true);
@@ -34,7 +33,7 @@ export default function(props) {
       SetError(false);
       SetTypeError(false);
 
-      Button.textContent = "Loading...";
+      setbuttonContent("Loading...");
 
       fetch("/api/v1/send-pic", {
         method: "post",
@@ -46,18 +45,14 @@ export default function(props) {
         .then(response => response.json())
         .then(({ error, data }) => {
           if (error) {
-            {
-              Button.textContent = "Save";
-            }
+            setbuttonContent("Save");
             SetfetchError(true);
           } else {
             this.props.history.push("/pictures");
           }
         })
         .catch(() => {
-          {
-            Button.textContent = "Save";
-          }
+          setbuttonContent("Save");
           SetfetchError(true);
         });
     }
@@ -98,12 +93,9 @@ export default function(props) {
               <a href="/pictures" className="large-skip__button">
                 Back
               </a>
-              <Button
-                className="large-save__button"
-                name="Save"
-                type="submit"
-                action={handleSubmit}
-              />
+              <button className="large-save__button" type="submit">
+                {buttonContent}
+              </button>
             </div>
           </form>
         </section>
