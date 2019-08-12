@@ -3,13 +3,6 @@ const emailRegex = /^(([^<>()[\]\\.,;:\s@"]+(\.[^<>()[\]\\.,;:\s@"]+)*)|(".+"))@
 export default function (type, value1, value2) {
   let validationMessage;
 
-  // Validation Functions
-
-  this.isEmpty = value => value.trim() ? false : true;
-  this.isEmailValid = email => emailRegex.test(email);
-  this.isPasswordStrong = pass => pass.length >= 6;
-  this.doPasswordsMatch = (pass1, pass2) => pass1 === pass2;
-
   // Error Messages
 
   this.emailError = 'Email is not valid';
@@ -28,18 +21,18 @@ export default function (type, value1, value2) {
   switch (type) {
 
     case 'email':
-      validationMessage = !this.isEmailValid(value1) && this.emailError;
+      validationMessage = !emailRegex.test(value1) && this.emailError;
       break;
 
     case 'password':
-      validationMessage = !this.isPasswordStrong(value1) && this.passwordError;
+      validationMessage = !value1.length >= 6 && this.passwordError;
       break;
 
     case 'confirmPassword':
-      validationMessage = !this.doPasswordsMatch(value1, value2) && this.passwordsError;
+      validationMessage = value1 !== value2 && this.passwordsError;
       break;
 
-    default: return false;
+    default: return false;  // No Errors
   }
   return validationMessage;
 }
