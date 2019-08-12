@@ -15,7 +15,7 @@ export default function(props) {
   const [fetchError, SetfetchError] = React.useState(false);
   const [buttonContent, setbuttonContent] = React.useState("Save");
   const acceptedTypes = ["jpeg", "jpg", "gif", "png"];
-  let type = file.split(".")[file.split('.').length-1];
+  let type = file.split(".")[file.split(".").length - 1];
 
   const message = {
     default: "Please add a title and upload a file",
@@ -35,12 +35,13 @@ export default function(props) {
 
       setbuttonContent("Loading...");
 
+      const formData = new FormData();
+      formData.append("title", title);
+      formData.append("file", file);
+
       fetch("/api/v1/send-pic", {
         method: "post",
-        body: JSON.stringify({
-          title: `${title}`,
-          file: `${file}`
-        })
+        body: formData
       })
         .then(response => response.json())
         .then(({ error, data }) => {
@@ -78,7 +79,7 @@ export default function(props) {
               id="new-pic__file"
               label="Upload a file"
               type="file"
-              action={e => setFile(e.target.value)}
+              action={e => setFile(e.target.value[0])}
             />
             {error && <p className="add-pic__error">{message.default}</p>}
             {typeError && (
