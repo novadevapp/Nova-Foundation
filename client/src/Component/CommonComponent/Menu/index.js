@@ -1,6 +1,7 @@
 import React, { Component } from "react";
-import { withRouter } from "react-router-dom";
 import ReactNotification from "react-notifications-component";
+
+import notification from '../../helpers/notification';
 
 import "react-notifications-component/dist/theme.css";
 
@@ -9,19 +10,7 @@ import "./style.css";
 class Menu extends Component {
 
   notificationDOMRef = React.createRef();
-
-  notification = (type, message) => {
-    this.notificationDOMRef.current.addNotification({
-      message,
-      type,
-      insert: "top",
-      container: "top-right",
-      animationIn: ["animated", "fadeIn"],
-      animationOut: ["animated", "fadeOut"],
-      dismiss: { duration: 2000 },
-      dismissable: { click: true }
-    });
-  }
+  menuRef = React.createRef();
 
   handleClick = value => e => {
     if (value === "/logout") {
@@ -29,13 +18,13 @@ class Menu extends Component {
         .then(res => res.json())
         .then(({error, data}) => {
           if(error) {
-            this.notification('warning', error)
+            notification(this.notificationDOMRef, 'warning', error, 'Warning')
           } else {
             this.props.history.push('/');
           }
         })
         .catch(() => {
-          this.notification('danger', 'Server Error Can\'t Logout');
+          notification(this.notificationDOMRef, 'danger', 'Server Error Can\'t Logout', 'Error');
         });
     } else {
       this.props.history.push(value);
@@ -45,7 +34,7 @@ class Menu extends Component {
     const { isLogged } = this.props;
     if (isLogged)
       return (
-        <div className="menu">
+        <div className="menu" ref = {this.menuRef}>
           <li onClick={this.handleClick("/home")} className="menu__item">
             NOVA HOME
           </li>
@@ -69,7 +58,7 @@ class Menu extends Component {
       );
 
     return (
-      <div className="menu">
+      <div className="menu" ref = {this.menuRef}>
         <li onClick={this.handleClick("/")} className="menu__item">
           NOVA HOME
         </li>
@@ -84,4 +73,4 @@ class Menu extends Component {
   }
 }
 
-export default withRouter(Menu);
+export default Menu;

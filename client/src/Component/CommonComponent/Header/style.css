@@ -14,8 +14,16 @@
 }
 
 .logo {
+  grid-column-start: 1;
+  grid-column-end: 1;
   padding: 1em;
-  width: 5em;
+  width: 3em;
+}
+.toggle {
+  grid-column-end: 10;
+  grid-row-start: 1;
+  margin-top: 2rem;
+  padding: 1em;
 }
 
 .triangle {
@@ -120,37 +128,36 @@ h3 {
 }
 
 .star-nine {
-    grid-column-start: 3;
-    align-self: center;
-    justify-self: end;
-    fill: rgb(240, 141, 153);
-    padding: 1em;
-  }
+  grid-column-start: 3;
+  align-self: center;
+  justify-self: end;
+  fill: rgb(240, 141, 153);
+  padding: 1em;
+}
 
-  .star-ten {
-    grid-column-start: 5;
-    align-self: start;
-    justify-self: center;
-    fill: rgb(255, 229, 133);
-    opacity: 0.49;
-    padding: 1em;
-  }
+.star-ten {
+  grid-column-start: 5;
+  align-self: start;
+  justify-self: center;
+  fill: rgb(255, 229, 133);
+  opacity: 0.49;
+  padding: 1em;
+}
 
-  .star-eleven {
-    grid-column-start: 6;
-    align-self: end;
-    justify-self: end;
-    fill: rgb(240, 141, 153);
-    padding: 1em;
-  }
-  .star-twelve {
-    grid-column-start: 7;
-    align-self: start;
-    justify-self: end;
-    fill: rgb(255, 229, 133);
-    padding: 1em;
-  }
-
+.star-eleven {
+  grid-column-start: 6;
+  align-self: end;
+  justify-self: end;
+  fill: rgb(240, 141, 153);
+  padding: 1em;
+}
+.star-twelve {
+  grid-column-start: 7;
+  align-self: start;
+  justify-self: end;
+  fill: rgb(255, 229, 133);
+  padding: 1em;
+}
 @media(min-width:700px){
   .triangle{
     opacity: 0;
