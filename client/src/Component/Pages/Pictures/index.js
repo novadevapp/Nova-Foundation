@@ -4,10 +4,12 @@ import Header from "../../CommonComponent/Header/index";
 import Gallery from "./gallery";
 import Button from "../../CommonComponent/Button/index";
 import Footer from "../../CommonComponent/Footer";
+
 const Pictures = () => {
   return (
     <div>
       <Header />
+
       <Gallery className="img__single" />
       <div className="pic__buttons">
         <Button className="large-back__button" name="Back" />
