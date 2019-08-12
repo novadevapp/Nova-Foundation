@@ -2,30 +2,32 @@ import React from "react";
 
 import Header from "../../CommonComponent/Header";
 import Footer from "../../CommonComponent/Footer";
-import Button from "../../CommonComponent/Button";
 import Input from "../../CommonComponent/Input";
 
 import "./style.css";
 
 export default function(props) {
   const [title, setTitle] = React.useState("");
-  const [file, setFile] = React.useState("");
+  const [file, setFile] = React.useState({ name: "." });
   const [error, SetError] = React.useState(false);
   const [typeError, SetTypeError] = React.useState(false);
   const [fetchError, SetfetchError] = React.useState(false);
   const [buttonContent, setbuttonContent] = React.useState("Save");
   const acceptedTypes = ["jpeg", "jpg", "gif", "png"];
-  let type = file.split(".")[file.split(".").length - 1];
 
   const message = {
     default: "Please add a title and upload a file",
-    tyrebased: "Unfortunately we do not support file type: ",
+    tyrebased:
+      "Please upload a different file, we do not support that file type ",
     fetch: "Sorry something went wrong, Please try again"
   };
 
+  let type = file.name.split(".")[file.name.split(".").length - 1];
+
   const handleSubmit = e => {
     e.preventDefault();
-    if ((title === "") | (file === "")) {
+
+    if ((title === "") | (file.name == ".")) {
       SetError(true);
     } else if (acceptedTypes.indexOf(type) === -1) {
       SetTypeError(true);
@@ -75,19 +77,14 @@ export default function(props) {
                 setTitle(e.target.value);
               }}
             />
-            <Input
+            <label htmlFor="new-pic__file"> Upload a file </label>
+            <input
               id="new-pic__file"
-              label="Upload a file"
               type="file"
-              action={e => setFile(e.target.value[0])}
+              onChange={e => setFile(e.target.files[0])}
             />
             {error && <p className="add-pic__error">{message.default}</p>}
-            {typeError && (
-              <p className="add-pic__error">
-                {message.tyrebased}
-                {type}
-              </p>
-            )}
+            {typeError && <p className="add-pic__error">{message.tyrebased}</p>}
 
             {fetchError && <p className="add-pic__error">{message.fetch}</p>}
             <div className="add-pic-page__form_buttons">
