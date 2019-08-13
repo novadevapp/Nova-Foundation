@@ -13,9 +13,11 @@ const navLinksForVisitors = [
   // { path: "/signup", component: Signup }
 ];
 
+
 function App() {
   return (
     <div className="App">
+
       <Router>
         <Switch>
           {navLinksForVisitors.map((route, index) => (
@@ -39,6 +41,7 @@ function App() {
           <Route render={() => <FourOFour />} />
         </Switch>
       </Router>
+
     </div>
   );
 }
