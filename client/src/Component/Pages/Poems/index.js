@@ -10,8 +10,11 @@ const Poems = () => {
     <div>
       <Header />
       <PoemList />
-      <Button className="register__button" name="More Poems" />
-      <Button className="large-back__button" name="Back" />
+      <div className="poem-buttons">
+        <Button className="large-back__button" name="Back" />
+        <Button className="register__button" name="More Poems" />
+      </div>
+
       <Footer />
     </div>
   );
