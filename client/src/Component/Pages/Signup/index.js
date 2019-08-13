@@ -186,16 +186,18 @@ export default class SignUp extends Component {
             <Error message={name.error && name.error} />
             <Input
               id='babyName'
-              label='Your baby name'
+              label="Your baby's name"
               type='text'
               action={this.validateInput}
+              placeholder='e.g. Billy or nickname'
             ></Input>
             <Error message={babyName.error && babyName.error} />
             <Input
               id='nickName'
-              label='How should we refer to you?'
+              label='What name would you like us to call you?'
               type='text'
               action={this.validateInput}
+              placeholder="e.g. Firstname, Billy's Mum, Zara's Dad"
             ></Input>
             <Error message={nickName.error && nickName.error} />
             <Input
