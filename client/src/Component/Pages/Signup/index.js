@@ -55,13 +55,11 @@ export default class SignUp extends Component {
 
 
   validateInput = ({ target: { value, name } }) => {
-    let errorMessage;             
-    let passwordsError;          
-
-    // Check if inputs are valid
+    let errorMessage;
+    let passwordsError;
 
     // Check passwords: value1 is pas2, value2 is pas1 from the state
-  
+
     const value2 = name === 'confirmPassword' && this.state.password.value;
 
     errorMessage = this.validateField(name, value, value2);
@@ -102,7 +100,7 @@ export default class SignUp extends Component {
       password,
     } = this.state;
 
-    // check if some of the fields are no empty
+    // check if the user has not fill any inputs
 
     Object.keys(this.state).some(element => !(element.value))
       ?
@@ -127,7 +125,7 @@ export default class SignUp extends Component {
         :
 
         // submit form
-        
+
         fetch('/api/v1/register', {
           method: 'POST',
           headers: { 'content-type': 'application/json' },
@@ -142,13 +140,8 @@ export default class SignUp extends Component {
           }),
         }).then(response => response.json())
           .then((error, data) => {
-            // if 401 change authenticated in auth.js to false
-            //Redirect to login
 
-            if (error === 'unauthorized') this.props.history.push('/login');
-
-            //Other errors
-
+            // Errors
             if (error) return notification(
               this.notificationDOMRef,
               'warning',
@@ -157,14 +150,13 @@ export default class SignUp extends Component {
             );
 
             // Success
-
             this.props.history.push('/home');
           })
           .catch(error => {
             notification(
               this.notificationDOMRef,
               'warning',
-              error,
+              'Sorry, something went wrong. Please try again!',
               'ERROR',
             );
           });

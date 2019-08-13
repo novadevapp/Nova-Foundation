@@ -4,6 +4,7 @@
 
 .register-page input {
   margin-bottom: 1em;
+  text-align: left;
 }
 
 .register-page button {
@@ -29,6 +30,9 @@
   .register-page__form{
     width: 50%;
     margin: 0 auto;
+  }
+  .header h3{
+    display: none;
   }
 
 }
