@@ -1,11 +1,6 @@
 const mongoose = require('mongoose');
 require('dotenv').config();
 
-// Reassigning Promise method in mongoose 
-// Promise library in mongoose is deprecated
-
-mongoose.Promise = global.Promise;
-
 // Mongodb URI for different enviroments
 let MONGO_URI = process.env.MONGODB_DEVELOPMENT_URI;
 
