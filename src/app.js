@@ -23,6 +23,7 @@ app.get("/express_backend", (req, res) => {
 });
 
 app.post("/api/v1/send-pic", async (req, res) => {
+  console.log("this is a trial", req.body);
   try {
     const file = req.body.file;
     const userId = 1;

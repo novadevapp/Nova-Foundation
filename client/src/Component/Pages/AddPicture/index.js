@@ -49,12 +49,14 @@ export default function(props) {
         .then(({ error, data }) => {
           if (error) {
             setbuttonContent("Save");
+            console.log("this is line 52", error);
             SetfetchError(true);
           } else {
-            this.props.history.push("/pictures");
+            props.history.push("/pictures");
           }
         })
-        .catch(() => {
+        .catch(err => {
+          console.log("this is line 59", err);
           setbuttonContent("Save");
           SetfetchError(true);
         });
