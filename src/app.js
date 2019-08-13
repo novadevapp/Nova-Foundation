@@ -2,10 +2,10 @@ const express = require("express");
 const path = require("path");
 const compresion = require("compression");
 const helmet = require("helmet");
-const multer = require("multer");
 const admin = require("./firebase/index");
 const cookie = require("cookie-parser");
 const generateUrls = require("./helpers/generateUrl");
+const formidable = require("formidable");
 
 const app = express();
 
@@ -18,14 +18,9 @@ const middleware = [
 ];
 app.use(middleware);
 
-app.get("/express_backend", (req, res) => {
-  res.send({ express: " YOUR BACKEND IS CONNECTED" });
-});
-
-app.post("/api/v1/send-pic", async (req, res) => {
-  console.log("this is a trial", req.body);
+const postPiC = async (req, files, res) => {
   try {
-    const file = req.body.file;
+    const file = files;
     const userId = 1;
     const options = {
       action: "write",
@@ -39,6 +34,17 @@ app.post("/api/v1/send-pic", async (req, res) => {
   } catch (error) {
     console.log(error);
   }
+};
+
+app.get("/express_backend", (req, res) => {
+  res.send({ express: " YOUR BACKEND IS CONNECTED" });
+});
+
+app.post("/api/v1/send-pic", (req, res) => {
+  var form = new formidable.IncomingForm();
+  form.parse(req, function(err, fields, files) {
+    postPiC(req, files, res);
+  });
 });
 
 app.get("/api/v1/image", async (req, res) => {
