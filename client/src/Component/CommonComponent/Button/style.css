@@ -65,8 +65,8 @@
   border-radius: 5px;
   border-style: hidden;
   /* font-family: Roboto; */
-  font-weight: normal;
-  font-size: 14px;
+  font-weight: bold;
+  font-size: 1em;
   line-height: 160.7%;
   letter-spacing: 0.15px;
   color: #ffffff;
@@ -83,7 +83,7 @@
   border-style: hidden; 
   font-family: Roboto;
   font-weight: normal;
-  font-size: .9em;
+  font-size: 0.9em;
   line-height: 160.7%;
   letter-spacing: 0.15px;
   color: #333;
