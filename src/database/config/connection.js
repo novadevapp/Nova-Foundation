@@ -21,7 +21,7 @@ if (!MONGO_URI) {
   console.log('No Mongodb URI is found!');
 }
 
-// connect mongoose to mongodb
+// event listners on mongoose connection object
 
 mongoose.connection.on('connected', () => {
   console.log('Connection Made successfully!');
@@ -39,7 +39,7 @@ mongoose.connection.on('error', (error) => {
 
 process.on('SIGINT', () => {
   mongoose.connection.close(() => {
-    console.log("Mongoose default connection is disconnected due to application termination");
+    console.log("Mongoose is diconnected due to the app termination");
     process.exit(0);
   });
 });
