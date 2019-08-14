@@ -2,8 +2,11 @@ const express = require("express");
 const path = require("path");
 const compresion = require("compression");
 const helmet = require("helmet");
+const connect = require('./database/config/connection');
 
 const app = express();
+
+connect();
 
 const middleware = [
   helmet(),
