@@ -8,14 +8,16 @@ import "./App.css";
 
 //if not logged in
 const navLinksForVisitors = [
-  // { path: "/", component: Landing }
-  // { path: "/login", component: Login },
-  // { path: "/signup", component: Signup }
+  { path: "/", component: Landing },
+  { path: "/login", component: Login },
+  { path: "/register", component: Signup }
 ];
+
 
 function App() {
   return (
     <div className="App">
+
       <Router>
         <Switch>
           {navLinksForVisitors.map((route, index) => (
@@ -39,6 +41,7 @@ function App() {
           <Route render={() => <FourOFour />} />
         </Switch>
       </Router>
+
     </div>
   );
 }
