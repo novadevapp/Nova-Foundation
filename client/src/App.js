@@ -8,9 +8,9 @@ import "./App.css";
 
 //if not logged in
 const navLinksForVisitors = [
-  // { path: "/", component: Landing }
-  // { path: "/login", component: Login },
-  // { path: "/signup", component: Signup }
+  { path: "/", component: Landing },
+  { path: "/login", component: Login },
+  { path: "/register", component: Signup }
 ];
 
 

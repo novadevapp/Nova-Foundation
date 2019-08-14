@@ -1,25 +1,26 @@
 form {
-    display: flex;
-    flex-direction: column;
-}
-label{
-    align-self: flex-start;
-    font: 1.4em Roboto;
-    padding: 0.3em;
-    margin-top: 1em;
-  
-}
-input{
-    color: #646769;
-background: #EEEEEE;
-border-radius: 3px;
-display: inline-block;
-border-style: none;
-border: rgba(144,144,144, 0.6) 0.8px;
-padding: 0.3em;
-margin: 0.3em;
-font: 1.2em Lato;
-padding: 0.8em;
-
+  display: flex;
+  flex-direction: column;
 }
 
+label {
+  align-self: flex-start;
+  font: 1.1em Roboto;
+  padding: 0.3em;
+  margin-top: 1em;
+  color: #333;
+  text-align: left;
+}
+
+input {
+  color: #646769;
+  background: #EEEEEE;
+  border-radius: 3px;
+  display: inline-block;
+  border-style: none;
+  border: rgba(144, 144, 144, 0.6) 0.8px;
+  padding: 0.3em;
+  margin: 0.3em;
+  font: 1.2em Lato;
+  padding: 0.8em;
+}

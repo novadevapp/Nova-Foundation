@@ -1,0 +1,39 @@
+.register-page {
+  padding: 1.3em;
+}
+
+.register-page input {
+  margin-bottom: 1em;
+  text-align: left;
+  font-size: 1em;
+  color: #33333342;
+  padding: 1em;
+}
+
+.register-page button {
+  margin: auto;
+}
+
+.register-page__login-message {
+  color: #333;
+}
+
+.register-page__login-anchor {
+  color: #5E6BE1;
+  cursor: pointer;
+}
+
+.register-page__login-anchor:hover {
+  text-decoration: underline;
+  font-weight: 500;
+}
+
+@media(min-width: 700px) {
+  .register-page__form {
+    width: 50%;
+    margin: 0 auto;
+  }
+  .header h3 {
+    display: none;
+  }
+}
