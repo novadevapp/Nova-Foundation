@@ -12,7 +12,8 @@
     "start": "NODE_ENV=production npm run start:server",
     "build": "cd client && npm run build",
     "heroku-postbuild": "npm run client:init && npm run build",
-    "dev": "concurrently --kill-others-on-fail \"npm run nodemon\" \"npm run start:react\""
+    "dev": "concurrently --kill-others-on-fail \"npm run nodemon\" \"npm run start:react\"",
+    "rebuildDB": "node src/database/config/buildDB/index.js "
   },
   "repository": {
     "type": "git",
