@@ -52,7 +52,12 @@ export default class Login extends Component {
           data: { email: email.value, password: password.value }
         })
       })
-        .then(res => res.json())
+        .then(res => {
+          if (res.ok) {
+            console.log(res.json()); //first consume it in console.log
+            return res.json(); //then consume it again, the error happens
+          }
+        })
         .then(({ error, data }) => {
           if (error) {
             notification(this.notificationDOMRef, "warning", error, "Warning");

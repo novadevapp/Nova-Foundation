@@ -3,7 +3,7 @@ const path = require("path");
 const compresion = require("compression");
 const helmet = require("helmet");
 const jwt = require("jsonwebtoken");
-
+require("dotenv").config();
 const app = express();
 
 const middleware = [
@@ -19,10 +19,11 @@ app.get("/express_backend", (req, res) => {
 });
 
 app.post("/api/v1/login", (req, res) => {
-  console.log(req.body);
   const id = "trial";
   const username = "more";
+  console.log("This is a issue", process.env.SECRET);
   const signed = jwt.sign({ id, username }, process.env.SECRET);
+
   res.send({ jwt: signed });
 });
 
