@@ -34,13 +34,9 @@ const PoemList = () => {
     <div className="poems-container">
       <h1 className="poems-page__title">All Poems</h1>
       {data.map((poems, index) => (
-        <div className="poems-box">
-          <h4 key={index} className="poems-header">
-            {poems.poemName}
-          </h4>
-          <p key={index} className="poems-body">
-            {poems.poemBody}
-          </p>
+        <div className="poems-box" key={index}>
+          <h4 className="poems-header">{poems.poemName}</h4>
+          <p className="poems-body">{poems.poemBody}</p>
         </div>
       ))}
     </div>
