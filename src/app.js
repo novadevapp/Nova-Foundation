@@ -2,6 +2,7 @@ const express = require("express");
 const path = require("path");
 const compresion = require("compression");
 const helmet = require("helmet");
+const jwt = require("jsonwebtoken");
 
 const app = express();
 
@@ -15,6 +16,14 @@ app.use(middleware);
 
 app.get("/express_backend", (req, res) => {
   res.send({ express: " YOUR BACKEND IS CONNECTED" });
+});
+
+app.post("/api/v1/login", (req, res) => {
+  console.log(req.body);
+  const id = "trial";
+  const username = "more";
+  const signed = jwt.sign({ id, username }, process.env.SECRET);
+  res.send({ jwt: signed });
 });
 
 app.get("*", (req, res) => {

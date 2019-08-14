@@ -1,20 +1,29 @@
 class Auth {
   constructor() {
-    this.authenticated = true;
-  }
-
-  login(cb) {
-    this.authenticated = true;
-    cb();
+    this.authenticated = false;
   }
 
   logout(cb) {
-    this.authenticated = false;
+    localStorage.removeItem("testName");
     cb();
   }
 
   isAuthenticated() {
-    return this.authenticated;
+    const jwtQuery = localStorage.getItem("testName");
+
+    if (!jwtQuery) {
+      return this.authenticated;
+    } else {
+      fetch("/api/v1/auth", {
+        method: "POST",
+        headers: { "content-type": "application/json" },
+        body: JSON.stringify({
+          data: { jwt: jwtQuery }
+        })
+          .then(res => res.JSON)
+          .catch(err => err)
+      });
+    }
   }
 }
 
