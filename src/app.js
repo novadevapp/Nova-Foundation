@@ -4,7 +4,6 @@ const compresion = require("compression");
 const helmet = require("helmet");
 const admin = require("./firebase/index");
 const cookie = require("cookie-parser");
-const generateUrls = require("./helpers/generateUrl");
 const formidable = require("formidable");
 
 const app = express();
@@ -16,24 +15,48 @@ const middleware = [
   cookie(),
   express.static(path.join(__dirname, "..", "client", "build"))
 ];
+
+app.use(function(req, res, next) {
+  res.header("Access-Control-Allow-Origin", "*");
+  res.header(
+    "Access-Control-Allow-Headers",
+    "Origin, X-Requested-With, Content-Type, Accept"
+  );
+  next();
+});
+
 app.use(middleware);
 
-const postPiC = async (req, files, res) => {
-  try {
-    const file = files;
-    const userId = 1;
-    const options = {
-      action: "write",
-      expires: Date.now() + 60 * 60 * 1000,
-      version: "v4"
-    };
-    const bucket = admin.storage().bucket();
-    const imgeUrlRef = bucket.file(`/images/${userId}/${file}`);
-    const [imageUrl] = await imgeUrlRef.getSignedUrl(options);
-    res.send({ imageUrl, file });
-  } catch (error) {
-    console.log(error);
-  }
+const postPiC = async (req, path, res) => {
+  // [START storage_upload_file]
+  // Imports the Google Cloud client library
+  const { Storage } = require("@google-cloud/storage");
+
+  // Creates a client
+  const storage = new Storage();
+
+  /**
+   * TODO(developer): Uncomment the following lines before running the sample.
+   */
+  const bucketName = "nova-foundation.appspot.com";
+  const filename = path;
+
+  // Uploads a local file to the bucket
+  await storage.bucket(bucketName).upload(filename, {
+    // Support for HTTP requests made with `Accept-Encoding: gzip`
+    gzip: true,
+    // By setting the option `destination`, you can change the name of the
+    // object you are uploading to a bucket.
+    metadata: {
+      // Enable long-lived HTTP caching headers
+      // Use only if the contents of the file will never change
+      // (If the contents will change, use cacheControl: 'no-cache')
+      cacheControl: "public, max-age=31536000"
+    }
+  });
+
+  console.log(`${filename} uploaded to ${bucketName}.`);
+  // [END storage_upload_file]
 };
 
 app.get("/express_backend", (req, res) => {
@@ -43,83 +66,8 @@ app.get("/express_backend", (req, res) => {
 app.post("/api/v1/send-pic", (req, res) => {
   var form = new formidable.IncomingForm();
   form.parse(req, function(err, fields, files) {
-    postPiC(req, files, res);
+    postPiC(req, files.file.path, res);
   });
-});
-
-app.get("/api/v1/image", async (req, res) => {
-  try {
-    const userId = 1;
-    // for filtering the files//
-    const options = {
-      prefix: `images/${userId}`
-      // there is another property: delimiter: '/'
-    };
-
-    const bucket = admin.storage().bucket();
-
-    //to get all files//
-    const [imageUrlRefs] = await bucket.getFiles(options);
-    const urls = await Promise.all(
-      imageUrlRefs.map(file => {
-        return generateUrls(file.name, file.name);
-      })
-    );
-    res.send(urls);
-  } catch (error) {
-    console.log(error);
-  }
-});
-
-app.delete("/api/v1/image", async (req, res) => {
-  try {
-    const userId = 1;
-    const imageName = req.body.imageName;
-    const bucket = admin.storage().bucket();
-
-    //delete a file
-    await bucket.file(`/images/${userId}/${imageName}`).delete();
-    res.send({ id: imageName });
-  } catch (error) {
-    console.log(error);
-  }
-});
-
-//this is not a best solution to how to render the image,
-//but it still works. will try to search for an alternative //
-app.post("/api/v1/get-img", async (req, res) => {
-  const userId = 1;
-  const imageName = req.body.imageName;
-
-  const options = {
-    action: "read",
-    expires: Date.now() + 60 * 60 * 1000,
-    version: "v4"
-  };
-
-  const bucket = admin.storage().bucket();
-  //how to get one file
-  const imgeUrlRef = await bucket.file(`/images/${userId}/${imageName}`);
-  const [imageUrl] = await imgeUrlRef.getSignedUrl(options);
-  res.send(imageUrl);
-});
-
-//new feature, downloading the photo; still in progress
-app.post("/api/v1/download", async (req, res) => {
-  try {
-    const splitPath = req.body.imageName.split("/");
-    const imageName = splitPath[splitPath.length - 1];
-    const bucket = admin.storage().bucket();
-    const options = {
-      // The path to which the file should be downloaded, e.g. "./file.txt"
-      destination: `/${imageName}`
-    };
-
-    // Downloads the file
-    await bucket.file(req.body.imageName).download(options);
-  } catch (error) {
-    console.log(error);
-  }
 });
 
 app.get("*", (req, res) => {
