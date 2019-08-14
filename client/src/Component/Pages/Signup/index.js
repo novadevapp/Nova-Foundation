@@ -68,7 +68,7 @@ export default class SignUp extends Component {
 
     name === 'password' && value === this.state.confirmPassword.value
       ?
-      passwordsError = false
+      passwordsError = ''
       :
       passwordsError = 'Passwords dont\' match'
 
@@ -100,31 +100,20 @@ export default class SignUp extends Component {
       password,
     } = this.state;
 
-    // check if the user has not fill any inputs
+    // check if there are any errors, then don't submit
+    // if Empty fields but no errors in state
 
-    Object.keys(this.state).some(element => !(element.value))
-      ?
-      notification(
-        this.notificationDOMRef,
-        'warning',
-        'Please check all fields',
-        'Validation Error',
-      )
-      :
-
-      // check if there is any error
-
-      Object.keys(this.state).some(element => element.error)
+    if (!(Object.keys(this.state).some(key => this.state[key].error)))
+      Object.keys(this.state).some(key => !(this.state[key].value))
         ?
         notification(
           this.notificationDOMRef,
           'warning',
-          'Please check all fields',
-          'Validation Error',
+          'Please Fill all fields',
+          'Oops Sorry!',
         )
         :
-
-        // submit form
+        // Success: submit form 
 
         fetch('/api/v1/register', {
           method: 'POST',
@@ -183,7 +172,7 @@ export default class SignUp extends Component {
               type='text'
               action={this.validateInput}
             ></Input>
-            <Error message={name.error && name.error} />
+            <Error message={name.error} />
             <Input
               id='babyName'
               label="Your baby's name"
@@ -191,7 +180,7 @@ export default class SignUp extends Component {
               action={this.validateInput}
               placeholder='e.g. Billy or nickname'
             ></Input>
-            <Error message={babyName.error && babyName.error} />
+            <Error message={babyName.error} />
             <Input
               id='nickName'
               label='What name would you like us to call you?'
@@ -199,28 +188,28 @@ export default class SignUp extends Component {
               action={this.validateInput}
               placeholder="e.g. Firstname, Billy's Mum, Zara's Dad"
             ></Input>
-            <Error message={nickName.error && nickName.error} />
+            <Error message={nickName.error} />
             <Input
               id='email'
               label='Your email'
               type='email'
               action={this.validateInput}
             ></Input>
-            <Error message={email.error && email.error} />
+            <Error message={email.error} />
             <Input
               id='password'
               label='Your password'
               type='password'
               action={this.validateInput}
             ></Input>
-            <Error message={password.error && password.error} />
+            <Error message={password.error} />
             <Input
               id='confirmPassword'
               label='Confirm password'
               type='password'
               action={this.validateInput}
             ></Input>
-            <Error message={confirmPassword.error && confirmPassword.error} />
+            <Error message={confirmPassword.error} />
             <Button
               name='Register'
               className='register__button'

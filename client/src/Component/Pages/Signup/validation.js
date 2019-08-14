@@ -29,7 +29,7 @@ export default function (type, value1, value2) {
       validationMessage = value1 !== value2 && this.passwordsError;
       break;
 
-    default: return false;  // No Errors
+    default: return '';  // No Errors
   }
-  return validationMessage;
+  return validationMessage ? validationMessage : '';
 }
