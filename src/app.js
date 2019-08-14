@@ -1,9 +1,11 @@
+require("dotenv").config();
+
 const express = require("express");
 const path = require("path");
 const compresion = require("compression");
 const helmet = require("helmet");
 const cookie = require("cookie-parser");
-const controller = require('./controller');
+const controller = require("./controller");
 
 const app = express();
 
@@ -26,7 +28,7 @@ app.use(function(req, res, next) {
 
 app.use(middleware);
 
-app.use('/api/v1', controller);
+app.use("/api/v1", controller);
 
 app.get("*", (req, res) => {
   res.sendFile(path.join(__dirname, "..", "client", "build", "index.html"));
