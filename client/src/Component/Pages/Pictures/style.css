@@ -2,7 +2,6 @@
   font-family: roboto;
   font-size: 4vh;
   letter-spacing: 0.15px;
-  margin-top: 10vh;
   width: 100%;
   display: block;
 }
@@ -26,4 +25,10 @@
 
 .pic__buttons {
   margin: 1em;
+}
+
+.add-icon {
+  position: fixed;
+  top: 34vw;
+  left: 85vw;
 }
