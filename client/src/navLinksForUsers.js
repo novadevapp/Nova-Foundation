@@ -22,10 +22,10 @@ export default [
   // { path: "/status", component: Status },
   // { path: "/exercises", component: Exercises },
   { path: "/personal-space", component: PersonalSpace },
-  { path: "/add-pic", component: AddPic }
+  { path: "/add-pic", component: AddPic },
   // { path: "/add-poem", component: AddPoem },
   // { path: "/add-story", component: AddStory },
-  // { path: "/pictures", component: PicturesPage },
+  { path: "/pictures", component: PicturesPage },
   { path: "/poems", component: Poems }
   // { path: "/stories", component: Stories },
   // { path: "/suggestion", component: Suggestion },
