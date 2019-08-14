@@ -1,0 +1,33 @@
+.poems-page__title {
+  font-family: roboto;
+  font-size: 4vh;
+}
+
+.poems-container {
+  position: relative;
+  /* padding-left: 10em;
+  padding-right: 10em; */
+}
+
+.poems-box {
+  background: rgba(242, 202, 60, 0.32);
+  border-radius: 5px;
+  margin: 1em auto;
+
+  padding-left: 2vw;
+  padding-right: 2vw;
+  padding-top: 0.25vw;
+  padding-bottom: 0.5vw;
+  max-width: 1000px;
+  width: 80%;
+}
+
+.poems-header {
+  font-family: roboto;
+  letter-spacing: 1px;
+  font-weight: 500;
+}
+
+.poem-buttons {
+  padding: 1em;
+}
