@@ -12,16 +12,18 @@
   flex-flow: row wrap;
   justify-content: center;
   margin: 2em;
+  min-height: 53vh;
 }
 
 .img__single {
-  height: 40vw;
-  width: 40vw;
-  max-width: 600px;
-  max-height: 600px;
-  height: 60%;
-  margin: 2em;
+  margin: 0.4em;
+  border: 1px solid #80808080;
+  border-radius: 5px;
+  padding: 10px;
+  width: 30vw;
+  height: 30vw;
 }
+
 .pic__buttons {
   margin: 1em;
 }
