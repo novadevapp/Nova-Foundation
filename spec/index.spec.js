@@ -1,7 +1,7 @@
 const mongoose = require('mongoose');
 
 const connect = require('../src/database/config/connection');
-const buildDummy = require('../src/database/config/buildTestDB/index');
+// const buildDummy = require('../src/database/config/buildTestDB/index');
 
 describe('initial test', () => {
 
@@ -13,10 +13,10 @@ describe('initial test', () => {
   })
 
   // Before each test, rebuildDb
-  beforeEach(async (done) => {
-    await buildDummy();
-    done();
-  })
+  // beforeEach(async (done) => {
+  //   await buildDummy();
+  //   done();
+  // })
 
   it('first spec', () => {
     expect(1 + 1).toEqual(2);
