@@ -5,6 +5,8 @@ const path = require("path");
 const compresion = require("compression");
 const helmet = require("helmet");
 const cookie = require("cookie-parser");
+const fileUpload = require('express-fileupload');
+
 const controller = require("./controller");
 
 const app = express();
@@ -14,6 +16,7 @@ const middleware = [
   compresion(),
   express.json(),
   cookie(),
+  fileUpload(),
   express.static(path.join(__dirname, "..", "client", "build"))
 ];
 
