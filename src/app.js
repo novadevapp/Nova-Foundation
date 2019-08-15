@@ -32,14 +32,6 @@ app.use(function(req, res, next) {
   next();
 });
 
-app.post("/api/v1/login", (req, res) => {
-  const id = "trial";
-  const username = "more";
-  console.log("This is a issue", process.env.SECRET);
-  const signed = jwt.sign({ id, username }, process.env.SECRET);
-
-  res.send({ jwt: signed });
-});
 app.use(middleware);
 
 app.use("/api/v1", controller);
