@@ -2,7 +2,12 @@ const express = require("express");
 const path = require("path");
 const compresion = require("compression");
 const helmet = require("helmet");
+
+require('dotenv').config();
+
 const connect = require('./database/config/connection');
+
+const controller = require('./controller')
 
 const app = express();
 
@@ -11,18 +16,22 @@ connect();
 const middleware = [
   helmet(),
   compresion(),
-  express.json(),
-  express.static(path.join(__dirname, "..", "client", "build"))
+  express.json()
 ];
+
 app.use(middleware);
 
-app.get("/express_backend", (req, res) => {
-  res.send({ express: " YOUR BACKEND IS CONNECTED" });
-});
+app.use('/api/v1', controller);
 
-app.get("*", (req, res) => {
-  res.sendFile(path.join(__dirname, "..", "client", "build", "index.html"));
-});
+if (process.env.NODE_ENV === 'production') {
+
+  app.use(express.static(path.join(__dirname, "..", "client", "build")));
+
+  app.get("*", (req, res) => {
+    res.sendFile(path.join(__dirname, "..", "client", "build", "index.html"));
+  });
+  
+}
 
 app.set("PORT", process.env.PORT || 9000);
 
