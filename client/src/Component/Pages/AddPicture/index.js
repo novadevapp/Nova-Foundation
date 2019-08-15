@@ -27,7 +27,7 @@ export default function(props) {
   const handleSubmit = e => {
     e.preventDefault();
 
-    if ((title === "") | (file.name == ".")) {
+    if ((title === "") | (file.name === ".")) {
       SetError(true);
     } else if (acceptedTypes.indexOf(type) === -1) {
       SetTypeError(true);
