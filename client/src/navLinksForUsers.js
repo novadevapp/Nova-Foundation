@@ -12,7 +12,8 @@ import {
   SingleStory,
   Status,
   Stories,
-  Suggestion
+  Suggestion,
+  AboutUs
 } from "./Component/Pages";
 
 //if logged in
