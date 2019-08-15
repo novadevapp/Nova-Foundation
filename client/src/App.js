@@ -21,10 +21,11 @@ function App() {
 
   React.useEffect(() => {
     const cookieContent = cookies.get("cookienvf");
-
+    console.log({ cookieContent });
     if (cookieContent === null) {
       return;
     } else if (cookieContent === jwtRef) {
+      console.log("test");
       setIsAuthenticated(true);
     } else {
       fetch("/api/v1/login-status", {
@@ -34,13 +35,10 @@ function App() {
       })
         .then(res => res.json())
         .then(data => {
-          console.log(data);
-          if (data.status === "ok") {
-            setJwtRef(cookieContent);
-          } else {
-            return;
-          }
-        });
+          console.log("wtf");
+          setJwtRef(cookieContent);
+        })
+        .catch(err => console.log(err));
     }
   }, [jwtRef]);
 
@@ -61,6 +59,7 @@ function App() {
             <SecureRoutes
               exact
               path={route.path}
+              auth={isAuthenticated}
               key={index}
               component={route.component}
             />

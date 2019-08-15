@@ -4,7 +4,6 @@ const express = require("express");
 const path = require("path");
 const compresion = require("compression");
 const helmet = require("helmet");
-const jwt = require("jsonwebtoken");
 require("dotenv").config();
 
 const cookie = require("cookie-parser");

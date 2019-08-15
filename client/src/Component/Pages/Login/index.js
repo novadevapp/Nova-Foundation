@@ -55,7 +55,7 @@ export default class Login extends Component {
         .then(res => res.json())
         .then(data => {
           console.log("this is our jwt", data.jwt);
-          // this.props.history.push("/home");
+          this.props.history.push("/home");
         })
         .catch(() => {
           notification(

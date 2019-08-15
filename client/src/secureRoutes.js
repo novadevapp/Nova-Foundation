@@ -1,12 +1,13 @@
 import React from "react";
 import { Route, Redirect } from "react-router-dom";
 
-function SecureRoutes({ component: Component, Auth, ...rest }) {
+function SecureRoutes({ component: Component, auth, ...rest }) {
+  console.log({ auth });
   return (
     <Route
       {...rest}
       render={props => {
-        if (Auth === true) {
+        if (auth === true) {
           return <Component {...props} />;
         } else {
           return (
