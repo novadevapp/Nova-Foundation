@@ -1,5 +1,6 @@
 import React, { Component } from "react";
 import ReactNotification from "react-notifications-component";
+import { withRouter } from "react-router-dom";
 
 import notification from "../../helpers/notification";
 import Header from "../../CommonComponent/Header";
@@ -9,7 +10,7 @@ import Button from "../../CommonComponent/Button";
 import "react-notifications-component/dist/theme.css";
 import "./style.css";
 
-export default class Login extends Component {
+class Login extends Component {
   state = {
     email: {
       value: "",
@@ -54,7 +55,6 @@ export default class Login extends Component {
       })
         .then(res => res.json())
         .then(data => {
-          console.log("this is our jwt", data.jwt);
           this.props.history.push("/home");
         })
         .catch(() => {
@@ -103,3 +103,5 @@ export default class Login extends Component {
     );
   }
 }
+
+export default withRouter(Login);

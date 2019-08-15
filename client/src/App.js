@@ -1,5 +1,6 @@
 import React from "react";
 import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
+
 import SecureRoutes from "./secureRoutes";
 import { Landing, AboutUs, Login, Signup, FourOFour } from "./Component/Pages";
 import cookies from "browser-cookies";
@@ -65,7 +66,7 @@ function App() {
             />
           ))}
 
-          <Route render={() => <FourOFour />} />
+          <Route component={FourOFour} />
         </Switch>
       </Router>
     </div>
