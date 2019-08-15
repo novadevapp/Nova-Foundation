@@ -16,6 +16,7 @@
   padding: 1em;
   max-width: 800px;
   margin: auto;
+  color: #d14761;
 }
 
 #new-pic__file::-webkit-file-upload-button {
@@ -67,7 +68,7 @@
 
 .add-pic-page__form_buttons {
   display: flex;
-  justify-content: flex-end;
+  justify-content: center;
   flex-wrap: wrap;
   margin: 3em 0;
 }
