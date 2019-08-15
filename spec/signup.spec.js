@@ -7,8 +7,8 @@ const app = require('../src/app');
 
 describe('Signup route', () => {
 
-  beforeAll(async (done) => {
-    await buildTestDB();
+  beforeAll((done) => {
+    buildTestDB();
     done();
   })
 
