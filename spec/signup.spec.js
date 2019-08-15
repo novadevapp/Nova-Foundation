@@ -1,8 +1,8 @@
-const insertUser = require('../src/database/queries/insertUser');
-const buildTestDB = require('../src/database/config/buildTestDB');
-
 const mongoose = require('mongoose');
 const request = require('supertest');
+
+const insertUser = require('../src/database/queries/insertUser');
+const buildTestDB = require('../src/database/config/buildTestDB');
 const app = require('../src/app');
 
 describe('Signup route', () => {

@@ -6,17 +6,14 @@ const { create } = require('../../utils/cookie');
 
 module.exports = async (req, res) => {
   try {
-
     const { data: { name, nickName, babyName, email, password } } = req.body;
-    
+
     // Check if email already exists
     const user = await findUser({ email });
-
     if (user) throw Error('Email Already Exists');
 
     // Validate User Info
     if (validateUser(name, nickName, babyName, email, password).valid) {
-
       // hash password
       const hashedPassword = await hashPassword(password);
 
@@ -26,18 +23,15 @@ module.exports = async (req, res) => {
 
         // Create Cookie
         const cookie = await create({ id: insertedUser._id, username: insertedUser.username });
-
         // Set Cookie... maxAge => 2 months
-        res.cookie('jwt', cookie, { 'maxAge': 1000 * 3600 * 24 * 30 * 2 })
+        res.cookie('jwt', cookie, { 'maxAge': 1000 * 3600 * 24 * 30 * 2 }, { 'HttpOnly': true})
         return res.send({ data: { message: 'Success' }, error: null });
       }
     }
-
     // Validation Error
     throw Error('Validation Error');
 
   } catch (error) {
-
     // Error Cases
     switch (error.message) {
       case 'Validation Error':

@@ -114,7 +114,6 @@ export default class SignUp extends Component {
         )
         :
         // Success: submit form 
-
         fetch('/api/v1/register', {
           method: 'POST',
           headers: { 'content-type': 'application/json' },
@@ -128,16 +127,14 @@ export default class SignUp extends Component {
             }
           }),
         }).then(response => response.json())
-          .then((error, data) => {
-
-            // Errors
-            if (error) return notification(
+          .then(result => {
+            //Error
+            if (result.error) return notification(
               this.notificationDOMRef,
               'warning',
-              error,
+              result.error,
               'ERROR',
             );
-
             // Success
             this.props.history.push('/home');
           })
