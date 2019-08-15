@@ -10,54 +10,51 @@ import Toggle from "./toggle";
 
 import "./style.css";
 
-const Header = (props) => {
+const Header = ({ className, isLogged, ...rest }) => {
   const menuRef = React.createRef();
 
   function handleClick() {
     menuRef.current.menuRef.current.classList.toggle("menu--show");
   }
-  if (props.className == null) {
-    return (
-      <>
-      <div className={`header minimal`} >
-        <Logo />
-        <Toggle onClick={handleClick} />
-        <Star className="star-two" />
-        <Star className="star-three" />
-        <Star className="star-nine" />
-        <Star className="star-ten" />
-        <Star className="star-eleven" />
-        <Star className="star-twelve" />
-      </div>
-      <Menu isLogged={props.isLogged} ref={menuRef} history = {props.history}/>
-      </>
-    );
-  }
   return (
     <>
-    <div className={`header`}>
-      <Logo />
-      <Toggle onClick={handleClick} />
-      <Star className="star-one" />
-      <Star className="star-two" />
-      <Star className="star-three" />
-      <Star className="star-four" />
-      <Star className="star-five" />
-      <Star className="star-six" />
-      <Star className="star-seven" />
-      <Star className="star-eight" />
-      {props.className === "register" ? (
-        <React.Fragment>
-          <h1> Create your Account</h1>{" "}
-          <h3>
-            Complete your account to get access to our support
+      <div
+        className={`header 
+        ${!className
+            ?
+            'minimal'
+            :
+            className.includes('minimal')
+              ?
+              'minimal'
+              : 'big'
+          }`}>
+        <Logo />
+        <Toggle onClick={handleClick} />
+        <Star className="star-one" />
+        <Star className="star-two" />
+        <Star className="star-three" />
+        <Star className="star-four" />
+        <Star className="star-five" />
+        <Star className="star-six" />
+        <Star className="star-seven" />
+        <Star className="star-eight" />
+        {className && className.includes("register")
+          ?
+          (
+            <React.Fragment>
+              <h1> Create your Account</h1>{" "}
+              <h3>
+                Complete your account to get access to our support
           </h3>
-        </React.Fragment>
-      ) : null}
-      {props.className === "register" ? <Cloud /> : null}
-      {props.className === "triangle" ? <Triangle /> : null}
-    </div>
-    <Menu isLogged={props.isLogged} ref={menuRef} />
+              <Cloud />
+            </React.Fragment>
+          )
+          :
+          null}
+        {className && className.includes("triangle") ? <Triangle /> : null}
+      </div>
+      <Menu isLogged={isLogged} ref={menuRef} history={rest.history} />
     </>
   );
 };
