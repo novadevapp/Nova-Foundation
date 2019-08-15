@@ -1,19 +1,19 @@
 const User = require('../models/users');
 
-module.exports = (name, nickName, babyName, email, password) => {
+module.exports = (username, displayName, babyName, email, password) => {
   return new Promise(async (resolve, reject) => {
     try {
       // Create new user
       await User.create({
-        username: name,
-        displayName: nickName,
+        username,
+        displayName,
         babyName,
         email,
         password,
       });
       // Return the user
-      const user = await User.findOne({ username: name, password });
-      resolve(user._id);
+      const user = await User.findOne({ username, password });
+      resolve(user);
     } catch (error) {
       reject(error);
     }

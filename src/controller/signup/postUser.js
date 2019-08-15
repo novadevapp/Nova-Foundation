@@ -8,7 +8,7 @@ module.exports = async (req, res) => {
   try {
 
     const { data: { name, nickName, babyName, email, password } } = req.body;
-
+    
     // Check if email already exists
     const user = await findUser({ email });
 
@@ -22,7 +22,6 @@ module.exports = async (req, res) => {
 
       // Insert Into database
       const insertedUser = await insertUser(name, nickName, babyName, email, hashedPassword);
-
       if (insertedUser._id) {
 
         // Create Cookie
