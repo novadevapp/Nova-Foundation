@@ -6,20 +6,17 @@ const buildDummy = require("../src/database/config/buildTestDB/index");
 describe("initial test", () => {
   // Before all tests, connect mongoose to mongodb
 
-  beforeAll(async done => {
-    await connect();
-    done();
+  beforeAll( () => {
+    connect();
   });
 
   // Before each test, rebuildDb
-  beforeEach(done => {
+  beforeEach(() => {
     buildDummy();
-    done();
   });
 
-  it("first spec", done => {
+  it("first spec", () => {
     expect(1 + 1).toEqual(2);
-    done();
   });
 
   // After all tests, disconnect mongoose connection
