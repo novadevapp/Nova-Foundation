@@ -7,9 +7,12 @@ const helmet = require("helmet");
 const cookie = require("cookie-parser");
 const fileUpload = require('express-fileupload');
 
+const connect = require('./database/config/connection');
 const controller = require("./controller");
 
 const app = express();
+
+connect();
 
 const middleware = [
   helmet(),
