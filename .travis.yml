@@ -14,7 +14,7 @@ install:
 
 before_script:
   - sleep 15
-  - mongo mydb_test --eval 'db.createUser({user:"test",pwd:"test",roles:["readWrite"]});'
+  - mongo mydb_test --eval 'db.createUser();'
 
 script:
   - npm test
