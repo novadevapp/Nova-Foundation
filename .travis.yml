@@ -1,3 +1,20 @@
 language: node_js
 node_js:
-  - 'stable'
+  - "stable"
+
+cache:
+  directories:
+    - node_modules
+
+services:
+  - mongodb
+
+install:
+  - npm install
+
+before_script:
+  - sleep 15
+  - mongo mydb_test --eval 'db.createUser({user:"test",pwd:"test",roles:["readWrite"]});'
+
+script:
+  - npm test
