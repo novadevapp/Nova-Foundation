@@ -1,3 +1,4 @@
+const jwt = require("jsonwebtoken");
 const postLogin = (req, res) => {
   const id = "trial";
   const username = "more";
