@@ -8,16 +8,19 @@ import Button from "../../CommonComponent/Button/index";
 import Footer from "../../CommonComponent/Footer";
 import Loading from "../../CommonComponent/Loading";
 import AddIcon from "./AddIcon";
+import DeletePopup from "./DeletePopup";
 
-import "react-notifications-component/dist/theme.css";
+// import "react-notifications-component/dist/theme.css";
 import "./style.css";
 
 export default class Pictures extends Component {
   state = {
     imageURL: [],
-    loading: true
+    loading: true,
+    DeleteId: ""
   };
   notificationDOMRef = React.createRef();
+  ModelDelete = React.createRef();
 
   componentDidMount() {
     fetch("/api/v1/pictures")
@@ -39,6 +42,31 @@ export default class Pictures extends Component {
   handleClick = () => {
     this.props.history.push("/add-pic");
   };
+  handleDeletePopup = e => {
+    this.setState({ DeleteId: e.currentTarget.id });
+    this.ModelDelete.current.classList.toggle("block");
+  };
+
+  handleDelete = () => {
+    const { imageURL, DeleteId } = this.state;
+    const { fileName } = imageURL[DeleteId];
+    fetch('/api/v1/pictures', {
+      method: 'Delete',
+      headers: {'conetnt-type': 'application/json'},
+      body: JSON.stringify({data: {fileName}})
+    })
+    .then(res=> res.json())
+    .then(res => {
+      console.log(res)
+    })
+    .catch(err => {
+      console.log(err)
+    })
+  };
+  handleVisiabilty = () => {
+    this.ModelDelete.current.classList.toggle("block");
+    this.setState({ DeleteId: "" });
+  };
   render() {
     const { imageURL, loading } = this.state;
     return (
@@ -48,7 +76,11 @@ export default class Pictures extends Component {
         <section className="collage-container">
           <h1 className="all-pictures__title"> All Pictures </h1>
           {loading && <Loading />}
-          <Gallery className="img__single" imgUrl={imageURL} />
+          <Gallery
+            className="img__single"
+            imgUrl={imageURL}
+            onClick={this.handleDeletePopup}
+          />
         </section>
         <div className="pic__buttons">
           <Button
@@ -59,7 +91,13 @@ export default class Pictures extends Component {
           <Button className="register__button" name="More Pictures" />
         </div>
         <Footer />
+
         <ReactNotification ref={this.notificationDOMRef} />
+        <DeletePopup
+          referance={this.ModelDelete}
+          visiabilty={this.handleVisiabilty}
+          submit={this.handleDelete}
+        />
       </div>
     );
   }
