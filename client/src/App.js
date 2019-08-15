@@ -4,6 +4,7 @@ import SecureRoutes from "./secureRoutes";
 import { Landing, AboutUs, Login, Signup, FourOFour } from "./Component/Pages";
 import cookies from "browser-cookies";
 import "./App.css";
+import navLinksForUsers from "./navLinksForUsers";
 
 //if not logged in
 const navLinksForVisitors = [
@@ -47,7 +48,6 @@ function App() {
     <div className="App">
       <Router>
         <Switch>
-          <SecureRoutes Auth={isAuthenticated} />
           {navLinksForVisitors.map((route, index) => (
             <Route
               exact
@@ -56,6 +56,16 @@ function App() {
               component={route.component}
             />
           ))}
+
+          {navLinksForUsers.map((route, index) => (
+            <SecureRoutes
+              exact
+              path={route.path}
+              key={index}
+              component={route.component}
+            />
+          ))}
+
           <Route render={() => <FourOFour />} />
         </Switch>
       </Router>
