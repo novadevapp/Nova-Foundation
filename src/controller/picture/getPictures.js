@@ -22,7 +22,7 @@ const pictuers = async (req, res) => {
     const images = [];
     imagesFiles.forEach(async file => {
       const [url] = await bucket.file(file.name).getSignedUrl(optionSignUrl);
-      images.push(url);
+      images.push({fileName: file.name, url});
       if (images.length === imagesFiles.length) res.send({ images });
     });
   } catch (error) {
