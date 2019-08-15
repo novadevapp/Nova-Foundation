@@ -10,8 +10,9 @@ import "./App.css";
 const navLinksForVisitors = [
   { path: "/", component: Landing },
   { path: "/login", component: Login },
-  { path: "/about-us", component: AboutUs }
+  { path: "/about-us", component: AboutUs },
   // { path: "/signup", component: Signup }
+  { path: "/register", component: Signup }
 ];
 
 
