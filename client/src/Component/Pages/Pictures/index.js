@@ -50,18 +50,33 @@ export default class Pictures extends Component {
   handleDelete = () => {
     const { imageURL, DeleteId } = this.state;
     const { fileName } = imageURL[DeleteId];
-    fetch('/api/v1/pictures', {
-      method: 'Delete',
-      headers: {'conetnt-type': 'application/json'},
-      body: JSON.stringify({data: {fileName}})
+
+    fetch("/api/v1/pictures", {
+      method: "DELETE",
+      headers: { "content-type": "application/json" },
+      body: JSON.stringify({ data: { fileName } })
     })
-    .then(res=> res.json())
-    .then(res => {
-      console.log(res)
-    })
-    .catch(err => {
-      console.log(err)
-    })
+      .then(res => res.json())
+      .then(({ error }) => {
+        if (error) {
+          notification(this.notificationDOMRef, "warning", error, "Warning");
+        } else {
+          this.setState(prev => {
+            const imageURL = prev.imageURL;
+            imageURL.splice(DeleteId, 1);
+            return { imageURL };
+          });
+          this.handleVisiabilty();
+        }
+      })
+      .catch(err => {
+        notification(
+          this.notificationDOMRef,
+          "danger",
+          "Can't Load The Images please try again",
+          "Error"
+        );
+      });
   };
   handleVisiabilty = () => {
     this.ModelDelete.current.classList.toggle("block");
