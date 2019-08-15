@@ -1,5 +1,7 @@
 import React, { Component } from "react";
-import "./style.css";
+import ReactNotification from "react-notifications-component";
+
+import notification from "../../helpers/notification";
 import Header from "../../CommonComponent/Header/index";
 import Gallery from "./gallery";
 import Button from "../../CommonComponent/Button/index";
@@ -7,20 +9,31 @@ import Footer from "../../CommonComponent/Footer";
 import Loading from "../../CommonComponent/Loading";
 import AddIcon from "./AddIcon";
 
+import "react-notifications-component/dist/theme.css";
+import "./style.css";
+
 export default class Pictures extends Component {
   state = {
     imageURL: [],
     loading: true
   };
+  notificationDOMRef = React.createRef();
+
   componentDidMount() {
     fetch("/api/v1/pictures")
       .then(res => res.json())
       .then(({ images, error }) => {
-        if (error) console.log(error);
+        if (error)
+          notification(this.notificationDOMRef, "warning", error, "Warning");
         else this.setState({ imageURL: images, loading: false });
       })
-      .catch(err => {
-        console.log(err);
+      .catch(() => {
+        notification(
+          this.notificationDOMRef,
+          "danger",
+          "Can't Load The Images please try again",
+          "Error"
+        );
       });
   }
   handleClick = () => {
@@ -38,10 +51,15 @@ export default class Pictures extends Component {
           <Gallery className="img__single" imgUrl={imageURL} />
         </section>
         <div className="pic__buttons">
-          <Button className="large-back__button" name="Back" onClick = {() => this.props.history.goBack()}/>
+          <Button
+            className="large-back__button"
+            name="Back"
+            onClick={() => this.props.history.goBack()}
+          />
           <Button className="register__button" name="More Pictures" />
         </div>
         <Footer />
+        <ReactNotification ref={this.notificationDOMRef} />
       </div>
     );
   }
