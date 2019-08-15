@@ -41,7 +41,7 @@ export default function(props) {
       formData.append("title", title);
       formData.append("file", file);
 
-      fetch("/api/v1/send-pic", {
+      fetch("/api/v1/add-picture", {
         method: "post",
         body: formData
       })
