@@ -22,7 +22,7 @@ function App() {
       .then(res => res.json())
       .then(data => {
         if (data.auth === "ok") setIsLogged(true);
-        return;
+        else setIsLogged(false);
       })
       .catch(err => console.log(err));
   }, []);
