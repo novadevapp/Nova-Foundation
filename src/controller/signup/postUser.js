@@ -38,7 +38,7 @@ module.exports = async (req, res) => {
         res.status(422).send({ data: null, error: 'Validation Error' });
         break;
       case 'Email Already Exists':
-        res.status(422).send({ data: null, error: error.message });
+        res.status(401).send({ data: null, error: error.message });
         break;
       default:
         res.status(500).send({ data: null, error: 'Internal Server Error' });
