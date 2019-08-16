@@ -10,46 +10,32 @@ const AddPoem = props => {
   const [typeError, setTypeError] = React.useState(false);
   const [fetchError, setFetchError] = React.useState(false);
   const [buttonContent, setButtonContent] = React.useState("Save");
-  const acceptedTypes = "";
 
   const message = {
     default: "Please add a title and add a poem",
-    tyrebased:
-      "Please upload a different poem, we do not support that poem type",
     fetch: "Sorry something went wrong, Please try again"
   };
-
-  let type = poem.name.split(".")[poem.name.split(".").length - 1];
 
   const handleSubmit = e => {
     e.preventDefault();
 
-    if ((title === "") | (poem.name === "")) {
+    if ((title === "") | (poem === "")) {
+      console.log(title, poem);
       setError(true);
-    } else if (acceptedTypes.indexOf(type) === -1) {
-      setTypeError(true);
     } else {
       setError(false);
-      setTypeError(false);
 
       setButtonContent("Loading...");
 
-      const poemData = new poemData();
-      poemData.append("title", title);
-      poemData.append("poem", poem);
-
       fetch("/api/v1/send-poem", {
         method: "post",
-        body: poemData
+        body: JSON.stringify({
+          data: { title: title, poem: poem }
+        })
       })
         .then(response => response.json())
-        .then(({ error, data }) => {
-          if (error) {
-            setButtonContent("Save");
-            setFetchError(true);
-          } else {
-            this.props.history.push("/poems");
-          }
+        .then(data => {
+          this.props.history.push("/poems");
         })
         .catch(() => {
           setButtonContent("Save");
@@ -67,23 +53,23 @@ const AddPoem = props => {
           <form className="add-poem__form" onSubmit={handleSubmit}>
             <Input
               id="new-poem__title"
-              placeholder="Add a title"
-              label="Title"
+              placeholder="Type here..."
+              label="Add a Title"
               type="text"
               action={e => {
                 setTitle(e.target.value);
               }}
             />
-            <label htmlFor="new-poem__text">Add a poem</label>
-            <input
-              id="mew-poem__text"
+
+            <Input
+              id="new-poem__text"
+              placeholder="Type here..."
+              label="Add a Poem"
               type="text"
-              onChange={e => setPoem(e.target.poems[0])}
+              action={e => setPoem(e.target.value)}
             />
             {error && <p className="add-poem__error">{message.default}</p>}
-            {typeError && (
-              <p className="add-poem__error">{message.tyrebased}</p>
-            )}
+
             {fetchError && <p className="add-poem__error">{message.fetch}</p>}
             <div className="add-poem__form__button">
               <a href="/poems" className="large-skip__button">
