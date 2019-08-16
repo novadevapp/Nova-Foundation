@@ -17,7 +17,7 @@ const navLinksForVisitors = [
 ];
 
 function App() {
-  const [isAuthenticated, setIsAuthenticated] = React.useState("");
+  const [isLogged, setIsLogged] = React.useState("");
   const [jwtRef, setJwtRef] = React.useState("");
 
   React.useEffect(() => {
@@ -27,7 +27,7 @@ function App() {
       return;
     } else if (cookieContent === jwtRef) {
       console.log("test");
-      setIsAuthenticated(true);
+      setIsLogged(true);
     } else {
       fetch("/api/v1/login-status", {
         method: "POST",
@@ -37,6 +37,7 @@ function App() {
         .then(res => res.json())
         .then(data => {
           console.log("wtf");
+          setIsLogged(true);
           setJwtRef(cookieContent);
         })
         .catch(err => console.log(err));
@@ -47,6 +48,14 @@ function App() {
     <div className="App">
       <Router>
         <Switch>
+          {isLogged ? (
+            <Route
+              exact
+              path={"/"}
+              // navLinksForUsers is an array with home as the first item
+              component={navLinksForUsers[0].component}
+            />
+          ) : null}
           {navLinksForVisitors.map((route, index) => (
             <Route
               exact
@@ -60,7 +69,7 @@ function App() {
             <SecureRoutes
               exact
               path={route.path}
-              auth={isAuthenticated}
+              isLogged={isLogged}
               key={index}
               component={route.component}
             />
