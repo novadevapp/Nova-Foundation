@@ -3,7 +3,7 @@ import ReactNotification from "react-notifications-component";
 
 import Header from "../../CommonComponent/Header";
 import Footer from "../../CommonComponent/Footer";
-import background from "../../../assets/background.png";
+import background from "../../../assets/Heart.png";
 import Button from "../../CommonComponent/Button";
 import Victor from "./victor";
 
@@ -26,11 +26,11 @@ export default class Land extends Component {
               Disclaimer
             </h2>
             <p className="content__paragraph">
-              This prototype has been design to support parents who have
-              suffered babby loss any stage of pregnancy and loss of a child up
-              to 12 months old. This content may be triggering for some, if it
-              is triggering for you please do not continue. We would appreciate
-              any feedback you can give us.
+              This app has been designed to support parents experiencing
+              babyloss. The content may be triggering or overwhelming for some,
+              or at points. If you do feel triggered stop using the app for now,
+              take some deep breaths, get up and walk around. Do whatever you
+              need to do to feel more grounded.
             </p>
             <Button
               className="proceed__button"
@@ -43,7 +43,7 @@ export default class Land extends Component {
         container: "top-center",
         dismissable: { click: true }
       });
-    } 
+    }
   }
   handleClick = () => {
     this.notificationContent.current.classList.add("hidden");
@@ -61,6 +61,17 @@ export default class Land extends Component {
           <div className="land__home">
             <h3 className="land__header"> YOU'RE NOT ALONE</h3>
             <img src={background} alt="landing" />
+
+            <p>
+              Babyloss is one of the most catastrophic things that can happen to
+              a family. We are so sorry that it happened to you.
+              <br /> Please know that you are not alone. This app is designed by
+              babyloss parents to provide comfort to other babyloss parents. It
+              is a safe space to connect with and remember your baby, whilst
+              helping you feel more in control of your own wellbeing.
+              <br /> By registering with the app you will have access to a more
+              personalised service.
+            </p>
             <div className="land__links">
               <Button
                 className="register__button"
