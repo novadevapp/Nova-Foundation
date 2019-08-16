@@ -5,6 +5,7 @@ import notification from "../../helpers/notification";
 import Header from "../../CommonComponent/Header";
 import Input from "../../CommonComponent/Input";
 import Button from "../../CommonComponent/Button";
+import Footer from "../../CommonComponent/Footer";
 
 import "react-notifications-component/dist/theme.css";
 import "./style.css";
@@ -102,6 +103,7 @@ export default class Login extends Component {
           </form>
         </div>
         <ReactNotification ref={this.notificationDOMRef} />
+        <Footer />
       </>
     );
   }
