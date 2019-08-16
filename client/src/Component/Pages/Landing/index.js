@@ -59,17 +59,20 @@ export default class Land extends Component {
         <Header />
         <main className="land">
           <div className="land__home">
-            <h3 className="land__header"> YOU'RE NOT ALONE</h3>
+            <h3 className="land__header"> Nova Foundation</h3>
             <img src={background} alt="landing" />
-
-            <p>
+            <p className="land__paragraph">
               Babyloss is one of the most catastrophic things that can happen to
               a family. We are so sorry that it happened to you.
-              <br /> Please know that you are not alone. This app is designed by
+            </p>{" "}
+            <p className="land__paragraph">
+              Please know that you are not alone. This app is designed by
               babyloss parents to provide comfort to other babyloss parents. It
               is a safe space to connect with and remember your baby, whilst
               helping you feel more in control of your own wellbeing.
-              <br /> By registering with the app you will have access to a more
+            </p>{" "}
+            <p className="land__paragraph">
+              By registering with the app you will have access to a more
               personalised service.
             </p>
             <div className="land__links">
