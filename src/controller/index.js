@@ -7,6 +7,6 @@ const route = express.Router();
 
 route.use(pictures);
 route.use(login);
-route.post("/login-status", postStatus);
+route.get("/login-status", postStatus);
 
 module.exports = route;

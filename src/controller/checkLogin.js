@@ -1,6 +1,6 @@
 const jwt = require("jsonwebtoken");
 const loginStatus = (req, res) => {
-  console.log(req.body);
+  console.log(req.cookie);
 
   const verify = jwt.verify(req.body.jwt, process.env.SECRET, function(
     err,

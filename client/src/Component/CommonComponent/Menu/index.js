@@ -2,7 +2,6 @@ import React, { Component } from "react";
 import ReactNotification from "react-notifications-component";
 
 import notification from "../../helpers/notification";
-import cookies from "browser-cookies";
 import "react-notifications-component/dist/theme.css";
 
 import "./style.css";
@@ -19,8 +18,6 @@ class Menu extends Component {
           if (error) {
             notification(this.notificationDOMRef, "warning", error, "Warning");
           } else {
-            // removing the cookie client side.
-            cookies.erase("cookienvf");
             this.props.history.push("/");
           }
         })

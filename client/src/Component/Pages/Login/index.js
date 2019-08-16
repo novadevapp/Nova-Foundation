@@ -55,8 +55,11 @@ class Login extends Component {
       })
         .then(res => res.json())
         .then(data => {
-          this.props.history.push("/home");
+          return new Promise((resolve, reject) => {
+            resolve(this.props.setIsLogged(true));
+          }).then(() => this.props.history.push("/home"));
         })
+
         .catch(() => {
           notification(
             this.notificationDOMRef,
