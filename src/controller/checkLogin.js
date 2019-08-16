@@ -9,7 +9,7 @@ const loginStatus = (req, res) => {
     console.log(decoded); // bar
     // write query to match database and token
   });
-
+ // needs { auth: "ok" } for routing on front end
   res.send({ auth: "ok" });
 };
 
