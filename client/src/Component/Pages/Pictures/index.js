@@ -7,7 +7,7 @@ import Gallery from "./gallery";
 import Button from "../../CommonComponent/Button/index";
 import Footer from "../../CommonComponent/Footer";
 import Loading from "../../CommonComponent/Loading";
-import AddIcon from "./AddIcon";
+import AddIcon from "../../CommonComponent/AddIcon";
 import DeletePopup from "./DeletePopup";
 
 // import "react-notifications-component/dist/theme.css";
