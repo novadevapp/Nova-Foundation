@@ -14,7 +14,7 @@ const route = express.Router();
 
 // Unlock Cookie Middleware
 route.use(authenticate);
-route.get(checkLogin);
+route.get('login-status', checkLogin);
 route.use(pictures);
 
 module.exports = route;
