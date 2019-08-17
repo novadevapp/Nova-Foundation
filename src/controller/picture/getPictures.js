@@ -3,8 +3,8 @@ const pictuers = async (req, res) => {
   const bucket = admin.storage().bucket();
 
   // the id of user we must take it from the cookie
-  let { id } = req.cookies;
-  id = 1; // disable this line when compelete the app (for testing)
+  let { id } = req.auth;
+
   const options = {
     prefix: `images/${id}/`
   };
