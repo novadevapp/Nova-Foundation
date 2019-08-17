@@ -2,7 +2,7 @@ const { verify } = require('../utils/cookie');
 
 module.exports = async (req, res, next) => {
   try {
-    const cookie = req.cookies;
+    const cookie = req.cookies.jwt;
     if (cookie) {
       const decoded = await verify(cookie);
       req.auth = decoded;
@@ -10,7 +10,7 @@ module.exports = async (req, res, next) => {
     }
     else res.status(401).send({ auth: false });
   } catch (error) {
-    req.clearCookie('jwt');
+    res.clearCookie('jwt');
     res.status(401).send({ auth: false });
   }
 }
