@@ -1,6 +1,5 @@
 const mongoose = require("mongoose");
 
-const connect = require("../src/database/config/connection");
 const buildDummy = require("../src/database/config/buildTestDB/index");
 
 describe("initial test", () => {
