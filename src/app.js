@@ -4,8 +4,10 @@ const express = require("express");
 const path = require("path");
 const compresion = require("compression");
 const helmet = require("helmet");
+require("dotenv").config();
+
 const cookie = require("cookie-parser");
-const fileUpload = require('express-fileupload');
+const fileUpload = require("express-fileupload");
 
 const connect = require('./database/config/connection');
 const controller = require("./controller");
