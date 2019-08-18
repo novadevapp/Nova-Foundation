@@ -6,8 +6,8 @@ const connect = require('../connection');
 
 module.exports = () => new Promise(async (resolve, reject) => {
   try {
+    // connection
     await connect();
-
     // delete all documents in collections
     // using drop collection throws error if a collection is not found
 
