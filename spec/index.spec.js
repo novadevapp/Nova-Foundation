@@ -1,11 +1,10 @@
 const mongoose = require("mongoose");
-
-const buildDummy = require("../src/database/config/buildTestDB/index");
+const buildDB = require("../src/database/config/buildTestDB/index");
 
 describe("initial test", () => {
   // Before each test, rebuildDb
   beforeEach(async (done) => {
-    await buildDummy();
+    await buildDB();
     done();
   });
 
