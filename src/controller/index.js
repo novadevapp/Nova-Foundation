@@ -2,15 +2,17 @@ const router = require('express').Router();
 
 const signup = require('./signup');
 const pictures = require('./picture');
+const checkLogin = require('./checkLogin')
+const authenticate = require('../middlewares/authenticate');
 const login = require('./login');
-const poems = require('./poems');
-const postStatus = require("./checkLogin");
+const register = require('./signup');
 
-router.use('/register', signup);
+router.use('/register', register);
 // router.use('/login', login);
 
-router.get("/login-status", postStatus);
-// router.use('/poems', poems);
+// Unlock Cookie Middleware
+router.use(authenticate);
+router.get('/login-status', checkLogin);
 router.use(pictures);
 
 module.exports = router;
