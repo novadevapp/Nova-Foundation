@@ -13,9 +13,13 @@ describe('Signup route', () => {
   })
 
   beforeAll(async (done) => {
-    await buildTestDB();
-    done();
-  })
+    try {
+      await buildTestDB();
+      done();
+    } catch (error) {
+      done(error)
+    }
+  });
 
   // Test Query
   it('Insert User Query', async (done) => {
@@ -36,7 +40,7 @@ describe('Signup route', () => {
     }
   });
 
-  // Test Route
+  // Success Case
   it('Send Request to Signup route: Success Case', (done) => {
     const requestBody = {
       name: 'Lillie',
@@ -61,11 +65,11 @@ describe('Signup route', () => {
 
   it('Send Request to Signup route: Failure, Email Aleady Exists', (done) => {
     const requestBody = {
-      name: 'Lillie',
-      nickName: "Kitty's Mom",
-      email: 'lillie@gmail.com',
+      name: 'Kareem',
+      nickName: "Will's Dad",
+      email: 'william@gmail.com',
       password: '123456',
-      babyName: 'Kitty',
+      babyName: 'Will',
     }
     request(app)
       .post('/api/v1/register')
@@ -80,6 +84,7 @@ describe('Signup route', () => {
         done();
       });
   })
+
   it('Send Request to Signup route', (done) => {
     const requestBody = {
       name: 'UserName',
@@ -101,8 +106,6 @@ describe('Signup route', () => {
         done();
       });
   })
-
-
 
   afterAll(() => mongoose.disconnect());
 
