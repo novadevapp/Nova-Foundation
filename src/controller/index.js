@@ -9,7 +9,7 @@ const postStatus = require("./checkLogin");
 router.use('/register', signup);
 // router.use('/login', login);
 
-route.get("/login-status", postStatus);
+router.get("/login-status", postStatus);
 // router.use('/poems', poems);
 router.use(pictures);
 
