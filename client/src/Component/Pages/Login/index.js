@@ -1,15 +1,17 @@
 import React, { Component } from "react";
 import ReactNotification from "react-notifications-component";
+import { withRouter } from "react-router-dom";
 
 import notification from "../../helpers/notification";
 import Header from "../../CommonComponent/Header";
 import Input from "../../CommonComponent/Input";
 import Button from "../../CommonComponent/Button";
+import Footer from "../../CommonComponent/Footer";
 
 import "react-notifications-component/dist/theme.css";
 import "./style.css";
 
-export default class Login extends Component {
+class Login extends Component {
   state = {
     email: {
       value: "",
@@ -53,13 +55,12 @@ export default class Login extends Component {
         })
       })
         .then(res => res.json())
-        .then(({ error, data }) => {
-          if (error) {
-            notification(this.notificationDOMRef, "warning", error, "Warning");
-          } else {
-            this.props.history.push("/home");
-          }
+        .then(data => {
+          return new Promise((resolve, reject) => {
+            resolve(this.props.setIsLogged(true));
+          }).then(() => this.props.history.push("/home"));
         })
+
         .catch(() => {
           notification(
             this.notificationDOMRef,
@@ -102,7 +103,10 @@ export default class Login extends Component {
           </form>
         </div>
         <ReactNotification ref={this.notificationDOMRef} />
+        <Footer />
       </>
     );
   }
 }
+
+export default withRouter(Login);
