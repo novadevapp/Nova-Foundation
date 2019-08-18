@@ -24,15 +24,11 @@ const Poems = (props) => {
       })
     }
   });
-
-  const handleClick = () => {
-    this.props.history.push('/add-poem')
-  }
   return (
     <div>
       <Header />
       {error && <p className="error">{error}</p>}
-      <AddIcon onClick = {handleClick}/>
+      <AddIcon onClick ={()=> props.history.push('/add-poem')}/>
       <PoemList poems = {poems}/>
       <div className="poem-buttons">
         <Button className="large-back__button" name="Back" onClick = {() => this.props.history.goBack()} />
