@@ -5,8 +5,7 @@
 
 .poems-container {
   position: relative;
-  /* padding-left: 10em;
-  padding-right: 10em; */
+  min-height: 46vh;
 }
 
 .poems-box {
