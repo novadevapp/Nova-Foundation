@@ -3,8 +3,8 @@ const pictuers = async (req, res) => {
   const bucket = admin.storage().bucket();
 
   // the id of user we must take it from the cookie
-  let { id } = req.auth;
-
+  // let { id } = req.auth;
+  const id = 1;
   const options = {
     prefix: `images/${id}/`
   };
@@ -26,7 +26,7 @@ const pictuers = async (req, res) => {
       if (images.length === imagesFiles.length) res.send({ images });
     });
   } catch (error) {
-    res.status(500).send({ error: "Internal Server Error" });
+    res.status(500).send({ error: error });
   }
 };
 module.exports = pictuers;
