@@ -13,7 +13,7 @@ router.use('/register', register);
 // Unlock Cookie Middleware
 router.use(authenticate);
 router.get('/login-status', checkLogin);
-route.use(pictures);
-route.use(poems);
+router.use(pictures);
+router.use(poems);
 
 module.exports = router;
