@@ -1,20 +1,18 @@
-const express = require('express');
+const router = require('express').Router();
 
+const signup = require('./signup');
 const pictures = require('./picture');
 const checkLogin = require('./checkLogin')
 const authenticate = require('../middlewares/authenticate');
 const login = require('./login');
 const register = require('./signup');
 
-const route = express.Router();
-
-
-// route.use(register);  
-// route.use(login);
+router.use('/register', register);
+// router.use('/login', login);
 
 // Unlock Cookie Middleware
-route.use(authenticate);
-route.get('/login-status', checkLogin);
-route.use(pictures);
+router.use(authenticate);
+router.get('/login-status', checkLogin);
+router.use(pictures);
 
-module.exports = route;
+module.exports = router;

@@ -7,5 +7,8 @@
     "helpers/**/*.js"
   ],
   "stopSpecOnExpectationFailure": false,
-  "random": true
+  "random": true,
+  "jasmineNodeOpts": {
+    "defaultTimeoutInterval": 2500000
+  }
 }

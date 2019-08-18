@@ -1,14 +1,12 @@
 import React, { Component } from "react";
 import ReactNotification from "react-notifications-component";
 
-import notification from '../../helpers/notification';
-
+import notification from "../../helpers/notification";
 import "react-notifications-component/dist/theme.css";
 
 import "./style.css";
 
 class Menu extends Component {
-
   notificationDOMRef = React.createRef();
   menuRef = React.createRef();
 
@@ -16,15 +14,20 @@ class Menu extends Component {
     if (value === "/logout") {
       fetch("/api/v1/logout")
         .then(res => res.json())
-        .then(({error, data}) => {
-          if(error) {
-            notification(this.notificationDOMRef, 'warning', error, 'Warning')
+        .then(({ error, data }) => {
+          if (error) {
+            notification(this.notificationDOMRef, "warning", error, "Warning");
           } else {
-            this.props.history.push('/');
+            this.props.history.push("/");
           }
         })
         .catch(() => {
-          notification(this.notificationDOMRef, 'danger', 'Server Error Can\'t Logout', 'Error');
+          notification(
+            this.notificationDOMRef,
+            "danger",
+            "Server Error Can't Logout",
+            "Error"
+          );
         });
     } else {
       this.props.history.push(value);
@@ -34,7 +37,7 @@ class Menu extends Component {
     const { isLogged } = this.props;
     if (isLogged)
       return (
-        <div className="menu" ref = {this.menuRef}>
+        <div className="menu" ref={this.menuRef}>
           <li onClick={this.handleClick("/home")} className="menu__item">
             NOVA HOME
           </li>
@@ -58,7 +61,7 @@ class Menu extends Component {
       );
 
     return (
-      <div className="menu" ref = {this.menuRef}>
+      <div className="menu" ref={this.menuRef}>
         <li onClick={this.handleClick("/")} className="menu__item">
           NOVA HOME
         </li>
