@@ -28,15 +28,15 @@ function App() {
   }, []);
 
   return (
-    <div className="App">
+    <div className='App'>
       <Router>
         <Switch>
           {isLogged === true ? (
             <Route
               exact
-              path={"/"}
-              // navLinksForUsers is an array with home as the first item
-              component={navLinksForUsers[0].component}
+              path={"/login"}
+              // navLinksForUsers is an array with status as the third item
+              component={navLinksForUsers[2].component}
             />
           ) : null}
           {navLinksForVisitors.map((route, index) => (
