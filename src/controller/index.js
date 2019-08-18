@@ -1,12 +1,16 @@
-const express = require("express");
+const router = require('express').Router();
+
+const signup = require('./signup');
+const pictures = require('./picture');
+const login = require('./login');
+const poems = require('./poems');
 const postStatus = require("./checkLogin");
-const login = require("./login");
-const pictures = require("./picture");
 
-const route = express.Router();
+router.use('/register', signup);
+// router.use('/login', login);
 
-route.use(pictures);
-route.use(login);
-route.get("/login-status", postStatus);
+router.get("/login-status", postStatus);
+// router.use('/poems', poems);
+router.use(pictures);
 
-module.exports = route;
+module.exports = router;

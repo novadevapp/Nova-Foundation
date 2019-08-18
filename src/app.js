@@ -10,7 +10,7 @@ const cookie = require("cookie-parser");
 const fileUpload = require("express-fileupload");
 
 const connect = require('./database/config/connection');
-const controller = require("./controller");
+const controller = require('./controller')
 
 const app = express();
 
@@ -22,10 +22,9 @@ const middleware = [
   express.json(),
   cookie(),
   fileUpload(),
-  express.static(path.join(__dirname, "..", "client", "build"))
 ];
 
-app.use(function(req, res, next) {
+app.use(function (req, res, next) {
   res.header("Access-Control-Allow-Origin", "*");
   res.header(
     "Access-Control-Allow-Headers",
@@ -36,11 +35,16 @@ app.use(function(req, res, next) {
 
 app.use(middleware);
 
-app.use("/api/v1", controller);
+app.use('/api/v1', controller);
 
-app.get("*", (req, res) => {
-  res.sendFile(path.join(__dirname, "..", "client", "build", "index.html"));
-});
+if (process.env.NODE_ENV === 'production') {
+
+  app.use(express.static(path.join(__dirname, "..", "client", "build")));
+
+  app.get("*", (req, res) => {
+    res.sendFile(path.join(__dirname, "..", "client", "build", "index.html"));
+  });
+}
 
 app.set("PORT", process.env.PORT || 9000);
 
