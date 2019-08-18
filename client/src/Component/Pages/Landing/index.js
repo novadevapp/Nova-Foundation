@@ -60,7 +60,7 @@ export default class Land extends Component {
         <main className="land">
           <div className="land__home">
             <h3 className="land__header"> Nova Foundation</h3>
-            <img src={background} alt="landing" />
+            <img className='land__img' src={background} alt="landing" />
             <p className="land__paragraph">
               Babyloss is one of the most catastrophic things that can happen to
               a family. We are so sorry that it happened to you.
