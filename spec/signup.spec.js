@@ -7,11 +7,6 @@ const app = require('../src/app');
 
 describe('Signup route', () => {
 
-  beforeEach(() => {
-    originalTimeout = jasmine.DEFAULT_TIMEOUT_INTERVAL;
-    jasmine.DEFAULT_TIMEOUT_INTERVAL = 2500000;
-  })
-
   beforeAll(async (done) => {
     try {
       await buildTestDB();
