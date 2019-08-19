@@ -136,7 +136,7 @@ export default class SignUp extends Component {
               'ERROR',
             );
             // Success
-            this.props.history.push('/home');
+            this.props.history.push('/status');
           })
           .catch(error => {
             notification(
