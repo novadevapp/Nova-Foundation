@@ -8,22 +8,21 @@ module.exports = async (req, res) => {
       data: { email, password }
     } = req.body;
 
-    // Check if email already exists
+    // Check if user exists
     const user = await findUser({ email });
     if (!user) throw Error("Email or password were incorrect");
     console.log({ user });
-    // hash password
-    const hashedPassword = await hashPassword(password);
 
+    const hashedPassword = await hashPassword(password);
+    // Check if password matches
     if (!insertedUser._id === hashedPassword) {
       throw Error("Email or password were incorrect");
     } else {
-      // Create Cookie
       const cookie = await create({
         id: insertedUser._id,
         username: insertedUser.username
       });
-      // Set Cookie... maxAge => 2 months
+
       res.cookie(
         "jwt",
         cookie,
