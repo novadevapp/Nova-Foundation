@@ -4,15 +4,17 @@
   letter-spacing: 0.15px;
   width: 100%;
   display: block;
+  padding-top: 1rem;
 }
 
 .info-content {
   padding: 1rem;
+  padding-left: 20%;
+  padding-right: 20%;
   font-family: Roboto;
   font-weight: 300;
   font-size: 1.3rem;
   line-height: 1.5;
-  align-items: center;
   letter-spacing: 0.15px;
   color: #000000;
 }

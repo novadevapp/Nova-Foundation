@@ -1,28 +1,11 @@
 import React from "react";
 import "./style.css";
 
-const content = () => {
+const Grief = () => {
   return (
-    <div className="info-container">
-      <h1 className="info-title">Nova Information</h1>
-      <section className="info-content">
-        <div>
-          <p>
-            Grief is the flipside of love, which is why it is so painful.
-            Babyloss is against the natural order of things, resulting in an
-            intense grief for the loss of your child and the loss of the life
-            you had planned. We are so sorry that this happened to you. Please
-            know that you are not alone.
-          </p>
-          <p>
-            This app was designed by babyloss parents to provide comfort to
-            other babyloss parents. It is a safe space to connect with and
-            remember your baby, whilst helping you track your own wellbeing.
-          </p>
-        </div>
-      </section>
+    <div>
       <section className="grief-section">
-        <h3 className="grief-title">Grief</h3>
+        <h3 className="info-title">Grief</h3>
         <div className="info-content">
           <p>
             Grief can feel like drowning in a freezing sea at midnight. It can
@@ -77,15 +60,15 @@ const content = () => {
           </p>
           <p>What nice things are you going to do to look after yourself?</p>
           <p>
-            Image result for svg volcanoAnger – this could be at the hospital,
-            at the world, at other people for saying well meaning but silly
-            things, at yourself. Feeling life is meaningless, that life is
-            unjust and good people have bad things happen to them, at wanting
-            answers and having none. It is perfectly natural to feel angry about
-            what happened, it is a feeling and will pass. Talk to someone about
-            how you feel. Take time to breathe and respond to people that may
-            upset you, calmly. Journal your feelings. Get your anger out in a
-            way that feels good for you but that does not impact other people.
+            Anger – this could be at the hospital, at the world, at other people
+            for saying well meaning but silly things, at yourself. Feeling life
+            is meaningless, that life is unjust and good people have bad things
+            happen to them, at wanting answers and having none. It is perfectly
+            natural to feel angry about what happened, it is a feeling and will
+            pass. Talk to someone about how you feel. Take time to breathe and
+            respond to people that may upset you, calmly. Journal your feelings.
+            Get your anger out in a way that feels good for you but that does
+            not impact other people.
           </p>
           <p>
             What symptoms of grief have you experienced and how do you think you
@@ -102,45 +85,8 @@ const content = () => {
           </p>
         </div>
       </section>
-      <section className="trauma-section">
-        <h3 className="trauma-title">Trauma </h3>
-        <div className="info-content">
-          <p>
-            Trauma – trauma is your normal bodies reaction to an abnormal event.
-            There are many crossovers between trauma and grief. The main
-            symptoms of trauma include anxiety, replaying images or moments in
-            your mind/flashbacks, being triggered, nightmares, unexplained
-            pains, feeling fearful, tinglings or numbness in your body (arm
-            pain/ache is very common for babyloss mums), feeling
-            disconnected/detached, being on edge all the time/jumpy and unable
-            to relax, having persistent haunting and unwanted thoughts, feeling
-            overwhelmed/overstimulated in public spaces, hypersensitivity to
-            sound.
-          </p>
-          <p>
-            Have you experienced any of the above symptoms and if so, what are
-            they?
-          </p>
-          <p>
-            If you feel you are traumatised you should seek professional support
-            from a trauma therapist. Trauma can be flushed out the system very
-            quickly (3-4 sessions) leaving you free to focus on grieving. If you
-            feel you have ptsd, use the app to track your feelings. If traumatic
-            symptoms persist for four weeks please go to your GP if you find the
-            wait for an appointment is too long you can go privately by googling
-            trauma therapists in your area. There is additional information
-            about trauma and different therapies available on our website.
-          </p>
-          <a
-            href=" https://www.nhs.uk/conditions/post-traumatic-stress-disorder-ptsd/treatment/"
-            target="_blank"
-          >
-            For information on treatements for PTSD click here
-          </a>
-        </div>
-      </section>
     </div>
   );
 };
 
-export default content;
+export default Grief;
