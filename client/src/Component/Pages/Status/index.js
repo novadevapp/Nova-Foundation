@@ -108,7 +108,6 @@ export default class Status extends Component {
   }
 
   render() {
-    console.log(this.props, '11')
     const {
       colors: { sad, laugh, meh, mehRolling, grimace, frown, cry, tired, smile },
       status: {error}

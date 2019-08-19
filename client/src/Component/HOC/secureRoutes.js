@@ -7,7 +7,7 @@ function SecureRoutes({ component: Component, isLogged, ...rest }) {
       {...rest}
       render={props => {
         if (isLogged === true) {
-          return <Component {...props} isLogged={isLogged}{...rest} />;
+          return <Component {...props} isLogged={isLogged} {...rest} />;
         } else {
           return (
             <Redirect

@@ -1,22 +1,25 @@
 import React from "react";
 import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
+import ReactNotification from "react-notifications-component";
 
-import SecureRoutes from "./secureRoutes";
+import SecureRoutes from "./Component/HOC/secureRoutes";
+import CheckRoute from './Component/HOC/checkRoute';
 import { Landing, AboutUs, Login, Signup, FourOFour } from "./Component/Pages";
-import "./App.css";
 import navLinksForUsers from "./navLinksForUsers";
+import notification from './Component/helpers/notification'
+import "./App.css";
 
 //if not logged in
 const navLinksForVisitors = [
   { path: "/", component: Landing },
   { path: "/login", component: Login },
-  { path: "/about-us", component: AboutUs },
   { path: "/register", component: Signup }
 ];
 
 function App() {
   const [isLogged, setIsLogged] = React.useState("");
   const [username, setUserName] = React.useState('');
+  const notificationDOMRef = React.createRef();
 
   React.useEffect(() => {
     fetch("/api/v1/login-status")
@@ -28,30 +31,37 @@ function App() {
         }
         else setIsLogged(false);
       })
-      .catch(err => console.log(err));
+      .catch(err => {
+        notification(
+          this.notificationDOMRef,
+          'warning',
+          'Sorry, something went wrong. Please try again!',
+          'ERROR',
+        );
+      });
   }, []);
 
   return (
     <div className="App">
       <Router>
         <Switch>
-          {isLogged === true ? (
-            <Route
-              exact
-              path={"/"}
-              // navLinksForUsers is an array with home as the first item
-              component={navLinksForUsers[0].component}
-            />
-          ) : null}
+          <Route
+            exact
+            path="/about-us"
+            component={AboutUs}
+          />
           {navLinksForVisitors.map((route, index) => (
-            <Route
+            <CheckRoute
               exact
               path={route.path}
+              isLogged={isLogged}
+              component={route.component}
+              setIsLogged={setIsLogged}
+              setUserName={setUserName}
               key={index}
-              render={props => (
-                <route.component setIsLogged={setIsLogged} {...props} />
-              )}
-            />
+            >
+            </CheckRoute>
+
           ))}
           {isLogged ?
             navLinksForUsers.map((route, index) => (
@@ -70,6 +80,7 @@ function App() {
           <Route component={FourOFour} />
         </Switch>
       </Router>
+      <ReactNotification ref={notificationDOMRef} />
     </div>
   );
 }

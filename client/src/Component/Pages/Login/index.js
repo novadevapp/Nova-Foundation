@@ -22,7 +22,9 @@ class Login extends Component {
       error: ""
     }
   };
+
   notificationDOMRef = React.createRef();
+
   handleInput = e => {
     let { name, value } = e.target;
     if (name === "email") value = value.trim();

@@ -25,7 +25,7 @@ module.exports = async (req, res) => {
         const cookie = await create({ id: insertedUser._id, username: insertedUser.username });
         // Set Cookie... maxAge => 2 months
         res.cookie('jwt', cookie, { 'maxAge': 1000 * 3600 * 24 * 30 * 2 }, { 'HttpOnly': true})
-        return res.send({ data: { message: 'Success' }, error: null });
+        return res.send({ data: { username: insertedUser.username }, error: null });
       }
     }
     // Validation Error
