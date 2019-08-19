@@ -6,7 +6,6 @@ const buildTestDB = require('../src/database/config/buildTestDB');
 const app = require('../src/app');
 
 describe('Signup route', () => {
-  
   beforeAll(async (done) => {
     try {
       await buildTestDB();
