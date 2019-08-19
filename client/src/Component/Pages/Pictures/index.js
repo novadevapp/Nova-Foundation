@@ -75,7 +75,7 @@ export default class Pictures extends Component {
         notification(
           this.notificationDOMRef,
           "danger",
-          "Can't Load The Images please try again",
+          err,
           "Error"
         );
       });
