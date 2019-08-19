@@ -1,13 +1,13 @@
 const mongoose = require("mongoose");
 
 const insertthought = require("../src/database/queries/insertThoughts");
-const buildTestDB = require("../src/database/config/buildTestDB");
+const connect = require("../src/database/config/connection");
 const User = require("../src/database/models/users");
 
 describe("insert thought", () => {
   beforeAll(async done => {
     try {
-      await buildTestDB();
+      await connect();
       done();
     } catch (error) {
       done(error);
