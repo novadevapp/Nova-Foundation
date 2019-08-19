@@ -26,7 +26,7 @@ const pictuers = async (req, res) => {
       if (images.length === imagesFiles.length) res.send({ images });
     });
   } catch (error) {
-    res.status(500).send({ error: error });
+    res.status(500).send({ error: 'Internal Server Error' });
   }
 };
 module.exports = pictuers;

@@ -6,20 +6,20 @@ function SecureRoutes({ component: Component, isLogged, ...rest }) {
     <Route
       {...rest}
       render={props => {
-        // if (isLogged === true) {
+        if (isLogged === true) {
         return <Component {...props} />;
-        // } else {
-        //   return (
-        //     <Redirect
-        //       to={{
-        //         pathname: "/login",
-        //         state: {
-        //           from: props.location
-        //         }
-        //       }}
-        //     />
-        //   );
-        // }
+        } else {
+          return (
+            <Redirect
+              to={{
+                pathname: "/login",
+                state: {
+                  from: props.location
+                }
+              }}
+            />
+          );
+        }
       }}
     />
   );

@@ -11,7 +11,7 @@ router.use('/register', register);
 // router.use('/login', login);
 
 // Unlock Cookie Middleware
-// router.use(authenticate);
+router.use(authenticate);
 router.get('/login-status', checkLogin);
 router.use(pictures);
 router.use(poems);
