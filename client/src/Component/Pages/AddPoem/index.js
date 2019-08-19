@@ -7,7 +7,6 @@ const AddPoem = props => {
   const [title, setTitle] = React.useState("");
   const [poem, setPoem] = React.useState("");
   const [error, setError] = React.useState(false);
-  const [typeError, setTypeError] = React.useState(false);
   const [fetchError, setFetchError] = React.useState(false);
   const [buttonContent, setButtonContent] = React.useState("Save");
 
@@ -20,14 +19,13 @@ const AddPoem = props => {
     e.preventDefault();
 
     if ((title === "") | (poem === "")) {
-      console.log(title, poem);
       setError(true);
     } else {
       setError(false);
 
       setButtonContent("Loading...");
 
-      fetch("/api/v1/send-poem", {
+      fetch("/api/v1/poems", {
         method: "post",
         body: JSON.stringify({
           data: { title: title, poem: poem }
@@ -51,7 +49,7 @@ const AddPoem = props => {
         <section className="add-poem__section">
           <h2 className="add-poem__title">Add a Poem</h2>
           <form className="add-poem__form" onSubmit={handleSubmit}>
-            <Input
+            <textarea
               id="new-poem__title"
               placeholder="Type here..."
               label="Add a Title"
@@ -61,7 +59,7 @@ const AddPoem = props => {
               }}
             />
 
-            <Input
+            <textarea
               id="new-poem__text"
               placeholder="Type here..."
               label="Add a Poem"
