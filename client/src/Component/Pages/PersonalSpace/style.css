@@ -10,6 +10,7 @@
 .personal-space__header {
   display: flex;
   justify-content: center;
+  align-items: center;
 }
 
 .personal-space__cards {
@@ -24,10 +25,8 @@
 }
 
 .personal-space .icon {
-  height: 2.5em;
   width: 3em;
-  padding: 1.6em;
-  float:left;
+  margin-right: 1.5em;
 }
 
 @media(min-width:768px) {
