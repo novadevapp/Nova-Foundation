@@ -18,13 +18,13 @@
   grid-column-start: 1;
   grid-column-end: 1;
   padding: 1em;
-  width: 3em;
+  margin-top: 1em;
 }
 .toggle {
   grid-column-end: 10;
   grid-row-start: 1;
-  margin-top: 2rem;
-  padding: 1em;
+  margin-top: 3rem;
+  margin-right: 1em;
 }
 
 .triangle {
@@ -180,4 +180,8 @@
   .cloud{
     opacity: 0;
   }
+  .logo{
+    width: 4rem;
+  }
+  
 }

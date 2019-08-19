@@ -4,7 +4,6 @@ const express = require("express");
 const path = require("path");
 const compresion = require("compression");
 const helmet = require("helmet");
-require("dotenv").config();
 
 const cookie = require("cookie-parser");
 const fileUpload = require("express-fileupload");
@@ -16,14 +15,6 @@ const app = express();
 
 connect();
 
-const middleware = [
-  helmet(),
-  compresion(),
-  express.json(),
-  cookie(),
-  fileUpload(),
-];
-
 app.use(function (req, res, next) {
   res.header("Access-Control-Allow-Origin", "*");
   res.header(
@@ -32,6 +23,14 @@ app.use(function (req, res, next) {
   );
   next();
 });
+
+const middleware = [
+  helmet(),
+  compresion(),
+  express.json(),
+  cookie(),
+  fileUpload(),
+];
 
 app.use(middleware);
 

@@ -12,12 +12,16 @@
 }
 
 .serviceCard .icon {
-  height: 2em;
   width: 2em;
-  padding: 1.6em;
-  float: left;
+  margin-right: .5em;
 }
 
+.serviceCard__heading {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+}
 .serviceCard h3 {
   font-family: Roboto;
   display: inline-block;

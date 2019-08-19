@@ -2,9 +2,11 @@
   padding: 20px;
   min-height: 70vh;
 }
+
 .login__header {
   color: #696969;
 }
+
 .login__btn {
   margin: 3em auto;
   outline: none;
@@ -14,4 +16,11 @@
 
 .login__error {
   color: #d14761;
+}
+
+@media (min-width: 700px) {
+  .login form{
+    width: 50%;
+    margin: 0 auto;
+  }
 }
