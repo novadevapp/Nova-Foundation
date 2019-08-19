@@ -1,9 +1,4 @@
-const jwt = require("jsonwebtoken");
-const loginStatus = (req, res) => {
-  console.log(req.cookies);
-
-  // needs { auth: "ok" } for routing on front end
-  res.send({ auth: "ok" });
-};
-
-module.exports = loginStatus;
+module.exports = (req, res) => {
+  //User is authenticated
+  res.send({ auth: 'ok' });
+}
