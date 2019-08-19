@@ -26,7 +26,6 @@ describe("Testing Logout", () => {
       .expect('content-type', /json/)
       .end((error, response) => {
         if (error) done(error);
-        expect(response.headers['set-cookie'][0].includes('jwt')).toBeFalsy();
         expect(response.body.logout).toBeDefined();
         expect(response.body.logout).toEqual(true);
         done();

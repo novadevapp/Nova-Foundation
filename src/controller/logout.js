@@ -1,4 +1,4 @@
 module.exports = (req, res) => {
-  res.clearCookie();
+  res.clearCookie('jwt');
   res.send({ logout: true });
 }
