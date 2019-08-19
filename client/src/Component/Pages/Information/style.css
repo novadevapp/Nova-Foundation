@@ -7,6 +7,15 @@
   padding-top: 1rem;
 }
 
+.sub-info-title {
+  font-family: roboto;
+  font-size: 2.5vh;
+  letter-spacing: 0.15px;
+  width: 100%;
+  display: block;
+  padding-top: 1rem;
+}
+
 .info-content {
   padding: 1rem;
   padding-left: 20%;
@@ -17,14 +26,4 @@
   line-height: 1.5;
   letter-spacing: 0.15px;
   color: #000000;
-}
-
-.grief-title {
-  font-family: roboto;
-  font-size: 2.5vh;
-}
-
-.symptoms-title {
-  font-family: roboto;
-  font-size: 2.5vh;
 }

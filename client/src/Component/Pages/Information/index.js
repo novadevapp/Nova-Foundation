@@ -9,6 +9,7 @@ const Infomation = () => {
     <div>
       <Header />
       <Information />
+
       <Footer />
     </div>
   );

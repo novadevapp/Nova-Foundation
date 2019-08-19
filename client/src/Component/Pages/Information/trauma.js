@@ -1,11 +1,12 @@
 import React from "react";
 import "./style.css";
+import Button from "../../CommonComponent/Button";
 
 const Trauma = () => {
   return (
     <div>
       <section className="trauma-section">
-        <h3 className="info-title">Trauma </h3>
+        <h3 className="sub-info-title">Trauma </h3>
         <div className="info-content">
           <p>
             Trauma – trauma is your normal bodies reaction to an abnormal event.
@@ -40,6 +41,7 @@ const Trauma = () => {
             For information on treatements for PTSD click here
           </a>
         </div>
+        <Button name="Back" className="large-back__button" />
       </section>
     </div>
   );

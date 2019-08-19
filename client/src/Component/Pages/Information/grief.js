@@ -1,11 +1,12 @@
 import React from "react";
 import "./style.css";
+import Button from "../../CommonComponent/Button";
 
 const Grief = () => {
   return (
     <div>
       <section className="grief-section">
-        <h3 className="info-title">Grief</h3>
+        <h3 className="sub-info-title">Grief</h3>
         <div className="info-content">
           <p>
             Grief can feel like drowning in a freezing sea at midnight. It can
@@ -85,6 +86,7 @@ const Grief = () => {
           </p>
         </div>
       </section>
+      <Button name="Back" className="large-back__button" />
     </div>
   );
 };
