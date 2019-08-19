@@ -27,11 +27,6 @@
   margin: 1em;
 }
 
-.add-icon {
-  position: fixed;
-  top: 42vw;
-  left: 87vw;
-}
 .image-content {
   position: relative;
   cursor: pointer;
