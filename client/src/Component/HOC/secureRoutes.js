@@ -6,8 +6,8 @@ function SecureRoutes({ component: Component, isLogged, ...rest }) {
     <Route
       {...rest}
       render={props => {
-        if (isLogged === true) {
-          return <Component {...props} isLogged={isLogged} {...rest} />;
+        if (isLogged.auth === true) {
+          return <Component {...props} isLogged={isLogged.auth} {...rest} />;
         } else {
           return (
             <Redirect

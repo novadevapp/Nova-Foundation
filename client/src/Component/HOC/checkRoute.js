@@ -6,7 +6,7 @@ function CheckRoute({ component: Component, isLogged, ...rest }) {
     <Route
       {...rest}
       render={props => {
-        if (isLogged === true) {
+        if (isLogged.auth === true) {
           return (
             <Redirect
               to={{
@@ -18,7 +18,7 @@ function CheckRoute({ component: Component, isLogged, ...rest }) {
             />
           )
         } else {
-          return <Component {...rest} {...props} {...isLogged} />
+          return <Component {...props} isLogged={isLogged.auth} />
         }
       }}
     />

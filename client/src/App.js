@@ -6,7 +6,8 @@ import SecureRoutes from "./Component/HOC/secureRoutes";
 import CheckRoute from './Component/HOC/checkRoute';
 import { Landing, AboutUs, Login, Signup, FourOFour } from "./Component/Pages";
 import navLinksForUsers from "./navLinksForUsers";
-import notification from './Component/helpers/notification'
+import notification from './Component/helpers/notification';
+import Loading from './Component/CommonComponent/Loading'
 import "./App.css";
 
 //if not logged in
@@ -17,19 +18,23 @@ const navLinksForVisitors = [
 ];
 
 function App() {
-  const [isLogged, setIsLogged] = React.useState("");
-  const [username, setUserName] = React.useState('');
+  const [isLogged, setIsLogged] = React.useState({ auth: false, username: '' });
+  const [isLoading, setLoading] = React.useState(true);
   const notificationDOMRef = React.createRef();
 
   React.useEffect(() => {
+    if (!isLoading) return;
     fetch("/api/v1/login-status")
       .then(res => res.json())
       .then(data => {
         if (data.auth === "ok") {
-          setIsLogged(true);
-          setUserName(data.username);
+          setIsLogged({ auth: true, username: data.username });
+          setLoading(false);
         }
-        else setIsLogged(false);
+        else {
+          setIsLogged({ auth: false, username: data.username });
+          setLoading(false);
+        }
       })
       .catch(err => {
         notification(
@@ -38,50 +43,51 @@ function App() {
           'Sorry, something went wrong. Please try again!',
           'ERROR',
         );
+        setLoading(false);
       });
-  }, []);
-
+  }, [isLoading]);
   return (
     <div className="App">
-      <Router>
-        <Switch>
-          <Route
-            exact
-            path="/about-us"
-            render={(props) => {
-              return <AboutUs {...props} isLogged={isLogged} />
-            }}
-          />
-          {navLinksForVisitors.map((route, index) => (
-            <CheckRoute
+      {isLoading ? <Loading />
+        :
+        <Router>
+          <Switch>
+            <Route
               exact
-              path={route.path}
-              isLogged={isLogged}
-              component={route.component}
-              setIsLogged={setIsLogged}
-              setUserName={setUserName}
-              key={index}
-            >
-            </CheckRoute>
-
-          ))}
-          {isLogged ?
-            navLinksForUsers.map((route, index) => (
-              <SecureRoutes
+              path="/about-us"
+              render={(props) => {
+                return <AboutUs {...props} isLogged={isLogged} />
+              }}
+            />
+            {navLinksForVisitors.map((route, index) => (
+              <CheckRoute
                 exact
                 path={route.path}
                 isLogged={isLogged}
-                setIsLogged={setIsLogged}
-                username={username}
-                key={index}
                 component={route.component}
-              />
-            ))
-            : null}
+                setIsLogged={setIsLogged}
+                key={index}
+              >
+              </CheckRoute>
 
-          <Route render={(props) => <FourOFour {...props} isLogged={isLogged} />} />
-        </Switch>
-      </Router>
+            ))}
+            {isLogged ?
+              navLinksForUsers.map((route, index) => (
+                <SecureRoutes
+                  exact
+                  path={route.path}
+                  isLogged={isLogged}
+                  setIsLogged={setIsLogged}
+                  key={index}
+                  component={route.component}
+                />
+              ))
+              : null}
+
+            <Route render={(props) => <FourOFour {...props} isLogged={isLogged} />} />
+          </Switch>
+        </Router>
+      }
       <ReactNotification ref={notificationDOMRef} />
     </div>
   );

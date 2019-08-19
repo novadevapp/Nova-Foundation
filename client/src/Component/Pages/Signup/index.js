@@ -49,13 +49,13 @@ export default class SignUp extends Component {
 
     this.validateField = validateField.bind(this);
   }
-  
+
   notificationDOMRef = React.createRef();
-  
+
   validateInput = ({ target: { value, name } }) => {
     let errorMessage;
     let passwordsError;
-    
+
     // Check passwords: value1 is pas2, value2 is pas1 from the state
 
     const value2 = name === 'confirmPassword' && this.state.password.value;
@@ -63,19 +63,19 @@ export default class SignUp extends Component {
     errorMessage = this.validateField(name, value, value2);
 
     // each change to pas1, compare both passwords
-    
+
     name === 'password' && value === this.state.confirmPassword.value
-    ?
-    passwordsError = ''
+      ?
+      passwordsError = ''
       :
       passwordsError = 'Passwords dont\' match'
-      
+
     // Update State & Error Messages if Exists
 
     name === 'password'
-    ?
-    this.setState((prevState) => {
-      const confirmValue = prevState.confirmPassword.value;
+      ?
+      this.setState((prevState) => {
+        const confirmValue = prevState.confirmPassword.value;
         return {
           [name]: {
             value, error: errorMessage
@@ -86,9 +86,9 @@ export default class SignUp extends Component {
       })
       :
       this.setState({ [name]: { value, error: errorMessage } });
-    }
+  }
 
-    submitForm = (e) => {
+  submitForm = (e) => {
     e.preventDefault();
     const {
       name,
@@ -97,19 +97,19 @@ export default class SignUp extends Component {
       email,
       password,
     } = this.state;
-    
+
     // check if there are any errors, then don't submit
     // if Empty fields but no errors in state
-    
+
     if (!(Object.keys(this.state).some(key => this.state[key].error)))
-    Object.keys(this.state).some(key => !(this.state[key].value))
-    ?
-    notification(
-      this.notificationDOMRef,
-      'warning',
-      'Please Fill all fields',
+      Object.keys(this.state).some(key => !(this.state[key].value))
+        ?
+        notification(
+          this.notificationDOMRef,
+          'warning',
+          'Please Fill all fields',
           'Oops Sorry!',
-          )
+        )
         :
         // Success: submit form 
         fetch('/api/v1/register', {
@@ -132,19 +132,18 @@ export default class SignUp extends Component {
               'warning',
               result.error,
               'ERROR',
-              );
-              // Success
-              this.props.setIsLogged(true);
-              this.props.setUserName(result.data.username)
-              this.props.history.push('/status');
-            })
-            .catch(error => {
-              notification(
-                this.notificationDOMRef,
-                'warning',
-                'Sorry, something went wrong. Please try again!',
+            );
+            // Success
+            this.props.setIsLogged({ auth: true, result: result.data.username });
+            this.props.history.push('/status');
+          })
+          .catch(error => {
+            notification(
+              this.notificationDOMRef,
+              'warning',
+              'Sorry, something went wrong. Please try again!',
               'ERROR',
-              );
+            );
           });
   }
 
