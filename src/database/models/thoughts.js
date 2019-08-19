@@ -10,12 +10,12 @@ const ThoughtSchema = new Schema({
   thought: {
     type: String,
     required: true
-  }
+  },
   // a reference to users collection
-  // publisher: {
-  //   type: Schema.Types.ObjectId,
-  //   ref: "users"
-  // }
+  publisher: {
+    type: Schema.Types.ObjectId,
+    ref: "users"
+  }
 });
 
 module.exports = mongoose.model("thoughts", ThoughtSchema);
