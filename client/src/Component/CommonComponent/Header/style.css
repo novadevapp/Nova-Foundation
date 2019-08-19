@@ -180,4 +180,8 @@
   .cloud{
     opacity: 0;
   }
+  .logo{
+    width: 4rem;
+  }
+  
 }

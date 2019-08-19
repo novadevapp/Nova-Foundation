@@ -15,15 +15,18 @@
 .content__icon {
   margin-right: 10px;
 }
+
 .content__paragraph {
   line-height: 1.5;
 }
+
 .land__links {
   display: flex;
   flex-wrap: wrap;
   width: 250px;
   margin: 2.3em auto;
 }
+
 .land .react-notification-root {
   position: absolute;
   z-index: 8000;
@@ -31,6 +34,7 @@
   top: 0;
   left: 50%;
 }
+
 .land__header {
   color: #62676b;
   font-size: 2em;
@@ -45,13 +49,14 @@
   color: #333;
 }
 
-.land__img{
+.land__img {
   width: 99%;
 }
 
 .hidden {
   animation: fadeOut 1s ease-in-out;
 }
+
 @keyframes fadeOut {
   form {
     opacity: 1;
@@ -72,5 +77,11 @@
   .react-notification-root {
     left: 0;
     margin-left: 5%;
+  }
+}
+
+@media(min-width: 700px) {
+  .land__img {
+    width: 30%;
   }
 }
