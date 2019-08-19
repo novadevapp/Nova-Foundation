@@ -52,7 +52,7 @@ describe('Signup route', () => {
       .end((error, res) => {
         if (error) done(error);
         expect(res.body.data).toBeDefined();
-        expect(res.body.data.message).toEqual('Success');
+        expect(res.body.data.username).toBeDefined();
         expect(res.header['set-cookie']).toBeDefined();
         done();
       });
