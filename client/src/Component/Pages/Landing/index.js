@@ -6,6 +6,7 @@ import Footer from "../../CommonComponent/Footer";
 import background from "../../../assets/background.png";
 import Button from "../../CommonComponent/Button";
 import Victor from "./victor";
+// import DropdownMenu from "../../CommonComponent/DropdownMenu";
 
 import "./style.css";
 
@@ -43,7 +44,7 @@ export default class Land extends Component {
         container: "top-center",
         dismissable: { click: true }
       });
-    } 
+    }
   }
   handleClick = () => {
     this.notificationContent.current.classList.add("hidden");
@@ -57,6 +58,7 @@ export default class Land extends Component {
     return (
       <>
         <Header />
+
         <main className="land">
           <div className="land__home">
             <h3 className="land__header"> YOU'RE NOT ALONE</h3>

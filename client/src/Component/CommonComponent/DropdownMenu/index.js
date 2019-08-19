@@ -1,8 +1,7 @@
 import React from "react";
 import "./style.css";
-import Information from "../../Pages/Information";
-import Stories from "../../Pages/Stories";
-import Suggestions from "../../Pages/Suggestion";
+import Grief from "../../Pages/Information/grief";
+import Trauma from "../../Pages/Information/trauma";
 
 export default () => {
   const [selection, setSelection] = React.useState("information");
@@ -15,14 +14,14 @@ export default () => {
     <>
       <div className="select-container">
         <select onChange={redirectOnSelect}>
-          <option value="information">Information & Suggestions</option>
-          <option value="stories">Stories</option>
-          <option value="suggestions">What people said</option>
+          <option value="information">Information</option>
+          <option value="grief">Grief</option>
+          <option value="trauma">Trauma</option>
         </select>
       </div>
-      {selection === "information" ? <Information /> : null}
-      {selection === "stories" ? <Stories /> : null}
-      {selection === "suggestions" ? <Suggestions /> : null}
+      {selection === "information" ? <p /> : null}
+      {selection === "grief" ? <Grief /> : null}
+      {selection === "trauma" ? <Trauma /> : null}
     </>
   );
 };
