@@ -15,7 +15,7 @@ module.exports = async (req, res) => {
     // hash password
     const hashedPassword = await hashPassword(password);
 
-    if (!insertedUser._id === hashPassword)
+    if (!insertedUser._id === hashedPassword)
       throw Error("Email or password were incorrect");
 
     // Create Cookie
