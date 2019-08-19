@@ -6,9 +6,9 @@ module.exports = async (req, res) => {
       data: { value, select }
     } = req.body;
 
-    // let { id } = req.auth;
+    let { id } = req.auth;
 
-    const insertedData = await insertThoughts(select, value);
+    const insertedData = await insertThoughts(id, select, value);
     if (insertedData) {
       return res.send({ data: { message: "Success" }, error: null });
     }
