@@ -20,12 +20,11 @@ module.exports = async (req, res) => {
       // Insert Into database
       const insertedUser = await insertUser(name, nickName, babyName, email, hashedPassword);
       if (insertedUser._id) {
-
         // Create Cookie
         const cookie = await create({ id: insertedUser._id, username: insertedUser.username });
         // Set Cookie... maxAge => 2 months
         res.cookie('jwt', cookie, { 'maxAge': 1000 * 3600 * 24 * 30 * 2 }, { 'HttpOnly': true})
-        return res.send({ data: { username: insertedUser.username }, error: null });
+        return res.send({ data: { username: insertedUser.displayName }, error: null });
       }
     }
     // Validation Error

@@ -48,7 +48,9 @@ function App() {
           <Route
             exact
             path="/about-us"
-            component={AboutUs}
+            render={(props) => {
+              return <AboutUs {...props} isLogged={isLogged} />
+            }}
           />
           {navLinksForVisitors.map((route, index) => (
             <CheckRoute
@@ -77,7 +79,7 @@ function App() {
             ))
             : null}
 
-          <Route component={FourOFour} />
+          <Route render={(props) => <FourOFour {...props} isLogged={isLogged} />} />
         </Switch>
       </Router>
       <ReactNotification ref={notificationDOMRef} />
