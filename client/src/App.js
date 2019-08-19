@@ -16,12 +16,16 @@ const navLinksForVisitors = [
 
 function App() {
   const [isLogged, setIsLogged] = React.useState("");
+  const [username, setUserName] = React.useState('');
 
   React.useEffect(() => {
     fetch("/api/v1/login-status")
       .then(res => res.json())
       .then(data => {
-        if (data.auth === "ok") setIsLogged(true);
+        if (data.auth === "ok") {
+          setIsLogged(true);
+          setUserName(data.username);
+        }
         else setIsLogged(false);
       })
       .catch(err => console.log(err));
@@ -49,17 +53,19 @@ function App() {
               )}
             />
           ))}
-
-          {navLinksForUsers.map((route, index) => (
-            <SecureRoutes
-              exact
-              path={route.path}
-              isLogged={isLogged}
-              setIsLogged={setIsLogged}
-              key={index}
-              component={route.component}
-            />
-          ))}
+          {isLogged ?
+            navLinksForUsers.map((route, index) => (
+              <SecureRoutes
+                exact
+                path={route.path}
+                isLogged={isLogged}
+                setIsLogged={setIsLogged}
+                username={username}
+                key={index}
+                component={route.component}
+              />
+            ))
+            : null}
 
           <Route component={FourOFour} />
         </Switch>

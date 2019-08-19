@@ -2,13 +2,12 @@ import React from "react";
 import { Route, Redirect } from "react-router-dom";
 
 function SecureRoutes({ component: Component, isLogged, ...rest }) {
-  console.log({ isLogged });
   return (
     <Route
       {...rest}
       render={props => {
         if (isLogged === true) {
-          return <Component {...props} />;
+          return <Component {...props} isLogged={isLogged}{...rest} />;
         } else {
           return (
             <Redirect

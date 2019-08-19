@@ -22,7 +22,6 @@ import "react-notifications-component/dist/theme.css";
 
 export default class Status extends Component {
   state = {
-    name: "Tara",
     status: {
       select: "",
       value: "",
@@ -109,8 +108,8 @@ export default class Status extends Component {
   }
 
   render() {
+    console.log(this.props, '11')
     const {
-      name,
       colors: { sad, laugh, meh, mehRolling, grimace, frown, cry, tired, smile },
       status: {error}
     } = this.state;
@@ -119,7 +118,7 @@ export default class Status extends Component {
         <Header isLogged={true} />
         <div className="status">
           <h3 className="status__greeting">
-            Hi <span className="status__username">{name}</span>
+            Hi <span className="status__username">{this.props.username}</span>
           </h3>
           <p className="status__question">How are you today ?</p>
           <div className="status__emoji-container">
