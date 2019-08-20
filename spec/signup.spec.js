@@ -5,8 +5,9 @@ const insertUser = require("../src/database/queries/insertUser");
 const buildTestDB = require("../src/database/config/buildTestDB");
 const app = require("../src/app");
 
-describe("Signup route", () => {
-  beforeAll(async done => {
+
+describe('Signup route', () => {
+  beforeAll(async (done) => {
     try {
       await buildTestDB();
       done();
@@ -57,8 +58,8 @@ describe("Signup route", () => {
       .end((error, res) => {
         if (error) done(error);
         expect(res.body.data).toBeDefined();
-        expect(res.body.data.message).toEqual("Success");
-        expect(res.header["set-cookie"]).toBeDefined();
+        expect(res.body.data.username).toBeDefined();
+        expect(res.header['set-cookie']).toBeDefined();
         done();
       });
   });

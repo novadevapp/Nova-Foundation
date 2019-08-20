@@ -9,8 +9,8 @@ import "./style.css";
 export default props => {
   return (
     <>
-      <Header isLogged={true} />
-      <main>
+      <Header {...props} setLogged={props.setLogged} />
+      <main style={{ minHeight: '65vh' }}>
         <h3>404 page not found</h3>
         <Button
           name="Back"

@@ -12,10 +12,9 @@ export default function (props) {
   function handleRedirection(path) {
     props.history.push(path);
   }
-
   return (
     <>
-      <Header />
+      <Header {...props} />
       <main className='personal-space'>
         <section className='personal-space__section'>
           <div className='personal-space__header'>
