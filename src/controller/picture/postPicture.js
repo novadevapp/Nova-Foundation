@@ -6,10 +6,7 @@ const postPicture = async (req, res) => {
   try {
     const { file } = req.files;
     const bucket = admin.storage().bucket();
-    let { id } = req.cookies;
-
-    // disable this line when complete the app
-    id = 1;
+    let { id } = req.auth;
 
     file.name = `${Date.now()}${path.extname(file.name)}`;
 

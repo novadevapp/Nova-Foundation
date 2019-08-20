@@ -22,7 +22,9 @@ class Login extends Component {
       error: ""
     }
   };
+
   notificationDOMRef = React.createRef();
+
   handleInput = e => {
     let { name, value } = e.target;
     if (name === "email") value = value.trim();
@@ -85,8 +87,9 @@ class Login extends Component {
     const { email, password } = this.state;
     return (
       <>
-        <Header isLogged={false} />
-        <div className='login'>
+
+        <Header {...this.props} />
+        <div className="login">
           <form onSubmit={this.handleSubmit}>
             <h1 className='login__header'>Please Login</h1>
             <Input
