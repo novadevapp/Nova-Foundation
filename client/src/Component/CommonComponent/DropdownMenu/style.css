@@ -8,6 +8,9 @@
   border-radius: 3px;
   background: #faf8f8;
   outline: none;
+  display: inline-block;
+  max-width: 100%;
+  width: 35vw;
 }
 .select-container select {
   width: 100%;
@@ -42,4 +45,8 @@
   line-height: 1.5;
   letter-spacing: 0.15px;
   color: #000000;
+}
+
+.dropdown {
+  min-height: 60vh;
 }

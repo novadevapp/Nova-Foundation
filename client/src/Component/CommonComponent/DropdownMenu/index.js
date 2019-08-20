@@ -12,7 +12,7 @@ export default () => {
   };
 
   return (
-    <>
+    <section className="dropdown">
       <div className="select-container">
         <select onChange={redirectOnSelect}>
           <option value="information">Information</option>
@@ -37,6 +37,6 @@ export default () => {
       {selection === "grief" ? <Grief /> : null}
       {selection === "trauma" ? <Trauma /> : null}
       {selection === "personal" ? <PersonalSpace /> : null}
-    </>
+    </section>
   );
 };
