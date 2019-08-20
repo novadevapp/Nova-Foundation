@@ -9,7 +9,7 @@ import './style.css'
 export default function (props) {
   return (
     <>
-      <Header className='triangle' />
+      <Header {...props} className='triangle' />
       <main className='about-us'>
         <section className='about-us__section'>
           <img src={Logo} alt='nova-logo' />

@@ -44,7 +44,7 @@ const AddPoem = props => {
 
   return (
     <div>
-      <Header isLogged="true" />
+      <Header {...props} />
       <main className="add-poem-page">
         <section className="add-poem__section">
           <h2 className="add-poem__title">Add a Poem</h2>

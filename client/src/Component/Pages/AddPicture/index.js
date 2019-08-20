@@ -63,7 +63,7 @@ export default function(props) {
 
   return (
     <>
-      <Header isLogged="true" />
+      <Header {...props} />
       <main className="add-pic-page">
         <section className="add-pic-page__section">
           <h2 className="add-pic-page__title">Add a Picture</h2>
