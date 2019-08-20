@@ -3,7 +3,7 @@ const buildDB = require("../src/database/config/buildTestDB/index");
 
 describe("initial test", () => {
   // Before each test, rebuildDb
-  beforeEach(async (done) => {
+  beforeEach(async done => {
     await buildDB();
     done();
   });
@@ -13,7 +13,7 @@ describe("initial test", () => {
   });
 
   // After all tests, disconnect mongoose connection
-  afterAll(() => {
+  afterAll(async done => {
     mongoose.disconnect();
   });
 });

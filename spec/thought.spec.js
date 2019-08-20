@@ -36,5 +36,7 @@ describe("insert thought", () => {
     }
   });
 
-  afterAll(() => mongoose.disconnect());
+  afterAll(async done => {
+    mongoose.disconnect();
+  });
 });
