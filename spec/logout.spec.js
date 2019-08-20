@@ -33,7 +33,8 @@ describe("Testing Logout", () => {
 
   });
   // After all tests, disconnect mongoose connection
-  afterAll(() => {
+  afterAll(async (done) => {
     mongoose.disconnect();
+    done();
   });
 });

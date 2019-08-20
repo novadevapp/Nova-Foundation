@@ -101,6 +101,8 @@ describe('Signup route', () => {
       });
   })
 
-  afterAll(() => mongoose.disconnect());
-
+  afterAll(async (done) => {
+    mongoose.disconnect();
+    done();
+  });
 })
