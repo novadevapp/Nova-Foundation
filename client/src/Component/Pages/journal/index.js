@@ -3,20 +3,40 @@ import React from "react";
 import Header from "../../CommonComponent/Header";
 import Footer from "../../CommonComponent/Footer";
 import Button from "../../CommonComponent/Button";
-import Thoughts from "./thoughts";
+import Loading from "../../CommonComponent/Loading";
+// import Thoughts from "./thoughts";
 import AddIcon from "./AddIcon";
 import "./style.css";
 
 export default props => {
-  handleClick = () => {
+  // <Thoughts />
+  const handleClick = () => {
     props.history.push("/status");
   };
+  const [thoughts, setThoughts] = React.useState("");
+  const [loading, setLoading] = React.useState(true);
+
+  React.useEffect(() => {
+    fetch("/api/v1/thoughts")
+      .then(res => res.json())
+      .then(data => {
+        console.log(data);
+        setThoughts(data);
+        setLoading(false);
+      })
+      .catch(err => console.log(err));
+  }, []);
   return (
     <>
       <Header {...props} />
       <main className='journal'>
+        <h1 className='journal__title'> Journal</h1>
         <AddIcon onClick={handleClick} />
-        <Thoughts />
+        {loading && (
+          <div className='journal__loading'>
+            <Loading />
+          </div>
+        )}
         <Button
           name='Back'
           className='large-skip__button'
