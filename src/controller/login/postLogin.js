@@ -1,6 +1,6 @@
-const hashPassword = require("../../utils/hash");
 const findUser = require("../../database/queries/selectUser");
 const { create } = require("../../utils/cookie");
+const compare = require("../../utils/compare");
 
 module.exports = async (req, res) => {
   try {
@@ -11,16 +11,15 @@ module.exports = async (req, res) => {
     // Check if user exists
     const user = await findUser({ email });
     if (!user) throw Error("Email or password were incorrect");
-    console.log({ user });
 
-    const hashedPassword = await hashPassword(password);
     // Check if password matches
-    if (!insertedUser._id === hashedPassword) {
+    const compareRes = await compare(password, user.password);
+    if (!compareRes) {
       throw Error("Email or password were incorrect");
     } else {
       const cookie = await create({
-        id: insertedUser._id,
-        username: insertedUser.username
+        id: user._id,
+        username: user.username
       });
 
       res.cookie(
@@ -29,7 +28,7 @@ module.exports = async (req, res) => {
         { maxAge: 1000 * 3600 * 24 * 30 * 2 },
         { HttpOnly: true }
       );
-      return res.send({ data: { message: "Success" }, error: null });
+      return res.send({ data: { username: user.displayName }, error: null });
     }
   } catch (error) {
     // Error Cases
