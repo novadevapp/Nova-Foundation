@@ -1,6 +1,5 @@
 const router = require("express").Router();
 
-
 const register = require('./signup');
 const pictures = require('./picture');
 const checkLogin = require('./checkLogin')
@@ -12,7 +11,8 @@ const logout = require('./logout');
 
 
 router.use("/register", register);
-// router.use('/login', login);
+router.use("/login", login);
+
 
 // Unlock Cookie Middleware
 router.use(authenticate);
