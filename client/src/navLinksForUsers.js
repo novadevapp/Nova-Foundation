@@ -20,7 +20,7 @@ import {
 export default [
   { path: "/home", component: Home },
   //{ path: "/about-us", component: AboutUs },
-  // { path: "/status", component: Status },
+  { path: "/status", component: Status },
   // { path: "/exercises", component: Exercises },
   { path: "/personal-space", component: PersonalSpace },
   { path: "/add-pic", component: AddPic },

@@ -56,7 +56,7 @@ export default class Land extends Component {
   render() {
     return (
       <>
-        <Header />
+        <Header {...this.props} />
         <main className="land">
           <div className="land__home">
             <h3 className="land__header"> Nova Foundation</h3>
