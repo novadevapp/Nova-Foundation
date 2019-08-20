@@ -3,10 +3,11 @@ import React from "react";
 import Header from "../../CommonComponent/Header";
 import Footer from "../../CommonComponent/Footer";
 import Input from "../../CommonComponent/Input";
+import Button from '../../CommonComponent/Button';
 
 import "./style.css";
 
-export default function(props) {
+export default function (props) {
   const [title, setTitle] = React.useState("");
   const [file, setFile] = React.useState({ name: "." });
   const [error, SetError] = React.useState(false);
@@ -67,7 +68,7 @@ export default function(props) {
       <main className="add-pic-page">
         <section className="add-pic-page__section">
           <h2 className="add-pic-page__title">Add a Picture</h2>
-          <form className="add-pic-page__form" onSubmit={handleSubmit}>
+          <form className="add-pic-page__form">
             <Input
               id="new-pic__title"
               placeholder="Add a title"
@@ -88,12 +89,9 @@ export default function(props) {
 
             {fetchError && <p className="add-pic__error">{message.fetch}</p>}
             <div className="add-pic-page__form_buttons">
-              <a href="/pictures" className="large-skip__button">
-                Back
-              </a>
-              <button className="large-save__button" type="submit">
-                {buttonContent}
-              </button>
+              <Button className='large-back__button' name='Back' onClick={() => props.history.push('/pictures')} />
+
+              <Button className='register__button' onClick={handleSubmit} name={buttonContent} />
             </div>
           </form>
         </section>
