@@ -1,6 +1,14 @@
 import React from "react";
-import "./style.css";
+
+import pain from "../../../assets/pain-icon.jpg";
+import spiral from "../../../assets/spiral.png";
 import Button from "../../CommonComponent/Button";
+import Stages from "./img/stages.js"
+import Heart from "./img/broken.js"
+import Volcano from "./img/volcano.js"
+import Depression from "./img/depression.js"
+
+import "./style.css";
 
 const Grief = () => {
   return (
@@ -13,6 +21,7 @@ const Grief = () => {
             be overwhelming and frightening, but is always changing, along with
             the feelings that go with it. Grief has no time limit.
           </p>
+          <img src={spiral} alt="spiral Icon" />
           <p className="info-content">
             You may have heard of the five stages of grief – denial, anger,
             bargaining, depression and acceptance. These are not linear stages
@@ -22,6 +31,7 @@ const Grief = () => {
             the same emotion, with different intensities. You will not always
             feel like this.
           </p>
+          <Stages />
           <p className="info-questions">
             Have you experienced any of these feelings and how do you feel right
             now?
@@ -30,6 +40,7 @@ const Grief = () => {
       </section>
       <section className="symptoms-section">
         <h3 className="sub-info-title">Symptoms of Grief</h3>
+        <img src={pain} alt="neck pain Icon" />
         <div>
           <p className="info-content">
             Body pains - Grief can manifest itself in many ways including
@@ -49,6 +60,7 @@ const Grief = () => {
             memory loss is very common, often made worse by headaches, and,
             although it can be frightening, is nothing to be alarmed about.
           </p>
+          <Heart />
           <p className="info-content">
             You may feel numb, have difficulty concentrating, have a loss of
             appetite, poor sleep etc. At points you may feel pure despair and an
@@ -64,6 +76,7 @@ const Grief = () => {
           <p className="info-questions">
             What nice things are you going to do to look after yourself?
           </p>
+          <Volcano />
           <p className="info-content">
             Anger – this could be at the hospital, at the world, at other people
             for saying well meaning but silly things, at yourself. Feeling life
@@ -79,6 +92,8 @@ const Grief = () => {
             What symptoms of grief have you experienced and how do you think you
             could let the anger out?
           </p>
+
+          <Depression/>
           <p className="info-content">
             Depression – Grief and depression are two very different things.
             They can have similar symptoms such as poor sleep, lack of appetite

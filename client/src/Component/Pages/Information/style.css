@@ -40,3 +40,10 @@
 .info-link {
   padding-bottom: 2rem;
 }
+
+.info-stages__icon{
+  width: 60vw;
+  max-width: 800px;
+  margin: auto;
+  padding: 1em;
+}

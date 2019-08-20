@@ -6,7 +6,7 @@ import Footer from "../../CommonComponent/Footer";
 import background from "../../../assets/background.png";
 import Button from "../../CommonComponent/Button";
 import Victor from "./victor";
-// import DropdownMenu from "../../CommonComponent/DropdownMenu";
+
 
 import "./style.css";
 

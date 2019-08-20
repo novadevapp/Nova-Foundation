@@ -1,6 +1,8 @@
 import React from "react";
 import "./style.css";
 import Button from "../../CommonComponent/Button";
+import TraumaIcon from "./img/traumaIcon.js"
+import Sound from "./img/no-sound.js"
 
 const Trauma = () => {
   return (
@@ -8,6 +10,7 @@ const Trauma = () => {
       <section className="trauma-section">
         <h3 className="sub-info-title">Trauma </h3>
         <div>
+          <TraumaIcon />
           <p className="info-content">
             Trauma – trauma is your normal bodies reaction to an abnormal event.
             There are many crossovers between trauma and grief. The main
@@ -20,6 +23,7 @@ const Trauma = () => {
             overwhelmed/overstimulated in public spaces, hypersensitivity to
             sound.
           </p>
+          <Sound />
           <p className="info-questions">
             Have you experienced any of the above symptoms and if so, what are
             they?
