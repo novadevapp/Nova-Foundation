@@ -1,4 +1,5 @@
 export default (ref, type, message, title) => {
+  console.log(ref, 'h')
     ref.current.addNotification({
         message,
         type,

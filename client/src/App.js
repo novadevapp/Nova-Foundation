@@ -86,9 +86,9 @@ function App() {
 
             <Route render={(props) => <FourOFour {...props} isLogged={isLogged} />} />
           </Switch>
+          <ReactNotification ref={notificationDOMRef} />
         </Router>
       }
-      <ReactNotification ref={notificationDOMRef} />
     </div>
   );
 }
