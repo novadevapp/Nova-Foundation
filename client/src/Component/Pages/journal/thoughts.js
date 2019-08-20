@@ -1,6 +1,5 @@
 import React from "react";
 
-import DeleteIcon from "./DeleteIcon";
 import "./style.css";
 
 const Thoughts = ({ Array }) => {
