@@ -13,8 +13,6 @@ describe("initial test", () => {
   });
 
   // After all tests, disconnect mongoose connection
-  afterAll(async (done) => {
-    mongoose.disconnect();
-    done();
-  });
+  afterAll(() => mongoose.disconnect());
+  
 });
