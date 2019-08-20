@@ -5,7 +5,7 @@ form {
 
 label {
   align-self: flex-start;
-  font: 1.1em Roboto;
+  font: 1em Roboto;
   padding: 0.3em;
   margin-top: 1em;
   color: #333;
@@ -21,6 +21,6 @@ input {
   border: rgba(144, 144, 144, 0.6) 0.8px;
   padding: 0.3em;
   margin: 0.3em;
-  font: 1.2em Lato;
+  font: 1em Lato;
   padding: 0.8em;
 }
