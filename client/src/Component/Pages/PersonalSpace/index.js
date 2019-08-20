@@ -14,7 +14,7 @@ export default function (props) {
   }
   return (
     <>
-      <Header isLogged={props.isLogged} />
+      <Header {...props} />
       <main className='personal-space'>
         <section className='personal-space__section'>
           <div className='personal-space__header'>

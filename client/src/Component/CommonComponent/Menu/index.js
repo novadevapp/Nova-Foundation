@@ -18,8 +18,11 @@ class Menu extends Component {
           if (error) {
             notification(this.notificationDOMRef, "warning", error, "Warning");
           } else {
-            this.props.setIsLogged({ auth: false, username: '' });
-            this.props.history.push("/");
+            return new Promise(async (resolve, reject) => {
+              await this.props.setIsLogged({ auth: false, username: '' });
+              this.props.history.push("/");
+              resolve();
+            })
           }
         })
         .catch(() => {

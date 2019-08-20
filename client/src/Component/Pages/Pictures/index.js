@@ -86,7 +86,7 @@ export default class Pictures extends Component {
     const { imageURL, loading } = this.state;
     return (
       <div>
-        <Header isLogged = {true}/>
+        <Header {...this.props} />
         <AddIcon onClick={this.handleClick} />
         <section className="collage-container">
           <h1 className="all-pictures__title"> All Pictures </h1>

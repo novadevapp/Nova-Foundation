@@ -5,10 +5,10 @@ import Header from "../../CommonComponent/Header";
 import Footer from "../../CommonComponent/Footer";
 import Button from "../../CommonComponent/Button";
 
-const Poems = () => {
+const Poems = (props) => {
   return (
     <div>
-      <Header />
+      <Header {...props} />
       <PoemList />
       <div className="poem-buttons">
         <Button className="large-back__button" name="Back" />

@@ -135,7 +135,7 @@ export default class SignUp extends Component {
             );
             // Success
             new Promise(async (resolve, reject) => {
-              await this.props.setIsLogged({ auth: true, result: result.data.username });
+              await this.props.setIsLogged({ auth: true, username: result.data.username });
               resolve(this.props.history.push('/status'));
             })
           })
@@ -161,7 +161,7 @@ export default class SignUp extends Component {
 
     return (
       <>
-        <Header className='register minimal' />
+        <Header {...this.props} className='register minimal' />
         <main className='register-page'>
           <form className='register-page__form'>
             <Input

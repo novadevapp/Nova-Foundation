@@ -1,5 +1,4 @@
 import React from "react";
-import { withRouter } from "react-router-dom"
 
 import Star from "./star";
 import Cloud from "./cloud";
@@ -10,7 +9,7 @@ import Toggle from "./toggle";
 
 import "./style.css";
 
-const Header = ({ className, isLogged, setIsLogged, ...rest }) => {
+const Header = ({ className, ...rest }) => {
   const menuRef = React.createRef();
 
   function handleClick() {
@@ -54,9 +53,9 @@ const Header = ({ className, isLogged, setIsLogged, ...rest }) => {
           null}
         {className && className.includes("triangle") ? <Triangle /> : null}
       </div>
-      <Menu isLogged={isLogged} setIsLogged={setIsLogged} ref={menuRef} history={rest.history} />
+      <Menu {...rest} ref={menuRef} />
     </>
   );
 };
 
-export default withRouter(Header);
+export default Header;
