@@ -1,34 +1,35 @@
-const mongoose = require('mongoose');
+const mongoose = require("mongoose");
 
-const connect = require('../connection');
-const Poem = require('../../models/poems');
-const User = require('../../models/users');
+const connect = require("../connection");
+const Poem = require("../../models/poems");
+const User = require("../../models/users");
+const Thought = require("../../models/thoughts");
 
 // This function is to rebuild our local & production db
 
-const rebuildDB = () => new Promise(async (resolve, reject) => {
-  try {
+const rebuildDB = () =>
+  new Promise(async (resolve, reject) => {
+    try {
+      // Connect to DB
+      await connect();
 
-    // Connect to DB 
-    await connect();
+      // delete all documents in collections
+      // using drop collection throws error if a collection is not found
 
-    // delete all documents in collections
-    // using drop collection throws error if a collection is not found
+      await User.deleteMany();
+      await Poem.deleteMany();
+      await Thought.deleteMany();
 
-    await User.deleteMany();
-    await Poem.deleteMany();
-    
-    // set documents 
+      // set documents
 
-    mongoose.disconnect();
+      mongoose.disconnect();
 
-    resolve('done rebuilding');
-
-  } catch (error) {
-    reject(error)
-  }
-});
+      resolve("done rebuilding");
+    } catch (error) {
+      reject(error);
+    }
+  });
 
 rebuildDB()
   .then(console.log)
-  .catch(console.log)
+  .catch(console.log);
