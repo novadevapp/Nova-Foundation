@@ -5,8 +5,9 @@ const insertUser = require("../src/database/queries/insertUser");
 const buildTestDB = require("../src/database/config/buildTestDB");
 const app = require("../src/app");
 
-describe("Signup route", () => {
-  beforeAll(async done => {
+
+describe('Signup route', () => {
+  beforeAll(async (done) => {
     try {
       await buildTestDB();
       done();
