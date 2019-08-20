@@ -17,13 +17,25 @@
 }
 
 .info-content {
+  text-align: left;
+  text-align: start;
   padding: 1rem;
-  padding-left: 20%;
-  padding-right: 20%;
+  padding-left: 10%;
+  padding-right: 10%;
   font-family: Roboto;
   font-weight: 300;
   font-size: 1.3rem;
   line-height: 1.5;
   letter-spacing: 0.15px;
   color: #000000;
+}
+
+.info-questions {
+  padding: 3rem;
+  font-weight: 500;
+  letter-spacing: 0.15px;
+}
+
+.info-link {
+  padding-bottom: 2rem;
 }

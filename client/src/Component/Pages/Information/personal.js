@@ -7,8 +7,8 @@ const personalSpace = () => {
     <div>
       <section className="personalspace-section">
         <h3 className="sub-info-title">Personal Space</h3>
-        <div className="info-content">
-          <p>
+        <div>
+          <p className="info-content">
             Mourning is the outward expression of grief, it is the way you
             express emotions, and also the way that you celebrate the love you
             have for your child. There is no right or wrong way to mourn, nor is

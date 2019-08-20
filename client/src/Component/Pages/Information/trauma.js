@@ -7,8 +7,8 @@ const Trauma = () => {
     <div>
       <section className="trauma-section">
         <h3 className="sub-info-title">Trauma </h3>
-        <div className="info-content">
-          <p>
+        <div>
+          <p className="info-content">
             Trauma – trauma is your normal bodies reaction to an abnormal event.
             There are many crossovers between trauma and grief. The main
             symptoms of trauma include anxiety, replaying images or moments in
@@ -20,11 +20,11 @@ const Trauma = () => {
             overwhelmed/overstimulated in public spaces, hypersensitivity to
             sound.
           </p>
-          <p>
+          <p className="info-questions">
             Have you experienced any of the above symptoms and if so, what are
             they?
           </p>
-          <p>
+          <p className="info-content">
             If you feel you are traumatised you should seek professional support
             from a trauma therapist. Trauma can be flushed out the system very
             quickly (3-4 sessions) leaving you free to focus on grieving. If you
@@ -34,12 +34,14 @@ const Trauma = () => {
             trauma therapists in your area. There is additional information
             about trauma and different therapies available on our website.
           </p>
-          <a
-            href=" https://www.nhs.uk/conditions/post-traumatic-stress-disorder-ptsd/treatment/"
-            target="_blank"
-          >
-            For information on treatements for PTSD click here
-          </a>
+          <p className="info-link">
+            <a
+              href=" https://www.nhs.uk/conditions/post-traumatic-stress-disorder-ptsd/treatment/"
+              target="_blank"
+            >
+              For information on treatements for PTSD click here
+            </a>
+          </p>
         </div>
         <Button name="Back" className="large-back__button" />
       </section>

@@ -7,9 +7,6 @@ const information = () => {
     <div className="info-container">
       <h1 className="info-title">Nova Information</h1>
       <DropdownMenu />
-      <section className="info-content">
-        <div />
-      </section>
     </div>
   );
 };
