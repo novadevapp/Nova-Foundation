@@ -114,10 +114,10 @@ export default class Status extends Component {
     } = this.state;
     return (
       <>
-        <Header isLogged={true} />
+        <Header isLogged={this.props.isLogged} />
         <div className="status">
           <h3 className="status__greeting">
-            Hi <span className="status__username">{this.props.username}</span>
+            Hi <span className="status__username">{this.props.isLogged.username}</span>
           </h3>
           <p className="status__question">How are you today ?</p>
           <div className="status__emoji-container">

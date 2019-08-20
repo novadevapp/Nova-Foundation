@@ -56,7 +56,7 @@ function App() {
               exact
               path="/about-us"
               render={(props) => {
-                return <AboutUs {...props} isLogged={isLogged} />
+                return <AboutUs {...props} setIsLogged={setIsLogged} isLogged={isLogged} />
               }}
             />
             {navLinksForVisitors.map((route, index) => (

@@ -134,8 +134,10 @@ export default class SignUp extends Component {
               'ERROR',
             );
             // Success
-            this.props.setIsLogged({ auth: true, result: result.data.username });
-            this.props.history.push('/status');
+            new Promise(async (resolve, reject) => {
+              await this.props.setIsLogged({ auth: true, result: result.data.username });
+              resolve(this.props.history.push('/status'));
+            })
           })
           .catch(error => {
             notification(

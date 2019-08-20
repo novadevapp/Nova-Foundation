@@ -10,7 +10,7 @@ import Toggle from "./toggle";
 
 import "./style.css";
 
-const Header = ({ className, isLogged, ...rest }) => {
+const Header = ({ className, isLogged, setIsLogged, ...rest }) => {
   const menuRef = React.createRef();
 
   function handleClick() {
@@ -54,7 +54,7 @@ const Header = ({ className, isLogged, ...rest }) => {
           null}
         {className && className.includes("triangle") ? <Triangle /> : null}
       </div>
-      <Menu isLogged={isLogged} ref={menuRef} history={rest.history} />
+      <Menu isLogged={isLogged} setIsLogged={setIsLogged} ref={menuRef} history={rest.history} />
     </>
   );
 };

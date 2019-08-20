@@ -7,7 +7,6 @@ const checkLogin = require('./checkLogin')
 const authenticate = require('../middlewares/authenticate');
 const logout = require('./logout');
 const poems = require('./poems');
-const postStatus = require("./checkLogin");
 
 router.use('/register', register);
 // router.use('/login', login);

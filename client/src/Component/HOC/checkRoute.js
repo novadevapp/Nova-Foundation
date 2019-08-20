@@ -18,7 +18,7 @@ function CheckRoute({ component: Component, isLogged, ...rest }) {
             />
           )
         } else {
-          return <Component {...props} isLogged={isLogged.auth} />
+          return <Component {...props} {...rest} isLogged={isLogged.auth} />
         }
       }}
     />
