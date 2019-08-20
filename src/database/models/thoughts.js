@@ -5,11 +5,11 @@ const ThoughtSchema = new Schema({
   dateString: { type: String, required: true },
   emoji: {
     type: String,
-    required: true
+    required: false
   },
   thought: {
     type: String,
-    required: true
+    required: false
   },
   // a reference to users collection
   publisher: {
