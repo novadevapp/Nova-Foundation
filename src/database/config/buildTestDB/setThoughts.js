@@ -5,7 +5,6 @@ module.exports = () => {
   return new Promise(async (resolve, reject) => {
     try {
       const user = await User.findOne({ username: "Sarah" });
-      console.log(user._id);
       const ThoughtOne = {
         dateString: "8/8",
         emoji: "hopeful",
