@@ -24,7 +24,7 @@ export default [
   // { path: "/exercises", component: Exercises },
   { path: "/personal-space", component: PersonalSpace },
   { path: "/add-pic", component: AddPic },
-  // { path: "/add-poem", component: AddPoem },
+  { path: "/add-poem", component: AddPoem },
   // { path: "/add-story", component: AddStory },
   { path: "/pictures", component: PicturesPage },
   { path: "/poems", component: Poems }

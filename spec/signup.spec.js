@@ -106,9 +106,9 @@ describe('Signup route', () => {
         expect(res.body.error).toEqual("Validation Error");
         done();
       });
-  });
+  })
 
-  afterAll(async done => {
+  afterAll(async (done) => {
     mongoose.disconnect();
     done();
   });

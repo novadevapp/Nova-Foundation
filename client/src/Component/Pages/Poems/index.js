@@ -32,7 +32,7 @@ const Poems = (props) => {
         <>
           <PoemList poems={poems} {...props} />
           <div className="poem-buttons">
-            <Button className="large-back__button" name="Back" onClick={() => this.props.history.goBack()} />
+            <Button className="large-back__button" name="Back" onClick={() => props.history.goBack()} />
             <Button className="register__button" name="More Poems" />
           </div>
         </>

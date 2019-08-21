@@ -11,7 +11,7 @@ const PoemSchema = new Schema({
     type: String,
     required: true,
   },
-  // a reference to users collection
+  // a reference to poems collection
   publisher: {
     type: Schema.Types.ObjectId,
     ref: 'users',                 
