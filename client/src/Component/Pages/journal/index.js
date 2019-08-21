@@ -4,12 +4,12 @@ import Header from "../../CommonComponent/Header";
 import Footer from "../../CommonComponent/Footer";
 import Button from "../../CommonComponent/Button";
 import Loading from "../../CommonComponent/Loading";
-// import Thoughts from "./thoughts";
+import Thoughts from "./thoughts";
 import AddIcon from "./AddIcon";
 import "./style.css";
 
 export default props => {
-  // <Thoughts />
+  //
   const handleClick = () => {
     props.history.push("/status");
   };
@@ -20,8 +20,7 @@ export default props => {
     fetch("/api/v1/thoughts")
       .then(res => res.json())
       .then(data => {
-        console.log(data);
-        setThoughts(data);
+        setThoughts(data.data);
         setLoading(false);
       })
       .catch(err => console.log(err));
@@ -37,6 +36,7 @@ export default props => {
             <Loading />
           </div>
         )}
+        {thoughts !== "" ? <Thoughts thoughts={thoughts} /> : null}
         <Button
           name='Back'
           className='large-skip__button'
