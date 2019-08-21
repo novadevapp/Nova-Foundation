@@ -21,3 +21,7 @@
   margin: 5em auto;
   width: fit-content;
 }
+
+.Thought-content svg {
+  fill: #c33650;
+}
