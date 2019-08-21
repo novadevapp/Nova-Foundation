@@ -2,7 +2,7 @@ import React from "react";
 
 function Icon() {
   return (
-    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 40.995 38.042">
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 40.995 38.042" className="information--svg">
       <g data-name="Group 148" fill="#525953">
         <path
           d="M46.275 40.465c-.4.122-.827.245-1.225.367a76.941 76.941 0 01-10.259 2.328.476.476 0 00-.4.521.489.489 0 00.459.4h.061a78.822 78.822 0 0010.384-2.361c.429-.123.827-.245 1.256-.368a.471.471 0 00.306-.582.485.485 0 00-.582-.305z"

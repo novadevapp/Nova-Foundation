@@ -1,7 +1,7 @@
 import React from "react";
 
 import pain from "../../../assets/pain-icon.jpg";
-import spiral from "../../../assets/spiral.png";
+import Waves from "./img/waves.js"
 import Button from "../../CommonComponent/Button";
 import Stages from "./img/stages.js"
 import Heart from "./img/broken.js"
@@ -21,7 +21,7 @@ const Grief = () => {
             be overwhelming and frightening, but is always changing, along with
             the feelings that go with it. Grief has no time limit.
           </p>
-          <img src={spiral} alt="spiral Icon" />
+          <Waves/>
           <p className="info-content">
             You may have heard of the five stages of grief – denial, anger,
             bargaining, depression and acceptance. These are not linear stages

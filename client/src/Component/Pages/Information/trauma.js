@@ -2,7 +2,7 @@ import React from "react";
 import "./style.css";
 import Button from "../../CommonComponent/Button";
 import TraumaIcon from "./img/traumaIcon.js"
-import Sound from "./img/no-sound.js"
+
 
 const Trauma = () => {
   return (
@@ -23,7 +23,7 @@ const Trauma = () => {
             overwhelmed/overstimulated in public spaces, hypersensitivity to
             sound.
           </p>
-          <Sound />
+        
           <p className="info-questions">
             Have you experienced any of the above symptoms and if so, what are
             they?

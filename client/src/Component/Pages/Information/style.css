@@ -47,3 +47,13 @@
   margin: auto;
   padding: 1em;
 }
+
+.information--svg {
+  max-height: 15vh;
+  padding: 1em;
+  max-width: 80vw;
+}
+
+.grief-section img, .symptoms-section img {
+  max-height: 20vh;
+}
