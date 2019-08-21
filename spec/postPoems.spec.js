@@ -78,6 +78,9 @@ describe('Post Poems route', () => {
       });
   })
 
-  afterAll(() => mongoose.disconnect());
+  afterAll(async (done) => {
+    mongoose.disconnect();
+    done();
+  });
 
 })

@@ -57,6 +57,8 @@ describe("Testing '/api/v1/login-status'", () => {
       });
   });
 
-  afterAll(() => mongoose.disconnect());
-  
+  afterAll(async done => {
+    mongoose.disconnect();
+    done();
+  });
 });

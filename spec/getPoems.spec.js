@@ -22,20 +22,21 @@ describe("initial test", () => {
   // Before each test, rebuildDb
   it("make request for get poems", done => {
     request(app)
-      .get('/api/v1/poems')
-      .set('Cookie', `jwt=${jwt}`)
+      .get("/api/v1/poems")
+      .set("Cookie", `jwt=${jwt}`)
       .expect(200)
       .end((err, res) => {
-        if (err)
-          done(err)
+        if (err) done(err);
         else {
-          expect(res.body.data[0].title).toEqual('My First Child')
-          done()
+          expect(res.body.data[0].title).toEqual("My First Child");
+          done();
         }
-      })
+      });
   });
 
   // After all tests, disconnect mongoose connection
-  afterAll(() => mongoose.disconnect());
-  
+  afterAll(async done => {
+    mongoose.disconnect();
+    done();
+  });
 });
