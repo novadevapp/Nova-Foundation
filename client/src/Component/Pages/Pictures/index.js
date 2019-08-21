@@ -87,9 +87,8 @@ export default class Pictures extends Component {
   render() {
     const { imageURL, loading } = this.state;
     return (
-      <div>
+      <>
         <Header {...this.props} />
-        <AddIcon onClick={this.handleClick} />
         <section className="collage-container">
           <div className='pictures__header'>
             <h1 className="all-pictures__title"> All Pictures </h1>
@@ -121,7 +120,7 @@ export default class Pictures extends Component {
           visiabilty={this.handleVisiabilty}
           submit={this.handleDelete}
         />
-      </div>
+      </>
     );
   }
 }
