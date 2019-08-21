@@ -38,7 +38,7 @@ function App() {
       })
       .catch(err => {
         notification(
-          notificationDOMRef,
+          this.notificationDOMRef,
           "warning",
           "Sorry, something went wrong. Please try again!",
           "ERROR"
