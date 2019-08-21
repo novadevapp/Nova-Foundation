@@ -5,7 +5,7 @@ const buildDummy = require("../src/database/config/buildTestDB/index");
 // const selectPoems = require("../src/database/queries/selectPoems");
 const users = require("../src/database/models/users");
 const { create } = require("../src/utils/cookie");
-const app = require('../src/app');
+const app = require("../src/app");
 
 describe("initial test", () => {
   let user;
@@ -20,7 +20,7 @@ describe("initial test", () => {
     done();
   });
   // Before each test, rebuildDb
-  it("make request for get poems", (done) => {
+  it("make request for get poems", done => {
     request(app)
       .get('/api/v1/poems')
       .set('Cookie', `jwt=${jwt}`)

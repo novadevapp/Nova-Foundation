@@ -4,7 +4,7 @@ import ReactNotification from "react-notifications-component";
 import Header from "../../CommonComponent/Header";
 import Input from "../../CommonComponent/Input";
 import Button from "../../CommonComponent/Button";
-import notification from '../../helpers/notification';
+import notification from "../../helpers/notification";
 import {
   Sad,
   Laugh,
@@ -67,7 +67,10 @@ export default class Status extends Component {
         return acc;
       }, {});
       newColor[value] = { color: "#c33650" };
-      return { colors: newColor, status: {value: prevState.status.value, select: value } };
+      return {
+        colors: newColor,
+        status: { value: prevState.status.value, select: value }
+      };
     });
   };
   handleChange = e => {
@@ -78,34 +81,42 @@ export default class Status extends Component {
   };
 
   handleSave = () => {
-    const {status: {value, select}} = this.state;
+    const {
+      status: { value, select }
+    } = this.state;
     const newValue = value.trim();
-    if(!newValue && !select) {
-      this.setState({status: {error: 'Please at least answer one question'}});
+    if (!newValue && !select) {
+      this.setState({
+        status: { error: "Please at least answer one question" }
+      });
+    } else {
+      fetch("/api/v1/status", {
+        method: "POST",
+        headers: { "content-type": "application/json" },
+        body: JSON.stringify({ data: { value, select } })
+      })
+        .then(res => res.json())
+        .then(({ error, data }) => {
+          if (error) {
+            notification(this.notificationDOMRef, "warning", error, "Warning");
+          } else {
+            this.handleSkipe();
+          }
+        })
+        .catch(() => {
+          notification(
+            this.notificationDOMRef,
+            "danger",
+            "Server Error Please Try Again",
+            "Error"
+          );
+        });
     }
-    else {
-      fetch('/api/v1/status', {
-          method: 'POST',
-          headers: {'conentent-type': 'application/json'},
-          body: JSON.stringify({data: {value, select}})
-      })
-      .then(res => res.json())
-      .then(({error, data}) => {
-        if(error) {
-          notification(this.notificationDOMRef, 'warning', error, 'Warning')
-        } else {
-          this.handleSkipe();
-        }
-      })
-      .catch(() => {
-        notification(this.notificationDOMRef, 'danger', 'Server Error Please Try Again', 'Error');
-      })
-    }
-  }
+  };
 
   handleSkipe = () => {
-    this.props.history.push('/home');
-  }
+    this.props.history.push("/home");
+  };
 
   render() {
     const {
@@ -191,9 +202,17 @@ export default class Status extends Component {
             action={this.handleChange}
           />
           <div>
-            {error && <p className = "status__error">{error}</p>}
-            <Button name="Save" className="large-save__button" onClick = {this.handleSave}/>
-            <Button name="Skip" className="large-skip__button" onClick = {this.handleSkipe}/>
+            {error && <p className="status__error">{error}</p>}
+            <Button
+              name="Save"
+              className="large-save__button"
+              onClick={this.handleSave}
+            />
+            <Button
+              name="Skip"
+              className="large-skip__button"
+              onClick={this.handleSkipe}
+            />
           </div>
         </div>
         <ReactNotification ref={this.notificationDOMRef} />

@@ -47,6 +47,7 @@ function App() {
       });
   }, [isLoading]);
   return (
+
     <div className="App">
       {isLoading ? <Loading />
         :
