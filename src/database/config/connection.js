@@ -1,7 +1,6 @@
 require('dotenv').config();
 const mongoose = require('mongoose');
 mongoose.Promise = global.Promise;
-// mongoose.Promise = require('bluebird');
 
 // Mongodb URI for different enviroments
 let MONGO_URI = process.env.MONGODB_DEVELOPMENT_URI;
