@@ -7,7 +7,7 @@ import Gallery from "./gallery";
 import Button from "../../CommonComponent/Button/index";
 import Footer from "../../CommonComponent/Footer";
 import Loading from "../../CommonComponent/Loading";
-import AddIcon from "./AddIcon";
+import AddIcon from "../../CommonComponent/AddIcon";
 import DeletePopup from "./DeletePopup";
 
 // import "react-notifications-component/dist/theme.css";
@@ -30,7 +30,7 @@ export default class Pictures extends Component {
           notification(this.notificationDOMRef, "warning", error, "Warning");
         else this.setState({ imageURL: images, loading: false });
       })
-      .catch(() => {
+      .catch((error) => {
         notification(
           this.notificationDOMRef,
           "danger",
@@ -75,7 +75,7 @@ export default class Pictures extends Component {
         notification(
           this.notificationDOMRef,
           "danger",
-          "Can't Load The Images please try again",
+          "Can't load images please try again",
           "Error"
         );
       });
@@ -88,7 +88,8 @@ export default class Pictures extends Component {
     const { imageURL, loading } = this.state;
     return (
       <div>
-        <Header isLogged={true} />
+        <Header {...this.props} />
+        <AddIcon onClick={this.handleClick} />
         <section className="collage-container">
           <div className='pictures__header'>
             <h1 className="all-pictures__title"> All Pictures </h1>

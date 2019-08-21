@@ -22,7 +22,9 @@ class Login extends Component {
       error: ""
     }
   };
+
   notificationDOMRef = React.createRef();
+
   handleInput = e => {
     let { name, value } = e.target;
     if (name === "email") value = value.trim();
@@ -56,9 +58,19 @@ class Login extends Component {
       })
         .then(res => res.json())
         .then(data => {
-          return new Promise((resolve, reject) => {
-            resolve(this.props.setIsLogged(true));
-          }).then(() => this.props.history.push("/home"));
+          console.log(data);
+          if (data.data === null) {
+            notification(
+              this.notificationDOMRef,
+              "danger",
+              data.error,
+              "Error"
+            );
+          } else {
+            return new Promise((resolve, reject) => {
+              resolve(this.props.setIsLogged(true));
+            }).then(() => this.props.history.push("/home"));
+          }
         })
 
         .catch(() => {
@@ -75,29 +87,30 @@ class Login extends Component {
     const { email, password } = this.state;
     return (
       <>
-        <Header isLogged={false} />
+
+        <Header {...this.props} />
         <div className="login">
           <form onSubmit={this.handleSubmit}>
-            <h1 className="login__header">Please Login</h1>
+            <h1 className='login__header'>Please Login</h1>
             <Input
-              id="email"
-              label="Your email"
-              placeholder="Email"
-              type="email"
+              id='email'
+              label='Your email'
+              placeholder='Email'
+              type='email'
               action={this.handleInput}
             />
-            {email.error && <p className="login__error">{email.error}</p>}
+            {email.error && <p className='login__error'>{email.error}</p>}
             <Input
-              id="password"
-              label="Your password"
-              placeholder="Password"
-              type="password"
+              id='password'
+              label='Your password'
+              placeholder='Password'
+              type='password'
               action={this.handleInput}
             />
-            {password.error && <p className="login__error">{password.error}</p>}
+            {password.error && <p className='login__error'>{password.error}</p>}
             <Button
-              name="Login"
-              className="register__button login__btn"
+              name='Login'
+              className='register__button login__btn'
               onClick={this.handleSubmit}
             />
           </form>

@@ -7,7 +7,6 @@ const postPicture = async (req, res) => {
     const { file } = req.files;
     const bucket = admin.storage().bucket();
     let { id } = req.auth;
-    
     file.name = `${Date.now()}${path.extname(file.name)}`;
 
     const options = {
