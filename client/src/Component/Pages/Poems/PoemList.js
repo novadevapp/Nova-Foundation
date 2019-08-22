@@ -10,13 +10,13 @@ const PoemList = ({ poems, ...rest }) => (
       <AddIcon onClick={() => rest.history.push('/add-poem')} />
     </div>
     {poems.length ? poems.map(({ id, content = "", title = "" }, index) => (
-      <div 
-        className="poems-box" 
-        key={index} 
+      <div
+        className="poems-box"
+        key={index}
         onClick={() => rest.history.push(`/poems/${id}`)}
       >
         <h4 className="poem-title">{title}</h4>
-        <p className="poems-body">{content.length > 50 && content.substr(50)}</p>
+        <p className="poems-body">{content.length > 50 ? content.substr(50) : content}</p>
       </div>
     )) : <p>You don't have any poems</p>}
   </div>
