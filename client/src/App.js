@@ -61,7 +61,7 @@ function App() {
                   <AboutUs
                     {...props}
                     setIsLogged={setIsLogged}
-                    isLogged={isLogged}
+                    isLogged={isLogged.auth}
                   />
                 );
               }}
