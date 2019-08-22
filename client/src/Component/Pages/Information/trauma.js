@@ -47,7 +47,8 @@ const Trauma = (props) => {
             </a>
           </p>
         </div>
-        <Button name="Back" className="large-back__button" onClick={() => props.history.goBack()} />
+        <Button name="Next" className="register__button" onClick={() => props.setSelection('personal')} />
+        <Button name="Back" className="large-back__button" onClick={() => props.setSelection('grief')} />
       </section>
     </div>
   );

@@ -22,7 +22,8 @@ const personalSpace = (props) => {
           </p>
           <Robot />
         </div>
-        <Button name="Back" className="large-back__button" onClick={() => props.history.goBack()} />
+        <Button name="Next" className="register__button" onClick={() => props.history.push('/personal-space')} />
+        <Button name="Back" className="large-back__button" onClick={() => props.setSelection('trauma')} />
       </section>
     </div>
   );

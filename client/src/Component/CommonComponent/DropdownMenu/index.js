@@ -3,6 +3,7 @@ import "./style.css";
 import Grief from "../../Pages/Information/grief";
 import Trauma from "../../Pages/Information/trauma";
 import PersonalSpace from "../../Pages/Information/personal";
+import Button from "../../CommonComponent/Button";
 
 export default (props) => {
   const [selection, setSelection] = React.useState("information");
@@ -14,7 +15,7 @@ export default (props) => {
   return (
     <section className="dropdown">
       <div className="select-container">
-        <select onChange={redirectOnSelect}>
+        <select onChange={redirectOnSelect} value={selection}>
           <option value="information">Information</option>
           <option value="grief">Grief</option>
           <option value="trauma">Trauma</option>
@@ -34,9 +35,10 @@ export default (props) => {
           baby, whilst helping you track your own wellbeing.
         </p>
       ) : null}
-      {selection === "grief" ? <Grief {...props} /> : null}
-      {selection === "trauma" ? <Trauma {...props} /> : null}
-      {selection === "personal" ? <PersonalSpace {...props} /> : null}
+      {selection === "grief" ? <Grief setSelection={setSelection} /> : null}
+      {selection === "trauma" ? <Trauma setSelection={setSelection} /> : null}
+      {selection === "personal" ? <PersonalSpace {...props} setSelection={setSelection} /> : null}
+      {selection === 'information' && <Button name="Next" className="register__button" onClick={() => setSelection('grief')} />}
     </section>
   );
 };

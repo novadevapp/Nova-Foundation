@@ -105,7 +105,9 @@ const Grief = (props) => {
           </p>
         </div>
       </section>
-      <Button name="Back" className="large-back__button" onClick={() => props.history.goBack()} />
+      <Button name="Next" className="register__button" onClick={() => props.setSelection('trauma')} />
+      <Button name="Back" className="large-back__button" onClick={() => props.setSelection('information')} />
+
     </div>
   );
 };
