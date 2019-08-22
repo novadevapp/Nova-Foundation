@@ -15,6 +15,7 @@ export default props => {
   };
   const [thoughts, setThoughts] = React.useState("");
   const [loading, setLoading] = React.useState(true);
+  const [error, setError] = React.useState("");
 
   React.useEffect(() => {
     fetch("/api/v1/thoughts")
@@ -23,7 +24,7 @@ export default props => {
         setThoughts(data.data);
         setLoading(false);
       })
-      .catch(err => console.log(err));
+      .catch(err => setError("Something went wrong"));
   }, []);
   return (
     <>
@@ -36,7 +37,13 @@ export default props => {
             <Loading />
           </div>
         )}
-        {thoughts !== "" ? <Thoughts thoughts={thoughts} /> : null}
+        {error && <p className='error'>{error}</p>}
+        {thoughts.length ? (
+          <Thoughts thoughts={thoughts} />
+        ) : (
+          <p>You don't have any thing saved</p>
+        )}
+
         <Button
           name='Back'
           className='large-skip__button'
