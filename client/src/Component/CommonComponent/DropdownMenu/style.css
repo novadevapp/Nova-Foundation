@@ -1,38 +1,52 @@
-@import url('https://fonts.googleapis.com/icon?family=Material+Icons');
-
-
+@import url("https://fonts.googleapis.com/icon?family=Material+Icons");
 
 .select-container {
-    font-family: Roboto;
-    padding: 10px;
-    border: 1px solid #6690D0;
-    position: relative;
-    border-radius: 3px;
-    background: #FAF8F8;
-    outline: none;
-  }
-  .select-container select {
-    width: 100%;
-    border: 0;
-    background: transparent;
-    font-size: 16px;
-    outline: none;
-    -webkit-appearance: none;
-       -moz-appearance: none;
-            appearance: none;
+  font-family: Roboto;
+  padding: 10px;
+  border: 1px solid #6690d0;
+  position: relative;
+  border-radius: 3px;
+  background: #faf8f8;
+  outline: none;
+  display: inline-block;
+  max-width: 100%;
+  width: 35vw;
+}
+.select-container select {
+  width: 100%;
+  border: 0;
+  background: transparent;
+  font-size: 16px;
+  outline: none;
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  appearance: none;
+}
 
-  }
+.select-container:after {
+  content: "keyboard_arrow_down";
+  font-family: "material icons";
+  font-size: 24px;
+  color: #666;
+  position: absolute;
+  right: 10px;
+  top: 50%;
+  transform: translateY(-50%);
+  pointer-events: none;
+}
 
-  .select-container:after {
-    content: 'keyboard_arrow_down';
-    font-family: 'material icons';
-    font-size: 24px;
-    color: #666;
-    position: absolute;
-    right: 10px;
-    top: 50%;
-    transform: translateY(-50%);
-    pointer-events: none;
-  }
+.info-content {
+  padding: 1rem;
+  padding-left: 20%;
+  padding-right: 20%;
+  font-family: Roboto;
+  font-weight: 300;
+  font-size: 1.3rem;
+  line-height: 1.5;
+  letter-spacing: 0.15px;
+  color: #000000;
+}
 
-  
+.dropdown {
+  min-height: 60vh;
+}

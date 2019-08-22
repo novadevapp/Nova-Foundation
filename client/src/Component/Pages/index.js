@@ -5,6 +5,7 @@ import AddPoem from "./AddPoem";
 import AddStory from "./AddStory";
 import Exercises from "./Exercises";
 import Home from "./Home";
+import Information from "./Information";
 import Login from "./Login";
 import PersonalSpace from "./PersonalSpace";
 import PicturesPage from "./Pictures";
@@ -26,6 +27,7 @@ export {
   AddStory,
   Exercises,
   Home,
+  Information,
   Login,
   PersonalSpace,
   PicturesPage,

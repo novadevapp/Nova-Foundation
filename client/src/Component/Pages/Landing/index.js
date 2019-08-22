@@ -7,6 +7,7 @@ import background from "../../../assets/Heart.png";
 import Button from "../../CommonComponent/Button";
 import Victor from "./victor";
 
+
 import "./style.css";
 
 export default class Land extends Component {
@@ -56,7 +57,9 @@ export default class Land extends Component {
   render() {
     return (
       <>
+
         <Header {...this.props} />
+
         <main className="land">
           <div className="land__home">
             <h3 className="land__header"> Nova Foundation</h3>
