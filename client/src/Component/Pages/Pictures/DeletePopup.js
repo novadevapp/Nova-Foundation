@@ -3,9 +3,9 @@ import Button from "../../CommonComponent/Button";
 
 export default ({ referance, visiabilty, submit }) => {
   return (
-    <div id="myModal" class="modal" ref={referance}>
-      <div class="modal-content">
-        <span class="close" onClick={visiabilty}>
+    <div id="myModal" className="modal" ref={referance}>
+      <div className="modal-content">
+        <span className="close" onClick={visiabilty}>
           &times;
         </span>
         <p> Are You Sure To Delete Your Picture?</p>

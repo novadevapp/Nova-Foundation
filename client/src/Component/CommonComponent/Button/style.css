@@ -18,13 +18,10 @@
 .large-back__button {
   width: 284px;
   height: 48px;
-
   box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
   background: rgba(196, 196, 196, 0.35);
   border-radius: 20px;
   border-style: hidden;
-
-  /* font-family: Roboto; */
   font-weight: normal;
   font-size: 14px;
   letter-spacing: 0.15px;
@@ -37,13 +34,10 @@
 .large-back__button {
   width: 284px;
   height: 48px;
-
   box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
   background: rgba(196, 196, 196, 0.35);
   border-radius: 20px;
   border-style: hidden;
-
-  /* font-family: Roboto; */
   font-weight: normal;
   font-size: 14px;
   letter-spacing: 0.15px;
@@ -56,9 +50,8 @@
   height: 35px;
   box-shadow: 0px 4px 4px rgba(239, 83, 120, 0.25);
   background: linear-gradient(90deg, #f27088 -4%, #c33650 96.67%);
-  border-radius: 5px;
+  border-radius: 4px;
   border-style: hidden;
-  /* font-family: Roboto; */
   font-weight: normal;
   font-size: 16px;
   align-items: center;
@@ -71,9 +64,8 @@
   height: 33.2px;
   box-shadow: 0px 4px 4px rgba(239, 83, 120, 0.25);
   background: #a0a3a6;
-  border-radius: 20px;
+  border-radius: 4px;
   border-style: hidden;
-  /* font-family: Roboto; */
   font-weight: bold;
   font-size: 16px;
   color: #ffffff;

@@ -39,9 +39,11 @@ export default class Pictures extends Component {
         );
       });
   }
+
   handleClick = () => {
     this.props.history.push("/add-pic");
   };
+  
   handleDeletePopup = e => {
     this.setState({ DeleteId: e.currentTarget.id });
     this.ModelDelete.current.classList.toggle("block");
@@ -85,17 +87,22 @@ export default class Pictures extends Component {
   render() {
     const { imageURL, loading } = this.state;
     return (
-      <div>
+      <>
         <Header {...this.props} />
-        <AddIcon onClick={this.handleClick} />
         <section className="collage-container">
-          <h1 className="all-pictures__title"> All Pictures </h1>
-          {loading && <Loading />}
-          <Gallery
-            className="img__single"
-            imgUrl={imageURL}
-            onClick={this.handleDeletePopup}
-          />
+          <div className='pictures__header'>
+            <h1 className="all-pictures__title"> All Pictures </h1>
+            <AddIcon onClick={this.handleClick} />
+          </div>
+          {loading ?
+            <Loading />
+            :
+            <Gallery
+              className="img__single"
+              imgUrl={imageURL}
+              onClick={this.handleDeletePopup}
+            />
+          }
         </section>
         <div className="pic__buttons">
           <Button
@@ -113,7 +120,7 @@ export default class Pictures extends Component {
           visiabilty={this.handleVisiabilty}
           submit={this.handleDelete}
         />
-      </div>
+      </>
     );
   }
 }

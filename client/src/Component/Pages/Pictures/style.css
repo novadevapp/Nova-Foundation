@@ -3,34 +3,43 @@
   font-size: 4vh;
   letter-spacing: 0.15px;
   width: 100%;
-  display: block;
+  margin-right: 1em;
 }
 
 .collage-container {
   display: flex;
-  flex-flow: row wrap;
-  justify-content: center;
+  flex-direction: column;
   margin: 2em;
   min-height: 53vh;
+  align-items: center;
 }
 
 .img__single {
-  margin: 0.4em;
+  margin: 0.4em auto;
   border: 1px solid #80808080;
   border-radius: 5px;
   padding: 10px;
-  width: 30vw;
-  height: 30vw;
+  width: 95%; 
 }
 
 .pic__buttons {
-  margin: 1em;
+  margin: 2em;
+}
+
+.pictures__header {
+  display: flex;
+  margin-bottom: 2em;
+}
+
+.add-icon {
+  width: 3em;
 }
 
 .image-content {
   position: relative;
   cursor: pointer;
 }
+
 .hover {
   position: absolute;
   top: 0;
@@ -41,16 +50,18 @@
   transform: scaleY(0);
   transition: transform 0.5s ease-out;
 }
+
 .image-content:hover .hover {
   transform: scaleY(1);
 }
+
 .hover__icon {
   background: white;
   padding: 9px 3px 3px;
   width: 40px;
   height: 40px;
   border-radius: 50%;
-  margin: 14vw 14vw;
+  margin: 4vw auto;
   border: 1px solid #80808080;
 }
 
@@ -84,8 +95,7 @@
   font-weight: bold;
 }
 
-.close:hover,
-.close:focus {
+.close:hover, .close:focus {
   color: #000;
   text-decoration: none;
   cursor: pointer;
@@ -96,6 +106,7 @@
   justify-content: flex-end;
   margin-top: 18px;
 }
+
 .modal p {
   text-align: left;
 }
@@ -103,6 +114,7 @@
 .modal__btn .small-save__button {
   margin-right: 15px;
 }
+
 .block {
   display: block;
 }
