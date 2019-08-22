@@ -8,10 +8,10 @@ module.exports = (userId, emoji, thought) => {
 
       // Create thought data
       await Thought.create({
-        dateString,
-        emoji,
-        thought,
-        userId
+        dateString: dateString,
+        emoji: emoji,
+        thought: thought,
+        publisher: userId
       });
 
       // Return the thought

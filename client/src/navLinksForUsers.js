@@ -14,7 +14,8 @@ import {
   Status,
   Stories,
   Suggestion,
-  AboutUs
+  AboutUs,
+  Journal
 } from "./Component/Pages";
 
 //if logged in
@@ -23,6 +24,7 @@ export default [
   //{ path: "/about-us", component: AboutUs },
   { path: "/status", component: Status },
   // { path: "/exercises", component: Exercises },
+  { path: "/journal", component: Journal },
   { path: "/personal-space", component: PersonalSpace },
   { path: "/add-pic", component: AddPic },
   { path: "/add-poem", component: AddPoem },

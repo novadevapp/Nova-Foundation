@@ -18,6 +18,7 @@ import Status from "./Status";
 import Stories from "./Stories";
 import Suggestion from "./Suggestion";
 import FourOFour from "./404";
+import Journal from "./journal";
 
 export {
   Landing,
@@ -39,5 +40,6 @@ export {
   Status,
   Stories,
   Suggestion,
-  FourOFour
+  FourOFour,
+  Journal
 };
