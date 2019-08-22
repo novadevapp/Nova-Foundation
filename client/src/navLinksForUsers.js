@@ -4,6 +4,7 @@ import {
   AddStory,
   Exercises,
   Home,
+  Information,
   PersonalSpace,
   PicturesPage,
   Poems,
@@ -13,7 +14,8 @@ import {
   Status,
   Stories,
   Suggestion,
-  AboutUs
+  AboutUs,
+  Journal
 } from "./Component/Pages";
 
 //if logged in
@@ -22,13 +24,15 @@ export default [
   //{ path: "/about-us", component: AboutUs },
   { path: "/status", component: Status },
   // { path: "/exercises", component: Exercises },
+  { path: "/journal", component: Journal },
   { path: "/personal-space", component: PersonalSpace },
   { path: "/add-pic", component: AddPic },
   { path: "/add-poem", component: AddPoem },
   // { path: "/add-story", component: AddStory },
-  { path: "/pictures", component: PicturesPage },
-  { path: "/poems", component: Poems }
+  // { path: "/pictures", component: PicturesPage },
+  // { path: "/poems", component: Poems },
   // { path: "/stories", component: Stories },
+  { path: "/information", component: Information }
   // { path: "/suggestion", component: Suggestion },
   // { path: "/single-story", component: SingleStory },
   // { path: "/single-poem", component: SinglePoem },

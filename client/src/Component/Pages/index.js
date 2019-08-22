@@ -5,6 +5,7 @@ import AddPoem from "./AddPoem";
 import AddStory from "./AddStory";
 import Exercises from "./Exercises";
 import Home from "./Home";
+import Information from "./Information";
 import Login from "./Login";
 import PersonalSpace from "./PersonalSpace";
 import PicturesPage from "./Pictures";
@@ -17,6 +18,7 @@ import Status from "./Status";
 import Stories from "./Stories";
 import Suggestion from "./Suggestion";
 import FourOFour from "./404";
+import Journal from "./journal";
 
 export {
   Landing,
@@ -26,6 +28,7 @@ export {
   AddStory,
   Exercises,
   Home,
+  Information,
   Login,
   PersonalSpace,
   PicturesPage,
@@ -37,5 +40,6 @@ export {
   Status,
   Stories,
   Suggestion,
-  FourOFour
+  FourOFour,
+  Journal
 };
