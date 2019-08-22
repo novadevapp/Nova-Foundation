@@ -38,8 +38,8 @@ class Menu extends Component {
     }
   };
   render() {
-    const { isLogged } = this.props;
-    if (isLogged)
+    const { isLogged: {auth} } = this.props;
+    if (auth)
       return (
         <div className="menu" ref={this.menuRef}>
           <li onClick={this.handleClick("/home")} className="menu__item">
