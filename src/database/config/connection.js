@@ -1,5 +1,6 @@
-const mongoose = require('mongoose');
 require('dotenv').config();
+const mongoose = require('mongoose');
+
 
 // Mongodb URI for different enviroments
 let MONGO_URI = process.env.MONGODB_DEVELOPMENT_URI;
@@ -45,5 +46,6 @@ module.exports = () => mongoose.connect(MONGO_URI,
   {
     useNewUrlParser: true,
     useCreateIndex: true,
+    useFindAndModify: false,
   });
 

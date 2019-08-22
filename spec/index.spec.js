@@ -1,30 +1,20 @@
-const mongoose = require('mongoose');
+const mongoose = require("mongoose");
+const buildDB = require("../src/database/config/buildTestDB/index");
 
-const connect = require('../src/database/config/connection');
-const buildDummy = require('../src/database/config/buildTestDB/index');
-
-describe('initial test', () => {
-
-  // Before all tests, connect mongoose to mongodb
-
-  beforeAll(async (done) => {
-    await connect();
-    done();
-  })
-
+describe("initial test", () => {
   // Before each test, rebuildDb
-  beforeEach(async (done) => {
-    await buildDummy();
+  beforeEach(async done => {
+    await buildDB();
     done();
-  })
+  });
 
-  it('first spec', () => {
+  it("first spec", () => {
     expect(1 + 1).toEqual(2);
   });
 
   // After all tests, disconnect mongoose connection
-  afterAll(() => {
+  afterAll(async done => {
     mongoose.disconnect();
-  })
-
-})
+    done();
+  });
+});

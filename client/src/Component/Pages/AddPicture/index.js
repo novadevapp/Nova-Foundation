@@ -27,7 +27,7 @@ export default function(props) {
   const handleSubmit = e => {
     e.preventDefault();
 
-    if ((title === "") | (file.name == ".")) {
+    if ((title === "") | (file.name === ".")) {
       SetError(true);
     } else if (acceptedTypes.indexOf(type) === -1) {
       SetTypeError(true);
@@ -63,7 +63,7 @@ export default function(props) {
 
   return (
     <>
-      <Header isLogged="true" />
+      <Header {...props} />
       <main className="add-pic-page">
         <section className="add-pic-page__section">
           <h2 className="add-pic-page__title">Add a Picture</h2>

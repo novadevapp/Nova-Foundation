@@ -15,28 +15,48 @@
 .content__icon {
   margin-right: 10px;
 }
+
 .content__paragraph {
   line-height: 1.5;
 }
-.land__links{
+
+.land__links {
   display: flex;
-    flex-wrap: wrap;
-    width: 250px;
-    margin: 0 auto;
+  flex-wrap: wrap;
+  width: 250px;
+  margin: 2.3em auto;
 }
-.land .react-notification-root{
+
+.land .react-notification-root {
   position: absolute;
-  z-index:8000;
-  transform:translateX(-50%);
+  z-index: 8000;
+  transform: translateX(-50%);
   top: 0;
   left: 50%;
 }
+
 .land__header {
   color: #62676b;
+  font-size: 2em;
 }
+
+.land__paragraph {
+  font-family: Roboto;
+  font-size: 1em;
+  margin: 1em auto;
+  width: 80vw;
+  max-width: 600px;
+  color: #333;
+}
+
+.land__img {
+  width: 99%;
+}
+
 .hidden {
   animation: fadeOut 1s ease-in-out;
 }
+
 @keyframes fadeOut {
   form {
     opacity: 1;
@@ -46,16 +66,22 @@
   }
 }
 
-@media (max-width: 768px){
-  .react-notification-root{
+@media (max-width: 768px) {
+  .react-notification-root {
     left: 0;
     margin-left: 25%;
   }
 }
 
-@media (max-width: 540px){
-  .react-notification-root{
+@media (max-width: 540px) {
+  .react-notification-root {
     left: 0;
     margin-left: 5%;
+  }
+}
+
+@media(min-width: 700px) {
+  .land__img {
+    width: 30%;
   }
 }

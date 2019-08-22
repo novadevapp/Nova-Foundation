@@ -1,7 +1,6 @@
 import React, { Component } from 'react';
 import ReactNotification from "react-notifications-component";
 
-
 import Footer from '../../CommonComponent/Footer';
 import Header from '../../CommonComponent/Header';
 import Input from '../../CommonComponent/Input';
@@ -10,7 +9,6 @@ import validateField from './validation';
 import notification from '../../helpers/notification';
 import Error from './error';
 
-import "react-notifications-component/dist/theme.css";
 import './style.css';
 
 export default class SignUp extends Component {
@@ -50,9 +48,9 @@ export default class SignUp extends Component {
     }
 
     this.validateField = validateField.bind(this);
-    this.notificationDOMRef = React.createRef();
   }
 
+  notificationDOMRef = React.createRef();
 
   validateInput = ({ target: { value, name } }) => {
     let errorMessage;
@@ -114,7 +112,6 @@ export default class SignUp extends Component {
         )
         :
         // Success: submit form 
-
         fetch('/api/v1/register', {
           method: 'POST',
           headers: { 'content-type': 'application/json' },
@@ -128,18 +125,19 @@ export default class SignUp extends Component {
             }
           }),
         }).then(response => response.json())
-          .then((error, data) => {
-
-            // Errors
-            if (error) return notification(
+          .then(result => {
+            //Error
+            if (result.error) return notification(
               this.notificationDOMRef,
               'warning',
-              error,
+              result.error,
               'ERROR',
             );
-
             // Success
-            this.props.history.push('/home');
+            new Promise(async (resolve, reject) => {
+              await this.props.setIsLogged({ auth: true, username: result.data.username });
+              resolve(this.props.history.push('/status'));
+            })
           })
           .catch(error => {
             notification(
@@ -163,7 +161,7 @@ export default class SignUp extends Component {
 
     return (
       <>
-        <Header className='register minimal' />
+        <Header {...this.props} className='register minimal' />
         <main className='register-page'>
           <form className='register-page__form'>
             <Input

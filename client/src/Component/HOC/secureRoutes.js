@@ -1,14 +1,13 @@
 import React from "react";
 import { Route, Redirect } from "react-router-dom";
-import auth from "./auth";
 
-function SecureRoutes({ component: Component, ...rest }) {
+function SecureRoutes({ component: Component, isLogged, ...rest }) {
   return (
     <Route
       {...rest}
       render={props => {
-        if (auth.isAuthenticated()) {
-          return <Component {...props} />;
+        if (isLogged.auth === true) {
+          return <Component {...props} isLogged={isLogged} {...rest} />;
         } else {
           return (
             <Redirect

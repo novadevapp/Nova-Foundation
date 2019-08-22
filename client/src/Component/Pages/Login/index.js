@@ -1,15 +1,17 @@
 import React, { Component } from "react";
 import ReactNotification from "react-notifications-component";
+import { withRouter } from "react-router-dom";
 
 import notification from "../../helpers/notification";
 import Header from "../../CommonComponent/Header";
 import Input from "../../CommonComponent/Input";
 import Button from "../../CommonComponent/Button";
+import Footer from "../../CommonComponent/Footer";
 
 import "react-notifications-component/dist/theme.css";
 import "./style.css";
 
-export default class Login extends Component {
+class Login extends Component {
   state = {
     email: {
       value: "",
@@ -20,7 +22,9 @@ export default class Login extends Component {
       error: ""
     }
   };
+
   notificationDOMRef = React.createRef();
+
   handleInput = e => {
     let { name, value } = e.target;
     if (name === "email") value = value.trim();
@@ -53,13 +57,22 @@ export default class Login extends Component {
         })
       })
         .then(res => res.json())
-        .then(({ error, data }) => {
-          if (error) {
-            notification(this.notificationDOMRef, "warning", error, "Warning");
+        .then(data => {
+          console.log(data);
+          if (data.data === null) {
+            notification(
+              this.notificationDOMRef,
+              "danger",
+              data.error,
+              "Error"
+            );
           } else {
-            this.props.history.push("/home");
+            return new Promise((resolve, reject) => {
+              resolve(this.props.setIsLogged(true));
+            }).then(() => this.props.history.push("/home"));
           }
         })
+
         .catch(() => {
           notification(
             this.notificationDOMRef,
@@ -74,35 +87,39 @@ export default class Login extends Component {
     const { email, password } = this.state;
     return (
       <>
-        <Header isLogged={false} />
+
+        <Header {...this.props} />
         <div className="login">
           <form onSubmit={this.handleSubmit}>
-            <h1 className="login__header">Please Login</h1>
+            <h1 className='login__header'>Please Login</h1>
             <Input
-              id="email"
-              label="Your email"
-              placeholder="Email"
-              type="email"
+              id='email'
+              label='Your email'
+              placeholder='Email'
+              type='email'
               action={this.handleInput}
             />
-            {email.error && <p className="login__error">{email.error}</p>}
+            {email.error && <p className='login__error'>{email.error}</p>}
             <Input
-              id="password"
-              label="Your password"
-              placeholder="Password"
-              type="password"
+              id='password'
+              label='Your password'
+              placeholder='Password'
+              type='password'
               action={this.handleInput}
             />
-            {password.error && <p className="login__error">{password.error}</p>}
+            {password.error && <p className='login__error'>{password.error}</p>}
             <Button
-              name="Login"
-              className="register__button login__btn"
+              name='Login'
+              className='register__button login__btn'
               onClick={this.handleSubmit}
             />
           </form>
         </div>
         <ReactNotification ref={this.notificationDOMRef} />
+        <Footer />
       </>
     );
   }
 }
+
+export default withRouter(Login);

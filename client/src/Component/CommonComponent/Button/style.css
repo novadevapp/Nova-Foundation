@@ -77,6 +77,7 @@
   font-weight: bold;
   font-size: 16px;
   color: #ffffff;
+  cursor: pointer;
 }
 
 .small-next__button {
@@ -124,6 +125,7 @@
   line-height: 160.7%;
   letter-spacing: 0.15px;
   color: #333;
+  cursor: pointer;
 }
 
 .personal-space__button {

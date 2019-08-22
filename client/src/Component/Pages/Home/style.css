@@ -1,13 +1,13 @@
 .home-page__title {
   font-weight: 500;
-  font-size: 1.3rem;
+  font-size: 1.1rem;
   letter-spacing: .05em;
   line-height: 1.5;
   color: white;
 }
 
 .home-page__section {
-  margin-top: -10rem;
+  margin-top: -7rem;
   padding: 1rem;
 }
 
