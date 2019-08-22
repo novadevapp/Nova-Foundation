@@ -1,5 +1,5 @@
 .serviceCard {
-  min-height: 170px;
+  min-height: 140px;
   width: 80%;
   max-width: 500px;
   margin: 0 auto 2.5em auto;
@@ -12,7 +12,7 @@
 }
 
 .serviceCard .icon {
-  width: 2em;
+  width: 1.5em;
   margin-right: .5em;
 }
 
@@ -20,8 +20,9 @@
   display: flex;
   align-items: center;
   justify-content: center;
-
+  padding: 1em;
 }
+
 .serviceCard h3 {
   font-family: Roboto;
   display: inline-block;
