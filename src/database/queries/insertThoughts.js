@@ -5,7 +5,6 @@ module.exports = (userId, emoji, thought) => {
     try {
       const date = new Date();
       const dateString = `${date.getDate()}/${date.getMonth()}`;
-      console.log("f");
 
       // Create thought data
       await Thought.create({
