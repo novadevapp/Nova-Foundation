@@ -7,10 +7,11 @@ import Button from "../../CommonComponent/Button";
 import "./style.css";
 
 export default props => {
+  console.log(props)
   return (
     <>
       <Header {...props} setLogged={props.setLogged} />
-      <main style={{ minHeight: '65vh' }}>
+      <main style={{ minHeight: '65vh', padding: '2em' }}>
         <h3>404 page not found</h3>
         <Button
           name="Back"
