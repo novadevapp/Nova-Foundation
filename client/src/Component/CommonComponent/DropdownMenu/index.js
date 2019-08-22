@@ -4,7 +4,7 @@ import Grief from "../../Pages/Information/grief";
 import Trauma from "../../Pages/Information/trauma";
 import PersonalSpace from "../../Pages/Information/personal";
 
-export default () => {
+export default (props) => {
   const [selection, setSelection] = React.useState("information");
 
   const redirectOnSelect = e => {
@@ -34,9 +34,9 @@ export default () => {
           baby, whilst helping you track your own wellbeing.
         </p>
       ) : null}
-      {selection === "grief" ? <Grief /> : null}
-      {selection === "trauma" ? <Trauma /> : null}
-      {selection === "personal" ? <PersonalSpace /> : null}
+      {selection === "grief" ? <Grief {...props} /> : null}
+      {selection === "trauma" ? <Trauma {...props} /> : null}
+      {selection === "personal" ? <PersonalSpace {...props} /> : null}
     </section>
   );
 };
