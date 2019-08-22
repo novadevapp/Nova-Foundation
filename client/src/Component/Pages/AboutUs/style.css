@@ -7,20 +7,20 @@
   align-items: center;
   letter-spacing: 0.15px;
   color: #000000;
-  min-height: 60vh;
-  margin: .4em auto 1.5em auto;
+  min-height: 70vh;
+  margin: 0.4em auto 1.5em auto;
 }
 
 .about-us__paragraph {
   text-align: left;
-  padding: .8rem;
+  padding: 1rem;
   color: #333;
-  font-size: .8em;
+  font-size: 0.8em;
   line-height: 1.5;
   max-width: 600px;
   margin: 0 auto;
 }
 
 .about-us .large-skip__button {
-  margin-top: .8em;
+  margin-top: 1em;
 }
