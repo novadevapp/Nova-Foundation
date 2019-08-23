@@ -1,0 +1,26 @@
+.stories-title {
+  font-family: roboto;
+  font-size: 4vh;
+  letter-spacing: 0.15px;
+  width: 100%;
+  display: block;
+  padding: 1rem;
+}
+
+.stories-content {
+  text-align: left;
+  text-align: start;
+  padding: 1rem 2em;
+  font-family: Roboto;
+  font-weight: 300;
+  font-size: 1.3rem;
+  line-height: 1.5;
+  letter-spacing: 0.15px;
+  max-width: 900px;
+  color: #000000;
+  margin: auto;
+}
+
+.stories-container {
+  min-height: 60vh;
+}
