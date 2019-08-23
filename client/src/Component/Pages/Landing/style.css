@@ -67,14 +67,21 @@
 }
 
 @media (max-width: 768px) {
-  .react-notification-root {
+  .land .react-notification-root {
     left: 0;
     margin-left: 25%;
   }
 }
 
 @media (max-width: 540px) {
-  .react-notification-root {
+  .land .react-notification-root {
+    left: 9%;
+    margin-left: 5%;
+  }
+}
+
+@media (max-width: 320px) {
+  .land .react-notification-root {
     left: 0;
     margin-left: 5%;
   }
