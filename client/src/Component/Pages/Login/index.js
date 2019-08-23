@@ -7,9 +7,11 @@ import Header from "../../CommonComponent/Header";
 import Input from "../../CommonComponent/Input";
 import Button from "../../CommonComponent/Button";
 import Footer from "../../CommonComponent/Footer";
+import Loading from "../../CommonComponent/Loading";
 
 import "react-notifications-component/dist/theme.css";
 import "./style.css";
+import { fail } from "assert";
 
 class Login extends Component {
   state = {
@@ -20,7 +22,8 @@ class Login extends Component {
     password: {
       value: "",
       error: ""
-    }
+    },
+    loading: false
   };
 
   notificationDOMRef = React.createRef();
@@ -49,6 +52,7 @@ class Login extends Component {
       });
       return;
     } else {
+      this.setState({loading: true});
       fetch("/api/v1/login", {
         method: "POST",
         headers: { "content-type": "application/json" },
@@ -57,9 +61,9 @@ class Login extends Component {
         })
       })
         .then(res => res.json())
-        .then(data => {
-          console.log(data);
-          if (data.data === null) {
+        .then(({ data, error }) => {
+          if (error) {
+            this.setState({loading: false});
             notification(
               this.notificationDOMRef,
               "danger",
@@ -67,13 +71,13 @@ class Login extends Component {
               "Error"
             );
           } else {
-            return new Promise((resolve, reject) => {
-              resolve(this.props.setIsLogged(true));
-            }).then(() => this.props.history.push("/home"));
+            this.props.setIsLogged({ auth: true, username: data.username });
+            this.props.history.push("/home");
           }
         })
 
         .catch(() => {
+          this.setState({loading: false});
           notification(
             this.notificationDOMRef,
             "danger",
@@ -84,33 +88,33 @@ class Login extends Component {
     }
   };
   render() {
-    const { email, password } = this.state;
+    const { email, password, loading } = this.state;
     return (
       <>
-
         <Header {...this.props} />
         <div className="login">
           <form onSubmit={this.handleSubmit}>
-            <h1 className='login__header'>Please Login</h1>
+            <h1 className="login__header">Please Login</h1>
             <Input
-              id='email'
-              label='Your email'
-              placeholder='Email'
-              type='email'
+              id="email"
+              label="Your email"
+              placeholder="Email"
+              type="email"
               action={this.handleInput}
             />
-            {email.error && <p className='login__error'>{email.error}</p>}
+            {email.error && <p className="login__error">{email.error}</p>}
             <Input
-              id='password'
-              label='Your password'
-              placeholder='Password'
-              type='password'
+              id="password"
+              label="Your password"
+              placeholder="Password"
+              type="password"
               action={this.handleInput}
             />
-            {password.error && <p className='login__error'>{password.error}</p>}
+            {password.error && <p className="login__error">{password.error}</p>}
+            {loading && <Loading  className="small-loader"/>}
             <Button
-              name='Login'
-              className='register__button login__btn'
+              name="Login"
+              className="register__button login__btn"
               onClick={this.handleSubmit}
             />
           </form>
