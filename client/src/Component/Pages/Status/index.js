@@ -96,9 +96,16 @@ export default class Status extends Component {
         body: JSON.stringify({ data: { value, select } })
       })
         .then(res => res.json())
-        .then(({ error, data }) => {
-          if (error) {
-            notification(this.notificationDOMRef, "warning", error, "Warning");
+        .then(result => {
+          if (result.auth === false) {
+            return new Promise(async (resolve, reject) => {
+              await this.props.setIsLogged({ auth: false, username: '' });
+              this.props.history.push('/login');
+              resolve();
+            })
+          }
+          if (result.error) {
+            notification(this.notificationDOMRef, "warning", result.error, "Warning");
           } else {
             this.handleSkipe();
           }
@@ -121,7 +128,7 @@ export default class Status extends Component {
   render() {
     const {
       colors: { sad, laugh, meh, mehRolling, grimace, frown, cry, tired, smile },
-      status: {error}
+      status: { error }
     } = this.state;
     return (
       <>
