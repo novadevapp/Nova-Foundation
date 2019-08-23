@@ -14,7 +14,6 @@ import {
 import "./style.css";
 
 const Thoughts = ({ thoughts }) => {
-  console.log(thoughts);
   const Emoji = ({ type }) => {
     switch (type) {
       case "sad":
