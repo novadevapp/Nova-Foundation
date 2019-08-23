@@ -10,3 +10,8 @@
 @keyframes load{
     100%{transform: rotate(360deg)}
 }
+.small-loader{
+    margin:  0 auto;
+    width: 10vw;
+    height: 10vw;
+}
