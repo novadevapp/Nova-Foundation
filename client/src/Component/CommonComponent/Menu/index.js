@@ -19,10 +19,10 @@ class Menu extends Component {
             notification(this.notificationDOMRef, "warning", error, "Warning");
           } else {
             return new Promise(async (resolve, reject) => {
-              await this.props.setIsLogged({ auth: false, username: '' });
+              await this.props.setIsLogged({ auth: false, username: "" });
               this.props.history.push("/");
               resolve();
-            })
+            });
           }
         })
         .catch(() => {
@@ -41,23 +41,23 @@ class Menu extends Component {
     const { isLogged } = this.props;
     if (isLogged)
       return (
-        <div className="menu" ref={this.menuRef}>
-          <li onClick={this.handleClick("/home")} className="menu__item">
+        <div className='menu' ref={this.menuRef}>
+          <li onClick={this.handleClick("/home")} className='menu__item'>
             NOVA HOME
           </li>
-          <li onClick={this.handleClick("/information")} className="menu__item">
+          <li onClick={this.handleClick("/information")} className='menu__item'>
             NOVA INFORMATION
           </li>
-          <li onClick={this.handleClick("/stories")} className="menu__item">
+          <li onClick={this.handleClick("/stories")} className='menu__item'>
             NOVA STORIES
           </li>
           <li
             onClick={this.handleClick("/personal-space")}
-            className="menu__item"
+            className='menu__item'
           >
-            MY PERSONAL CORNAER
+            MY PERSONAL CORNER
           </li>
-          <li onClick={this.handleClick("/logout")} className="menu__item">
+          <li onClick={this.handleClick("/logout")} className='menu__item'>
             LOGOUT
           </li>
           <ReactNotification ref={this.notificationDOMRef} />
@@ -65,14 +65,14 @@ class Menu extends Component {
       );
 
     return (
-      <div className="menu" ref={this.menuRef}>
-        <li onClick={this.handleClick("/")} className="menu__item">
+      <div className='menu' ref={this.menuRef}>
+        <li onClick={this.handleClick("/")} className='menu__item'>
           NOVA HOME
         </li>
-        <li onClick={this.handleClick("/login")} className="menu__item">
+        <li onClick={this.handleClick("/login")} className='menu__item'>
           LOGIN
         </li>
-        <li onClick={this.handleClick("/register")} className="menu__item">
+        <li onClick={this.handleClick("/register")} className='menu__item'>
           SIGN UP
         </li>
       </div>
