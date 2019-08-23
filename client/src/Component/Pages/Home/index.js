@@ -2,6 +2,7 @@ import React from 'react';
 
 import Card from '../../CommonComponent/ServiceCard';
 import Header from '../../CommonComponent/Header';
+import Footer from '../../CommonComponent/Footer'
 import './style.css'
 
 export default function (props) {
@@ -12,7 +13,7 @@ export default function (props) {
 
   return (
     <>
-      <Header {...props} className='header'  />
+      <Header {...props} className='header' />
       <main className='home-page'>
         <section className='home-page__section'>
           <h2 className='home-page__title'>Discover our resources. We hope they make you feel better!</h2>
@@ -37,6 +38,7 @@ export default function (props) {
           </div>
         </section>
       </main>
+      <Footer />
     </>
   )
 }
