@@ -4,7 +4,7 @@ import Button from "../../CommonComponent/Button";
 import Sunflower from "./img/sunflower.js";
 import Robot from "./img/robot.js";
 
-const personalSpace = () => {
+const personalSpace = (props) => {
   return (
     <div>
       <section className="personalspace-section">
@@ -20,9 +20,10 @@ const personalSpace = () => {
             area gives you a space to connect with and mourn your precious baby.
             It is a space just for you.
           </p>
- <Robot/>
+          <Robot />
         </div>
-        <Button name="Back" className="large-back__button" />
+        <Button name="Next" className="register__button" onClick={() => props.history.push('/personal-space')} />
+        <Button name="Back" className="large-back__button" onClick={() => props.setSelection('trauma')} />
       </section>
     </div>
   );

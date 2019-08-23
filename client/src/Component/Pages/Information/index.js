@@ -4,11 +4,11 @@ import Header from "../../CommonComponent/Header";
 import Footer from "../../CommonComponent/Footer";
 import Information from "./information";
 
-const Infomation = () => {
+const Infomation = (props) => {
   return (
     <div>
-      <Header />
-      <Information />
+      <Header {...props} />
+      <Information {...props} />
 
       <Footer />
     </div>
