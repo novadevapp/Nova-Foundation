@@ -13,9 +13,16 @@ export default props => {
   useEffect(() => {
     fetch('/api/v1/poems')
       .then(res => res.json())
-      .then(({ data, error }) => {
-        if (error) throw new Error('');
-        setPoems(data);
+      .then(result => {
+        if (result.auth === false) {
+          return new Promise(async (resolve, reject) => {
+            await props.setIsLogged({ auth: false, username: '' });
+            props.history.push('/login');
+            resolve();
+          })
+        }
+        if (result.error) throw new Error('');
+        setPoems(result.data);
         setLoading(true);
       })
       .catch(() => {
@@ -23,7 +30,7 @@ export default props => {
         setLoading(true);
       })
     return () => undefined;
-  }, []);
+  }, [props]);
   return (
     <div>
       <Header {...props} />

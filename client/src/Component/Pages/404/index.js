@@ -7,7 +7,6 @@ import Button from "../../CommonComponent/Button";
 import "./style.css";
 
 export default props => {
-  console.log(props)
   return (
     <>
       <Header {...props} setLogged={props.setLogged} />

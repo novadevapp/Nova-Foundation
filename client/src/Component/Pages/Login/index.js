@@ -52,7 +52,7 @@ class Login extends Component {
       });
       return;
     } else {
-      this.setState({loading: true});
+      this.setState({ loading: true });
       fetch("/api/v1/login", {
         method: "POST",
         headers: { "content-type": "application/json" },
@@ -63,21 +63,24 @@ class Login extends Component {
         .then(res => res.json())
         .then(({ data, error }) => {
           if (error) {
-            this.setState({loading: false});
-            notification(
-              this.notificationDOMRef,
-              "danger",
-              data.error,
-              "Error"
-            );
+            this.setState({ loading: false }, () => {
+              notification(
+                this.notificationDOMRef,
+                "danger",
+                data.error,
+                "Error"
+              );
+            });
           } else {
-            this.props.setIsLogged({ auth: true, username: data.username });
-            this.props.history.push("/home");
+            return new Promise(async (resolve, reject) => {
+              await this.props.setIsLogged({ auth: true, username: data.username });
+              this.props.history.push("/home");
+              resolve();
+            })
           }
         })
-
         .catch(() => {
-          this.setState({loading: false});
+          this.setState({ loading: false });
           notification(
             this.notificationDOMRef,
             "danger",
@@ -111,7 +114,7 @@ class Login extends Component {
               action={this.handleInput}
             />
             {password.error && <p className="login__error">{password.error}</p>}
-            {loading && <Loading  className="small-loader"/>}
+            {loading && <Loading className="small-loader" />}
             <Button
               name="Login"
               className="register__button login__btn"
