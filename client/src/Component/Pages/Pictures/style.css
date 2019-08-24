@@ -38,6 +38,7 @@
 .image-content {
   position: relative;
   cursor: pointer;
+  width: 66vw;
 }
 
 .hover {
