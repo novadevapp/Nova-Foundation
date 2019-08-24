@@ -1,15 +1,19 @@
+.info-container {
+  padding: 1em;
+}
+
 .info-title {
   font-family: roboto;
   font-size: 4vh;
   letter-spacing: 0.15px;
   width: 100%;
   display: block;
-  padding-top: 1rem;
+  margin-bottom:1em;
 }
 
 .sub-info-title {
   font-family: roboto;
-  font-size: 2.5vh;
+  font-size: 6vw;
   letter-spacing: 0.15px;
   width: 100%;
   display: block;
@@ -17,17 +21,14 @@
 }
 
 .info-content {
-  text-align: left;
-  text-align: start;
-  padding: 1rem;
-  padding-left: 10%;
-  padding-right: 10%;
+  padding: 1.5rem;
   font-family: Roboto;
   font-weight: 300;
-  font-size: 1.3rem;
+  font-size: 1em;
   line-height: 1.5;
   letter-spacing: 0.15px;
   color: #000000;
+  text-align: left;
 }
 
 .info-questions {
@@ -41,7 +42,7 @@
   padding-bottom: 2rem;
 }
 
-.info-stages__icon{
+.info-stages__icon {
   width: 60vw;
   max-width: 800px;
   margin: auto;

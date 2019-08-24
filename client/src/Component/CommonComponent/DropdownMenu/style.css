@@ -10,7 +10,7 @@
   outline: none;
   display: inline-block;
   max-width: 100%;
-  width: 35vw;
+  width: 80vw;
 }
 .select-container select {
   width: 100%;
@@ -18,8 +18,6 @@
   background: transparent;
   font-size: 16px;
   outline: none;
-  -webkit-appearance: none;
-  -moz-appearance: none;
   appearance: none;
 }
 
@@ -35,18 +33,14 @@
   pointer-events: none;
 }
 
+
 .info-content {
-  padding: 1rem;
-  padding-left: 20%;
-  padding-right: 20%;
+  padding: 1.5rem;
   font-family: Roboto;
   font-weight: 300;
-  font-size: 1.3rem;
+  font-size: 1rem;
   line-height: 1.5;
   letter-spacing: 0.15px;
   color: #000000;
 }
 
-.dropdown {
-  min-height: 60vh;
-}

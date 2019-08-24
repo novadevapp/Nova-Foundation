@@ -4,7 +4,7 @@ import Button from "../../CommonComponent/Button";
 import TraumaIcon from "./img/traumaIcon.js"
 
 
-const Trauma = () => {
+const Trauma = (props) => {
   return (
     <div>
       <section className="trauma-section">
@@ -23,7 +23,7 @@ const Trauma = () => {
             overwhelmed/overstimulated in public spaces, hypersensitivity to
             sound.
           </p>
-        
+
           <p className="info-questions">
             Have you experienced any of the above symptoms and if so, what are
             they?
@@ -47,7 +47,8 @@ const Trauma = () => {
             </a>
           </p>
         </div>
-        <Button name="Back" className="large-back__button" />
+        <Button name="Next" className="register__button" onClick={() => props.setSelection('personal')} />
+        <Button name="Back" className="large-back__button" onClick={() => props.setSelection('grief')} />
       </section>
     </div>
   );

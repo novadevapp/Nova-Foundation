@@ -10,7 +10,7 @@ import Depression from "./img/depression.js"
 
 import "./style.css";
 
-const Grief = () => {
+const Grief = (props) => {
   return (
     <div>
       <section className="grief-section">
@@ -21,7 +21,7 @@ const Grief = () => {
             be overwhelming and frightening, but is always changing, along with
             the feelings that go with it. Grief has no time limit.
           </p>
-          <Waves/>
+          <Waves />
           <p className="info-content">
             You may have heard of the five stages of grief – denial, anger,
             bargaining, depression and acceptance. These are not linear stages
@@ -93,7 +93,7 @@ const Grief = () => {
             could let the anger out?
           </p>
 
-          <Depression/>
+          <Depression />
           <p className="info-content">
             Depression – Grief and depression are two very different things.
             They can have similar symptoms such as poor sleep, lack of appetite
@@ -105,7 +105,9 @@ const Grief = () => {
           </p>
         </div>
       </section>
-      <Button name="Back" className="large-back__button" />
+      <Button name="Next" className="register__button" onClick={() => props.setSelection('trauma')} />
+      <Button name="Back" className="large-back__button" onClick={() => props.setSelection('information')} />
+
     </div>
   );
 };
