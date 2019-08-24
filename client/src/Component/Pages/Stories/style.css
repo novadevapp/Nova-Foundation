@@ -24,3 +24,82 @@
 .stories-container {
   min-height: 60vh;
 }
+
+.stories-icon {
+  display: block;
+  margin: auto;
+  height: 40vh;
+  max-width: 80vw;
+}
+
+/* for icon-m*/
+
+.st0 {
+  fill: #616161;
+}
+
+.st1 {
+  fill: #4ba1bc;
+}
+
+.st2 {
+  fill: #6fbcce;
+}
+
+.st3 {
+  fill: #404040;
+}
+
+.st4 {
+  fill: #767676;
+}
+
+.st5 {
+  fill: #ede5d9;
+}
+
+.st6 {
+  fill: #5a4d4b;
+}
+
+.st7 {
+  fill: #eed2c5;
+}
+
+.st8 {
+  fill: #e2b5a3;
+}
+
+/*icon-f*/
+
+.stf1 {
+  fill: #c6c6c6;
+}
+
+.stf2 {
+  fill: #594c4a;
+}
+
+.stf3 {
+  fill: #776664;
+}
+
+.stf9 {
+  fill: #db7d7d;
+}
+
+.stf10 {
+  fill: #e89c9c;
+}
+
+.stf11 {
+  fill: #e2b5a3;
+}
+
+.stf12 {
+  fill: #efd2c5;
+}
+
+.stf14 {
+  fill: #8e8e8e;
+}
