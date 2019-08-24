@@ -17,31 +17,76 @@ const Thoughts = ({ thoughts }) => {
   const Emoji = ({ type }) => {
     switch (type) {
       case "sad":
-        return <Sad />;
+        return (
+          <>
+            <Sad />
+            <p>Sad</p>
+          </>
+        );
         break;
       case "laugh":
-        return <Laugh />;
+        return (
+          <>
+            <Laugh />
+            <p>Positive</p>
+          </>
+        );
         break;
       case "meh":
-        return <Meh />;
+        return (
+          <>
+            <Meh />
+            <p>Adjusting</p>
+          </>
+        );
         break;
       case "mehRolling":
-        return <MehRolling />;
+        return (
+          <>
+            <MehRolling />
+            <p>Despondent</p>
+          </>
+        );
         break;
       case "cry":
-        return <Cry />;
+        return (
+          <>
+            <Cry />
+            <p>Upset</p>
+          </>
+        );
         break;
       case "grimace":
-        return <Grimace />;
+        return (
+          <>
+            <Grimace />
+            <p>Angry</p>
+          </>
+        );
         break;
       case "smile":
-        return <Smile />;
+        return (
+          <>
+            <Smile />
+            <p>Hopeful</p>
+          </>
+        );
         break;
       case "frown":
-        return <Frown />;
+        return (
+          <>
+            <Frown />
+            <p>Depressed</p>
+          </>
+        );
         break;
       case "tired":
-        return <Tired />;
+        return (
+          <>
+            <Tired />
+            <p>Anxious</p>
+          </>
+        );
         break;
       default:
         return null;
@@ -54,7 +99,7 @@ const Thoughts = ({ thoughts }) => {
         <div className='Thought-content' key={index}>
           <h2>{item.dateString}</h2>
           <Emoji type={item.emoji} />
-          <p>{item.emoji}</p>
+
           <p>{item.thought}</p>
         </div>
       ))}

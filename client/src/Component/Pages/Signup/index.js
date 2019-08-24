@@ -8,6 +8,7 @@ import Button from '../../CommonComponent/Button';
 import validateField from './validation';
 import notification from '../../helpers/notification';
 import Error from './error';
+import Loading from "../../CommonComponent/Loading";
 
 import './style.css';
 
@@ -45,6 +46,7 @@ export default class SignUp extends Component {
         value: '',
         error: '',
       },
+      loading: false,
     }
 
     this.validateField = validateField.bind(this);
@@ -101,8 +103,8 @@ export default class SignUp extends Component {
     // check if there are any errors, then don't submit
     // if Empty fields but no errors in state
 
-    if (!(Object.keys(this.state).some(key => this.state[key].error)))
-      Object.keys(this.state).some(key => !(this.state[key].value))
+    if (!(Object.keys(this.state).some(key => key !== 'loading' && this.state[key].error)))
+      Object.keys(this.state).some(key => key !== 'loading' && !(this.state[key].value))
         ?
         notification(
           this.notificationDOMRef,
@@ -112,6 +114,7 @@ export default class SignUp extends Component {
         )
         :
         // Success: submit form 
+        this.setState({loading: true});
         fetch('/api/v1/register', {
           method: 'POST',
           headers: { 'content-type': 'application/json' },
@@ -126,6 +129,7 @@ export default class SignUp extends Component {
           }),
         }).then(response => response.json())
           .then(result => {
+            this.setState({loading: false});
             //Error
             if (result.error) return notification(
               this.notificationDOMRef,
@@ -140,6 +144,7 @@ export default class SignUp extends Component {
             })
           })
           .catch(error => {
+            this.setState({loading: false});
             notification(
               this.notificationDOMRef,
               'warning',
@@ -157,6 +162,7 @@ export default class SignUp extends Component {
       password,
       confirmPassword,
       nickName,
+      loading,
     } = this.state;
 
     return (
@@ -208,6 +214,7 @@ export default class SignUp extends Component {
               action={this.validateInput}
             ></Input>
             <Error message={confirmPassword.error} />
+            {loading && <Loading className="small-loader" />}
             <Button
               name='Register'
               className='register__button'
