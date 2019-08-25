@@ -1,10 +1,12 @@
 import React from "react";
 
-import Card from "../../CommonComponent/ServiceCard";
-import Header from "../../CommonComponent/Header";
-import "./style.css";
+import Card from '../../CommonComponent/ServiceCard';
+import Header from '../../CommonComponent/Header';
+import Footer from '../../CommonComponent/Footer'
+import './style.css'
 
-export default function(props) {
+export default function (props) {
+
   function handleRedirection(path) {
     props.history.push(path);
   }
@@ -39,6 +41,7 @@ export default function(props) {
           </div>
         </section>
       </main>
+      <Footer />
     </>
   );
 }

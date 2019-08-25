@@ -37,10 +37,17 @@ const AddPoem = props => {
         })
       })
         .then(response => response.json())
-        .then(data => {
+        .then(result => {
+          if (result.auth === false) {
+            return new Promise(async (resolve, reject) => {
+              await props.setIsLogged({ auth: false, username: '' });
+              props.history.push('/login');
+              resolve();
+            })
+          }
           props.history.push("/poems");
         })
-        .catch((error) => {
+        .catch(error => {
           setButtonContent("Save");
           setFetchError(true);
         });

@@ -1,6 +1,7 @@
 .land {
   position: relative;
   min-height: 87vh;
+  padding: 1.5em;
 }
 
 .content {

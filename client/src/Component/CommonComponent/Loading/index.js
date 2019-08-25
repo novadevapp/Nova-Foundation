@@ -1,8 +1,8 @@
 import React from "react";
 import './style.css';
 
-export default () => {
-  return <div className="loader"> 
+export default ({className}) => {
+  return <div className={`loader ${className}`}> 
   
   </div>;
 };
