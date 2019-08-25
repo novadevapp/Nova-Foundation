@@ -11,7 +11,8 @@
   margin: 0.4em auto 1.5em auto;
 }
 
-.about-us__paragraph {
+.about-us__paragraph,
+.about-us__link {
   text-align: left;
   padding: 1rem;
   color: #333;
@@ -23,4 +24,15 @@
 
 .about-us .large-skip__button {
   margin-top: 1em;
+}
+
+.about-us__link {
+  text-align: center;
+}
+
+.about-us__link a {
+  color: #333;
+  text-decoration: underline;
+  padding-left: 5px;
+  font-weight: 500;
 }

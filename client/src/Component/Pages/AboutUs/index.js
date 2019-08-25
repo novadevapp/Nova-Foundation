@@ -24,10 +24,10 @@ export default function(props) {
             that no parent walks the path of babyloss alone.
           </p>
 
-          <p>
-            For more information please visit
+          <p className='about-us__link'>
+            For more information please visit at
             <a href='https://www.novafoundation.org.uk/' target='_blank'>
-              www.novafoundation.org.uk
+              novafoundation.org.uk
             </a>
           </p>
           <Button
