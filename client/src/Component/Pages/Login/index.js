@@ -63,20 +63,22 @@ class Login extends Component {
         .then(res => res.json())
         .then(({ data, error }) => {
           if (error) {
-            this.setState({ loading: false }, () => {
-              notification(
-                this.notificationDOMRef,
-                "danger",
-                data.error,
-                "Error"
-              );
-            });
+            notification(
+              this.notificationDOMRef,
+              "danger",
+              data.error,
+              "Error"
+            );
+            this.setState({ loading: false });
           } else {
             return new Promise(async (resolve, reject) => {
-              await this.props.setIsLogged({ auth: true, username: data.username });
+              await this.props.setIsLogged({
+                auth: true,
+                username: data.username
+              });
               this.props.history.push("/home");
               resolve();
-            })
+            });
           }
         })
         .catch(() => {
