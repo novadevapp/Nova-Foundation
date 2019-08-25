@@ -23,6 +23,13 @@ export default function(props) {
             antenatal classes which will in time pay for therapists, to ensure
             that no parent walks the path of babyloss alone.
           </p>
+
+          <p>
+            For more information please visit
+            <a href='https://www.novafoundation.org.uk/' target='_blank'>
+              www.novafoundation.org.uk
+            </a>
+          </p>
           <Button
             name='Back'
             className='large-skip__button'
