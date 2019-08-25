@@ -38,6 +38,7 @@
 .image-content {
   position: relative;
   cursor: pointer;
+  width: 66vw;
 }
 
 .hover {
@@ -57,11 +58,11 @@
 
 .hover__icon {
   background: white;
-  padding: 9px 3px 3px;
-  width: 40px;
-  height: 40px;
+  padding: 9px 0px 3px;
+  width: 50px;
+  height: 50px;
   border-radius: 50%;
-  margin: 4vw auto;
+  margin: 17vw auto;
   border: 1px solid #80808080;
 }
 
