@@ -18,32 +18,68 @@ const Thoughts = ({ thoughts }) => {
   const Emoji = ({ type }) => {
     switch (type) {
       case "sad":
-        return <Sad />;
-        break;
+        return (
+          <>
+            <Sad />
+            <p>Sad</p>
+          </>
+        );
       case "laugh":
-        return <Laugh />;
-        break;
+        return (
+          <>
+            <Laugh />
+            <p>Positive</p>
+          </>
+        );
       case "meh":
-        return <Meh />;
-        break;
+        return (
+          <>
+            <Meh />
+            <p>Adjusting</p>
+          </>
+        );
       case "mehRolling":
-        return <MehRolling />;
-        break;
+        return (
+          <>
+            <MehRolling />
+            <p>Despondent</p>
+          </>
+        );
       case "cry":
-        return <Cry />;
-        break;
+        return (
+          <>
+            <Cry />
+            <p>Upset</p>
+          </>
+        );
       case "grimace":
-        return <Grimace />;
-        break;
+        return (
+          <>
+            <Grimace />
+            <p>Angry</p>
+          </>
+        );
       case "smile":
-        return <Smile />;
-        break;
+        return (
+          <>
+            <Smile />
+            <p>Hopeful</p>
+          </>
+        );
       case "frown":
-        return <Frown />;
-        break;
+        return (
+          <>
+            <Frown />
+            <p>Depressed</p>
+          </>
+        );
       case "tired":
-        return <Tired />;
-        break;
+        return (
+          <>
+            <Tired />
+            <p>Anxious</p>
+          </>
+        );
       default:
         return null;
     }
@@ -52,10 +88,11 @@ const Thoughts = ({ thoughts }) => {
   return (
     <>
       {thoughts.map((item, index) => (
-        <div className='Thought-content' key={index}>
-          <h2>{item.dateString}</h2>
-          <Emoji type={item.emoji} />
-          <p>{item.emoji}</p>
+        <div className='thought-content' key={index}>
+          <h2 className='thought__title'>{item.dateString}</h2>
+          <div className='thought__wrapper'>
+            <Emoji type={item.emoji} />
+          </div>
           <p>{item.thought}</p>
         </div>
       ))}

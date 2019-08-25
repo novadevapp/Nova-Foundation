@@ -101,52 +101,56 @@ export default class SignUp extends Component {
     // check if there are any errors, then don't submit
     // if Empty fields but no errors in state
 
-    if (!(Object.keys(this.state).some(key => this.state[key].error)))
-      Object.keys(this.state).some(key => !(this.state[key].value))
-        ?
+    if ((Object.keys(this.state).some(key => this.state[key].error))) {
+      return;
+    }
+    Object.keys(this.state).some(key => !(this.state[key].value))
+      ?
+      notification(
+        this.notificationDOMRef,
+        'warning',
+        'Please Fill all fields',
+        'Oops Sorry!',
+      )
+      :
+      // Success: submit form 
+    fetch('/api/v1/register', {
+      method: 'POST',
+      headers: { 'content-type': 'application/json' },
+      body: JSON.stringify({
+        data: {
+          name: name.value,
+          babyName: babyName.value,
+          nickName: nickName.value,
+          email: email.value,
+          password: password.value,
+        }
+      }),
+    }).then(response => response.json())
+      .then(result => {
+        this.setState({ loading: false });
+        //Error
+        if (result.error) return notification(
+          this.notificationDOMRef,
+          'warning',
+          result.error,
+          'ERROR',
+        );
+        // Success
+        new Promise(async (resolve, reject) => {
+          await this.props.setIsLogged({ auth: true, username: result.data.username });
+          resolve(this.props.history.push('/status'));
+        })
+      })
+      .catch(error => {
+        this.setState({ loading: false });
         notification(
           this.notificationDOMRef,
           'warning',
-          'Please Fill all fields',
-          'Oops Sorry!',
-        )
-        :
-        // Success: submit form 
-        fetch('/api/v1/register', {
-          method: 'POST',
-          headers: { 'content-type': 'application/json' },
-          body: JSON.stringify({
-            data: {
-              name: name.value,
-              babyName: babyName.value,
-              nickName: nickName.value,
-              email: email.value,
-              password: password.value,
-            }
-          }),
-        }).then(response => response.json())
-          .then(result => {
-            //Error
-            if (result.error) return notification(
-              this.notificationDOMRef,
-              'warning',
-              result.error,
-              'ERROR',
-            );
-            // Success
-            new Promise(async (resolve, reject) => {
-              await this.props.setIsLogged({ auth: true, username: result.data.username });
-              resolve(this.props.history.push('/status'));
-            })
-          })
-          .catch(error => {
-            notification(
-              this.notificationDOMRef,
-              'warning',
-              'Sorry, something went wrong. Please try again!',
-              'ERROR',
-            );
-          });
+          'Sorry, something went wrong. Please try again!',
+          'ERROR',
+        );
+      });
   }
 
   render() {

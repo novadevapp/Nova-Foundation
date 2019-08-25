@@ -29,8 +29,8 @@ export default [
   { path: "/add-pic", component: AddPic },
   { path: "/add-poem", component: AddPoem },
   // { path: "/add-story", component: AddStory },
-  // { path: "/pictures", component: PicturesPage },
-  // { path: "/poems", component: Poems },
+  { path: "/pictures", component: PicturesPage },
+  { path: "/poems", component: Poems },
   // { path: "/stories", component: Stories },
   { path: "/information", component: Information }
   // { path: "/suggestion", component: Suggestion },
