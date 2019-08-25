@@ -47,8 +47,15 @@ export default function (props) {
         body: formData
       })
         .then(response => response.json())
-        .then(({ error, data }) => {
-          if (error) {
+        .then(result => {
+          if (result.auth === false) {
+            return new Promise(async (resolve, reject) => {
+              await props.setIsLogged({ auth: false, username: '' });
+              props.history.push('/login');
+              resolve();
+            })
+          }
+          if (result.error) {
             setbuttonContent("Save");
             SetfetchError(true);
           } else {

@@ -8,6 +8,7 @@ import Button from '../../CommonComponent/Button';
 import validateField from './validation';
 import notification from '../../helpers/notification';
 import Error from './error';
+import Loading from "../../CommonComponent/Loading";
 
 import './style.css';
 
@@ -45,6 +46,7 @@ export default class SignUp extends Component {
         value: '',
         error: '',
       },
+      loading: false,
     }
 
     this.validateField = validateField.bind(this);
@@ -161,6 +163,7 @@ export default class SignUp extends Component {
       password,
       confirmPassword,
       nickName,
+      loading,
     } = this.state;
 
     return (
@@ -212,6 +215,7 @@ export default class SignUp extends Component {
               action={this.validateInput}
             ></Input>
             <Error message={confirmPassword.error} />
+            {loading && <Loading className="small-loader" />}
             <Button
               name='Register'
               className='register__button'

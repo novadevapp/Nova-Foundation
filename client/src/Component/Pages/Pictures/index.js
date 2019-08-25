@@ -43,7 +43,7 @@ export default class Pictures extends Component {
   handleClick = () => {
     this.props.history.push("/add-pic");
   };
-  
+
   handleDeletePopup = e => {
     this.setState({ DeleteId: e.currentTarget.id });
     this.ModelDelete.current.classList.toggle("block");
@@ -59,9 +59,16 @@ export default class Pictures extends Component {
       body: JSON.stringify({ data: { fileName } })
     })
       .then(res => res.json())
-      .then(({ error }) => {
-        if (error) {
-          notification(this.notificationDOMRef, "warning", error, "Warning");
+      .then((result) => {
+        if (result.auth === false) {
+          return new Promise(async (resolve, reject) => {
+            await this.props.setIsLogged({ auth: false, username: '' });
+            this.props.history.push('/login');
+            resolve();
+          })
+        }
+        if (result.error) {
+          notification(this.notificationDOMRef, "warning", result.error, "Warning");
         } else {
           this.setState(prev => {
             const imageURL = prev.imageURL;

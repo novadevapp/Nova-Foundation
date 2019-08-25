@@ -20,12 +20,19 @@ export default props => {
   React.useEffect(() => {
     fetch("/api/v1/thoughts")
       .then(res => res.json())
-      .then(data => {
-        setThoughts(data.data);
+      .then(result => {
+        if (result.auth === false) {
+          return new Promise(async (resolve, reject) => {
+            await props.setIsLogged({ auth: false, username: '' });
+            props.history.push('/login');
+            resolve();
+          })
+        }
+        setThoughts(result.data);
         setLoading(false);
       })
       .catch(err => setError("Something went wrong"));
-  }, []);
+  }, [props]);
   return (
     <>
       <Header {...props} />
@@ -43,8 +50,8 @@ export default props => {
         {thoughts.length ? (
           <Thoughts thoughts={thoughts} />
         ) : (
-          <p>You don't have any thing saved</p>
-        )}
+            <p>You don't have any thing saved</p>
+          )}
 
         <Button
           name='Back'
