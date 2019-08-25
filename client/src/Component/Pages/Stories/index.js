@@ -3,13 +3,15 @@ import "./style.css";
 import Header from "../../CommonComponent/Header";
 import Footer from "../../CommonComponent/Footer";
 import Button from "../../CommonComponent/Button";
-
+import IconF from "./icon-f";
+import IconM from "./icon-m";
 const Stories = props => {
   return (
-    <div>
-      <Header />
+    <>
+      <Header {...props} />
       <h3 className='stories-title'>Sharing stories</h3>
       <div className='stories-container'>
+        <IconF />
         <p className='stories-content'>
           While your grief will always be with you, the first two years are
           particularly intense. As part of this app eventually we would like to
@@ -35,6 +37,7 @@ const Stories = props => {
           wrong with journaling, it is a space for you and only you to get your
           inner thoughts out and connect with how you feel.
         </p>
+        <IconM />
         <Button
           className='large-back__button'
           name='Back'
@@ -42,7 +45,7 @@ const Stories = props => {
         />
       </div>
       <Footer />
-    </div>
+    </>
   );
 };
 
