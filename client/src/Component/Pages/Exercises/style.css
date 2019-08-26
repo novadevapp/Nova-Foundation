@@ -1,7 +1,9 @@
 .exercises-container {
   padding: 1em;
 }
-
+.exercises {
+  min-height: 70vh;
+}
 .exercises-title {
   font-family: roboto;
   font-size: 4vh;

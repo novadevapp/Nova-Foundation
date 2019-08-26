@@ -2,6 +2,7 @@ import React from "react";
 
 import Header from "../../CommonComponent/Header";
 import Button from "../../CommonComponent/Button";
+import Footer from "../../CommonComponent/Footer";
 import MedPic from "../../../assets/Medi.png";
 import "./style.css";
 
@@ -132,6 +133,7 @@ export default function(props) {
           />
         </section>
       </main>
+      <Footer />
     </>
   );
 }
