@@ -1,0 +1,41 @@
+.exercises-container {
+  padding: 1em;
+}
+
+.exercises-title {
+  font-family: roboto;
+  font-size: 4vh;
+  letter-spacing: 0.15px;
+  width: 100%;
+  display: block;
+  margin: 1em;
+}
+
+.exercises-section {
+  max-width: 800px;
+  margin: auto;
+  padding: 1em;
+}
+
+.exercises-subtitle {
+  padding: 1.5rem;
+  font-family: Roboto;
+  font-weight: 300;
+  font-size: 1.3em;
+}
+
+.exercises-content {
+  padding: 1.5rem;
+  font-family: Roboto;
+  font-weight: 300;
+  font-size: 1em;
+  line-height: 1.5;
+  letter-spacing: 0.15px;
+  color: #000000;
+  text-align: left;
+}
+
+.exercises-img {
+  width: 100%;
+  margin: auto;
+}
