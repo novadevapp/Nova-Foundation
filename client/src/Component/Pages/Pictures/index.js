@@ -26,11 +26,14 @@ export default class Pictures extends Component {
     fetch("/api/v1/pictures")
       .then(res => res.json())
       .then(({ images, error }) => {
-        if (error)
+        if (error) {
+          this.setState({ loading: false });
           notification(this.notificationDOMRef, "warning", error, "Warning");
+        }
         else this.setState({ imageURL: images, loading: false });
       })
       .catch((error) => {
+        this.setState({ loading: false });
         notification(
           this.notificationDOMRef,
           "danger",

@@ -46,7 +46,6 @@ export default class SignUp extends Component {
         value: '',
         error: '',
       },
-      loading: false,
     }
 
     this.validateField = validateField.bind(this);
@@ -106,6 +105,7 @@ export default class SignUp extends Component {
     if ((Object.keys(this.state).some(key => this.state[key].error))) {
       return;
     }
+
     Object.keys(this.state).some(key => !(this.state[key].value))
       ?
       notification(
@@ -139,9 +139,10 @@ export default class SignUp extends Component {
           'ERROR',
         );
         // Success
-        new Promise(async (resolve, reject) => {
+        return new Promise(async (resolve, reject) => {
           await this.props.setIsLogged({ auth: true, username: result.data.username });
-          resolve(this.props.history.push('/status'));
+          this.props.history.push('/status')
+          resolve();
         })
       })
       .catch(error => {

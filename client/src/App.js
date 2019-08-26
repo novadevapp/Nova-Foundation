@@ -23,8 +23,7 @@ function App() {
   const [isLoading, setLoading] = React.useState(true);
   const notificationDOMRef = React.createRef();
 
-  React.useEffect(() => {
-    if (!isLoading) return;
+  React.useEffect(props => {
     fetch("/api/v1/login-status")
       .then(res => res.json())
       .then(data => {
@@ -45,6 +44,7 @@ function App() {
         );
         setLoading(false);
       });
+    return () => undefined;
   }, [isLoading]);
   return (
     <div className='App'>
