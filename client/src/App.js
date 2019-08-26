@@ -21,7 +21,7 @@ const navLinksForVisitors = [
 function App() {
   const [isLogged, setIsLogged] = React.useState({ auth: false, username: "" });
   const [isLoading, setLoading] = React.useState(true);
-  const notificationDOMRef = React.createRef();
+  const [error , setError] = React.useState('');
 
   React.useEffect(props => {
     fetch("/api/v1/login-status")
@@ -36,20 +36,16 @@ function App() {
         }
       })
       .catch(err => {
-        notification(
-          this.notificationDOMRef,
-          "warning",
-          "Sorry, something went wrong. Please try again!",
-          "ERROR"
-        );
+        setError('Error Please reload the page')
         setLoading(false);
       });
     return () => undefined;
-  }, [isLoading]);
+  }, []);
   return (
     <div className='App'>
-      {isLoading ? (
-        <Loading />
+      {error && <p className="error">{error}</p>}
+      {isLoading || error ? (
+        isLoading && <Loading />
       ) : (
         <Router>
           <Switch>
@@ -93,7 +89,6 @@ function App() {
               render={props => <FourOFour {...props} isLogged={isLogged} />}
             />
           </Switch>
-          <ReactNotification ref={notificationDOMRef} />
         </Router>
       )}
     </div>

@@ -11,7 +11,6 @@ import Loading from "../../CommonComponent/Loading";
 
 import "react-notifications-component/dist/theme.css";
 import "./style.css";
-import { fail } from "assert";
 
 class Login extends Component {
   state = {
@@ -63,14 +62,13 @@ class Login extends Component {
         .then(res => res.json())
         .then(({ data, error }) => {
           if (error) {
-            this.setState({ loading: false }, () => {
-              notification(
+            notification(
                 this.notificationDOMRef,
                 "danger",
                 data.error,
                 "Error"
               );
-            });
+            this.setState({ loading: false });
           } else {
             return new Promise(async (resolve, reject) => {
               await this.props.setIsLogged({ auth: true, username: data.username });
