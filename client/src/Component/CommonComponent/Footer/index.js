@@ -4,7 +4,7 @@ import "./style.css";
 export default () => {
   return (
     <div className='footer'>
-      <a href='' target='blank'>
+      <a href='https://www.facebook.com/novafoundationuk' target='blank'>
         <svg
           xmlns='http://www.w3.org/2000/svg'
           width='46'
