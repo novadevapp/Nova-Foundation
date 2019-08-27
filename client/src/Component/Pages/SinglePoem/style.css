@@ -1,0 +1,25 @@
+.poem-s-main {
+  min-height: 90vh;
+}
+.poem-container {
+  margin: 1em auto;
+  max-width: 80%;
+}
+
+.poem-s-title {
+  margin: auto;
+  padding: 1em;
+  font-family: roboto;
+  letter-spacing: 1px;
+  font-weight: 500;
+  font-size: 1.3em;
+  word-wrap: break-word;
+  max-width: 600px;
+}
+
+.poem-s-body {
+  margin: auto;
+  font-family: roboto;
+  word-wrap: break-word;
+  max-width: 600px;
+}
