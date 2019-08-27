@@ -1,0 +1,17 @@
+.home-page__title {
+  font-weight: 500;
+  font-size: 1.1rem;
+  letter-spacing: .05em;
+  line-height: 1.5;
+  color: white;
+  margin-bottom: 1em;
+}
+
+.home-page__section {
+  margin-top: -6rem;
+  padding: 1rem;
+}
+
+.home-page {
+  min-height: 90vh;
+}

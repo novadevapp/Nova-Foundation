@@ -1,0 +1,14 @@
+
+textarea{
+color: #646769;
+background: #EEEEEE;
+border-radius: 3px;
+display: inline-block;
+border-style: none;
+border: rgba(144,144,144, 0.6) 0.8px;
+padding: 0.3em;
+margin: 0.3em;
+font: 1em Lato;
+height: 15em;
+
+}

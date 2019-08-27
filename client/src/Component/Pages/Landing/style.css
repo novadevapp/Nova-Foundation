@@ -1,0 +1,95 @@
+.land {
+  position: relative;
+  min-height: 87vh;
+  padding: 1.5em;
+}
+
+.content {
+  background: white;
+  padding: 32px;
+  min-width: 250px;
+  min-height: 355px;
+  border-radius: 7px;
+  box-shadow: 0 0 5px #808080c7;
+}
+
+.content__icon {
+  margin-right: 10px;
+}
+
+.content__paragraph {
+  line-height: 1.5;
+}
+
+.land__links {
+  display: flex;
+  flex-wrap: wrap;
+  width: 250px;
+  margin: 2.3em auto;
+}
+
+.land .react-notification-root {
+  position: absolute;
+  z-index: 8000;
+  transform: translateX(-50%);
+  top: 0;
+  left: 50%;
+}
+
+.land__header {
+  color: #62676b;
+  font-size: 2em;
+}
+
+.land__paragraph {
+  font-family: Roboto;
+  font-size: 1em;
+  margin: 1em auto;
+  width: 80vw;
+  max-width: 600px;
+  color: #333;
+}
+
+.land__img {
+  width: 99%;
+}
+
+.hidden {
+  animation: fadeOut 1s ease-in-out;
+}
+
+@keyframes fadeOut {
+  form {
+    opacity: 1;
+  }
+  to {
+    opacity: 0;
+  }
+}
+
+@media (max-width: 768px) {
+  .land .react-notification-root {
+    left: 0;
+    margin-left: 25%;
+  }
+}
+
+@media (max-width: 540px) {
+  .land .react-notification-root {
+    left: 9%;
+    margin-left: 5%;
+  }
+}
+
+@media (max-width: 320px) {
+  .land .react-notification-root {
+    left: 0;
+    margin-left: 5%;
+  }
+}
+
+@media(min-width: 700px) {
+  .land__img {
+    width: 30%;
+  }
+}

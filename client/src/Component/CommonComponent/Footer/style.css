@@ -1,0 +1,10 @@
+.footer {
+  width: 100%;
+  height: 60px;
+  margin-top: 20px;
+  border-top: 1px solid #80808080;
+}
+
+.footer__icon{
+    margin: 5px 5px 0 0 ;
+}

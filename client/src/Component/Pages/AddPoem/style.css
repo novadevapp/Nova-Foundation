@@ -1,0 +1,10 @@
+.add-poem-page {
+  min-height: 65vh;
+  width: 90%;
+  margin: 0 auto;
+  padding: 1em;
+}
+
+.add-poem__error{
+  color: red;
+}

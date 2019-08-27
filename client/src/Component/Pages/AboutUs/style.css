@@ -1,0 +1,38 @@
+.about-us__section {
+  padding: 1rem;
+  font-family: Roboto;
+  font-weight: 300;
+  font-size: 1.3rem;
+  line-height: 1.5;
+  align-items: center;
+  letter-spacing: 0.15px;
+  color: #000000;
+  min-height: 70vh;
+  margin: 0.4em auto 1.5em auto;
+}
+
+.about-us__paragraph,
+.about-us__link {
+  text-align: left;
+  padding: 1rem;
+  color: #333;
+  font-size: 0.8em;
+  line-height: 1.5;
+  max-width: 600px;
+  margin: 0 auto;
+}
+
+.about-us .large-skip__button {
+  margin-top: 1em;
+}
+
+.about-us__link {
+  text-align: center;
+}
+
+.about-us__link a {
+  color: #333;
+  text-decoration: underline;
+  padding-left: 5px;
+  font-weight: 500;
+}
