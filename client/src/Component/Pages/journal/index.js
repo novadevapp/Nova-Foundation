@@ -6,7 +6,7 @@ import Button from "../../CommonComponent/Button";
 import Loading from "../../CommonComponent/Loading";
 import Thoughts from "./thoughts";
 import AddIcon from "../../CommonComponent/AddIcon";
-import IconM from "../Stories/icon-m";
+import IconM from "./icon-m";
 import "./style.css";
 
 export default props => {
