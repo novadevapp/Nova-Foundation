@@ -32,7 +32,7 @@ export default [
   { path: "/pictures", component: PicturesPage },
   { path: "/poems", component: Poems },
   { path: "/stories", component: Stories },
-  { path: "/information", component: Information }
+  { path: "/information", component: Information },
   // { path: "/suggestion", component: Suggestion },
   // { path: "/single-story", component: SingleStory },
   { path: "/poems/:id", component: SinglePoem }
