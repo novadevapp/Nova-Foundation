@@ -29,10 +29,9 @@ export default class Pictures extends Component {
         if (error) {
           this.setState({ loading: false });
           notification(this.notificationDOMRef, "warning", error, "Warning");
-        }
-        else this.setState({ imageURL: images, loading: false });
+        } else this.setState({ imageURL: images, loading: false });
       })
-      .catch((error) => {
+      .catch(error => {
         this.setState({ loading: false });
         notification(
           this.notificationDOMRef,
@@ -62,16 +61,21 @@ export default class Pictures extends Component {
       body: JSON.stringify({ data: { fileName } })
     })
       .then(res => res.json())
-      .then((result) => {
+      .then(result => {
         if (result.auth === false) {
           return new Promise(async (resolve, reject) => {
-            await this.props.setIsLogged({ auth: false, username: '' });
-            this.props.history.push('/login');
+            await this.props.setIsLogged({ auth: false, username: "" });
+            this.props.history.push("/login");
             resolve();
-          })
+          });
         }
         if (result.error) {
-          notification(this.notificationDOMRef, "warning", result.error, "Warning");
+          notification(
+            this.notificationDOMRef,
+            "warning",
+            result.error,
+            "Warning"
+          );
         } else {
           this.setState(prev => {
             const imageURL = prev.imageURL;
@@ -99,28 +103,27 @@ export default class Pictures extends Component {
     return (
       <>
         <Header {...this.props} />
-        <section className="collage-container">
+        <section className='collage-container'>
           <div className='pictures__header'>
-            <h1 className="all-pictures__title"> All Pictures </h1>
+            <h1 className='all-pictures__title'> All Pictures </h1>
             <AddIcon onClick={this.handleClick} />
           </div>
-          {loading ?
+          {loading ? (
             <Loading />
-            :
+          ) : (
             <Gallery
-              className="img__single"
+              className='img__single'
               imgUrl={imageURL}
               onClick={this.handleDeletePopup}
             />
-          }
+          )}
         </section>
-        <div className="pic__buttons">
+        <div className='pic__buttons'>
           <Button
-            className="large-back__button"
-            name="Back"
+            className='large-back__button'
+            name='Back'
             onClick={() => this.props.history.goBack()}
           />
-          <Button className="register__button" name="More Pictures" />
         </div>
         <Footer />
 
