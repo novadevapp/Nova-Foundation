@@ -35,6 +35,6 @@ export default [
   { path: "/information", component: Information }
   // { path: "/suggestion", component: Suggestion },
   // { path: "/single-story", component: SingleStory },
-  // { path: "/single-poem", component: SinglePoem },
+  { path: "/poems/:id", component: SinglePoem }
   // { path: "/single-exercise", component: SingleExercises }
 ];
