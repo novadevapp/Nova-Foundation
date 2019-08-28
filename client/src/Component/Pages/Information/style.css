@@ -1,5 +1,6 @@
 .info-container {
   padding: 1em;
+  min-height: 70vh;
 }
 
 .info-title {
