@@ -4,6 +4,7 @@ import Header from "../../CommonComponent/Header";
 import Button from "../../CommonComponent/Button";
 import Footer from "../../CommonComponent/Footer";
 import MedPic from "../../../assets/Medi.png";
+import butterflyHug from "../../../assets/butterflyHug.jpeg";
 import "./style.css";
 
 export default function(props) {
@@ -20,7 +21,7 @@ export default function(props) {
         <section className='exercises-section'>
           <p className='exercises-content'>
             Self soothing can be a physical process. A practice can be very
-            helpful in the presence of fear, anxity. A lot af practices involve
+            helpful in the presence of fear, anxiety. A lot af practices involve
             using your immagination to create a space in your mind where you can
             feel safe, calm and potentially content.
           </p>
@@ -38,6 +39,7 @@ export default function(props) {
             {selection === "ButterflyHug" ? (
               <>
                 <h4 className='exercises-subtitle'> Butterfly hug</h4>
+
                 <p className='exercises-content'>
                   1 sit or stand in a comfortable position. cross both arms in
                   front of your chest and place each hand on your uppor arms
@@ -46,6 +48,11 @@ export default function(props) {
                   2 begin gently tapping one hand at a time on yor arms. take
                   slow breaths. Try and breath a little deeper.
                 </p>
+                <img
+                  className='bfh-img'
+                  src={butterflyHug}
+                  alt='Butterfly hug instructions'
+                />
                 <p className='exercises-content'>
                   3 You level of emotions may not change, give yourself some
                   time and see what happens.

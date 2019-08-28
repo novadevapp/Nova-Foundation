@@ -8,7 +8,7 @@
   letter-spacing: 0.15px;
   width: 100%;
   display: block;
-  margin-bottom:1em;
+  margin-bottom: 1em;
 }
 
 .sub-info-title {
@@ -29,6 +29,8 @@
   letter-spacing: 0.15px;
   color: #000000;
   text-align: left;
+  max-width: 900px;
+  margin: auto;
 }
 
 .info-questions {
@@ -55,6 +57,7 @@
   max-width: 80vw;
 }
 
-.grief-section img, .symptoms-section img {
+.grief-section img,
+.symptoms-section img {
   max-height: 20vh;
 }
