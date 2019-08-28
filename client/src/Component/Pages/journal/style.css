@@ -1,6 +1,7 @@
 .journal {
   min-height: 70vh;
 }
+
 .journal-add-icon {
   position: fixed;
   top: 20vh;
@@ -13,8 +14,9 @@
   font-family: roboto;
   font-size: 4vh;
   letter-spacing: 0.15px;
-  margin: 1em auto;
+  padding-right: .7em;
   display: inline-block;
+  text-align: center;
 }
 
 .journal__loading {
@@ -22,6 +24,38 @@
   width: fit-content;
 }
 
-.Thought-content svg {
+.thought-content {
+  border: 1px solid #eeeeee;
+  width: 70%;
+  margin: 0 auto 1em auto;
+  padding: .5em;
+  border-radius: 3px;
+  box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.1);
+}
+
+.thought-content svg {
   fill: #c33650;
+}
+
+.journal__header {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 2em;
+}
+
+.thought__wrapper {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 1em;
+}
+
+.thought__wrapper p{
+  padding-left: .5em;
+}
+
+.thought__title{
+  font-size: 1.3em;
+  font-weight: 500;
 }

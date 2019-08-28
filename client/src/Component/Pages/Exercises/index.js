@@ -58,7 +58,7 @@ export default function(props) {
                 <img
                   className='exercises-img'
                   src={MedPic}
-                  alt='Meditation image'
+                  alt='Meditation instructions'
                 />
                 <p className='exercises-content'>
                   Make sure you are in a space where you will not be interupted.

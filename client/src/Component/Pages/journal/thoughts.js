@@ -23,7 +23,6 @@ const Thoughts = ({ thoughts }) => {
             <p>Sad</p>
           </>
         );
-        break;
       case "laugh":
         return (
           <>
@@ -31,7 +30,6 @@ const Thoughts = ({ thoughts }) => {
             <p>Positive</p>
           </>
         );
-        break;
       case "meh":
         return (
           <>
@@ -39,7 +37,6 @@ const Thoughts = ({ thoughts }) => {
             <p>Adjusting</p>
           </>
         );
-        break;
       case "mehRolling":
         return (
           <>
@@ -47,7 +44,6 @@ const Thoughts = ({ thoughts }) => {
             <p>Despondent</p>
           </>
         );
-        break;
       case "cry":
         return (
           <>
@@ -55,7 +51,6 @@ const Thoughts = ({ thoughts }) => {
             <p>Upset</p>
           </>
         );
-        break;
       case "grimace":
         return (
           <>
@@ -63,7 +58,6 @@ const Thoughts = ({ thoughts }) => {
             <p>Angry</p>
           </>
         );
-        break;
       case "smile":
         return (
           <>
@@ -71,7 +65,6 @@ const Thoughts = ({ thoughts }) => {
             <p>Hopeful</p>
           </>
         );
-        break;
       case "frown":
         return (
           <>
@@ -79,7 +72,6 @@ const Thoughts = ({ thoughts }) => {
             <p>Depressed</p>
           </>
         );
-        break;
       case "tired":
         return (
           <>
@@ -87,7 +79,6 @@ const Thoughts = ({ thoughts }) => {
             <p>Anxious</p>
           </>
         );
-        break;
       default:
         return null;
     }
@@ -96,10 +87,11 @@ const Thoughts = ({ thoughts }) => {
   return (
     <>
       {thoughts.map((item, index) => (
-        <div className='Thought-content' key={index}>
-          <h2>{item.dateString}</h2>
-          <Emoji type={item.emoji} />
-
+        <div className='thought-content' key={index}>
+          <h2 className='thought__title'>{item.dateString}</h2>
+          <div className='thought__wrapper'>
+            <Emoji type={item.emoji} />
+          </div>
           <p>{item.thought}</p>
         </div>
       ))}
