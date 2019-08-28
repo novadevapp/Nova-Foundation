@@ -26,7 +26,11 @@ export default function(props) {
 
           <p className='about-us__link'>
             For more information please visit at
-            <a href='https://www.novafoundation.org.uk/' target='_blank'>
+            <a
+              href='https://www.novafoundation.org.uk/'
+              target='_blank'
+              rel='noopener noreferrer'
+            >
               novafoundation.org.uk
             </a>
           </p>
