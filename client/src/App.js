@@ -23,8 +23,7 @@ function App() {
   const [isLoading, setLoading] = React.useState(true);
   const [error , setError] = React.useState('');
 
-  React.useEffect(() => {
-    // if (!isLoading) return;
+  React.useEffect(props => {
     fetch("/api/v1/login-status")
       .then(res => res.json())
       .then(data => {
@@ -40,6 +39,7 @@ function App() {
         setError('Error Please reload the page')
         setLoading(false);
       });
+    return () => undefined;
   }, []);
   return (
     <div className='App'>

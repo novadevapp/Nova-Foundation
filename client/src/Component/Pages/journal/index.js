@@ -5,7 +5,7 @@ import Footer from "../../CommonComponent/Footer";
 import Button from "../../CommonComponent/Button";
 import Loading from "../../CommonComponent/Loading";
 import Thoughts from "./thoughts";
-import AddIcon from "./AddIcon";
+import AddIcon from "../../CommonComponent/AddIcon";
 import "./style.css";
 
 export default props => {
@@ -37,8 +37,10 @@ export default props => {
     <>
       <Header {...props} />
       <main className='journal'>
-        <h1 className='journal__title'> Journal</h1>
-        <AddIcon onClick={handleClick} />
+        <div className='journal__header'>
+          <h1 className='journal__title'> Journal</h1>
+          <AddIcon onClick={handleClick} />
+        </div>
         {loading && (
           <div className='journal__loading'>
             <Loading />

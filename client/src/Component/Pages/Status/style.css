@@ -1,27 +1,41 @@
-.status__emoji-container {
-  width: 70%;
-  margin: 0 auto;
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: space-between;
-}
-.status__emoji {
-  width: 30%;
-  margin-bottom: 10px;
-}
-.status__username {
-  color: #c33650;
-}
-.status__greeting {
-  text-align: left;
-  margin-left: 15%;
-}
-.status__question {
-  text-align: left;
-  padding: 5px;
-  margin-left: 17%;
-}
+  .status {
+    padding-top: 1em;
+  }
 
-.error, .status__error {
-  color: #d14761;
-}
+  .status__emoji-container {
+    width: 70%;
+    margin: 1em auto;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+  }
+
+  .status__emoji {
+    width: 30%;
+    margin-bottom: 10px;
+  }
+
+  .status__username {
+    color: #c33650;
+  }
+
+  .status__greeting {
+    text-align: left;
+    margin-left: 15%;
+    margin-bottom: 1em;
+  }
+
+  .status__question {
+    text-align: left;
+    padding: 5px;
+    margin-left: 17%;
+  }
+
+  .error, .status__error {
+    color: #d14761;
+  }
+
+  .status input {
+    width: 70vw;
+    height: 10vh;
+  }
