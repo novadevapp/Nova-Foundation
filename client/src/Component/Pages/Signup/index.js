@@ -1,52 +1,51 @@
-import React, { Component } from 'react';
+import React, { Component } from "react";
 import ReactNotification from "react-notifications-component";
 
-import Footer from '../../CommonComponent/Footer';
-import Header from '../../CommonComponent/Header';
-import Input from '../../CommonComponent/Input';
-import Button from '../../CommonComponent/Button';
-import validateField from './validation';
-import notification from '../../helpers/notification';
-import Error from './error';
+import Footer from "../../CommonComponent/Footer";
+import Header from "../../CommonComponent/Header";
+import Input from "../../CommonComponent/Input";
+import Button from "../../CommonComponent/Button";
+import validateField from "./validation";
+import notification from "../../helpers/notification";
+import Error from "./error";
 import Loading from "../../CommonComponent/Loading";
 
-import './style.css';
+import "./style.css";
 
 export default class SignUp extends Component {
-
   constructor(props) {
     super(props);
     this.state = {
       name: {
-        value: '',
-        error: '',
+        value: "",
+        error: ""
       },
 
       email: {
-        value: '',
-        error: '',
+        value: "",
+        error: ""
       },
 
       password: {
-        value: '',
-        error: '',
+        value: "",
+        error: ""
       },
 
       confirmPassword: {
-        value: '',
-        error: '',
+        value: "",
+        error: ""
       },
 
       nickName: {
-        value: '',
-        error: '',
+        value: "",
+        error: ""
       },
 
       babyName: {
-        value: '',
-        error: '',
-      },
-    }
+        value: "",
+        error: ""
+      }
+    };
 
     this.validateField = validateField.bind(this);
   }
@@ -59,102 +58,98 @@ export default class SignUp extends Component {
 
     // Check passwords: value1 is pas2, value2 is pas1 from the state
 
-    const value2 = name === 'confirmPassword' && this.state.password.value;
+    const value2 = name === "confirmPassword" && this.state.password.value;
 
     errorMessage = this.validateField(name, value, value2);
 
     // each change to pas1, compare both passwords
 
-    name === 'password' && value === this.state.confirmPassword.value
-      ?
-      passwordsError = ''
-      :
-      passwordsError = 'Passwords dont\' match'
+    name === "password" && value === this.state.confirmPassword.value
+      ? (passwordsError = "")
+      : (passwordsError = "Passwords dont' match");
 
     // Update State & Error Messages if Exists
 
-    name === 'password'
-      ?
-      this.setState((prevState) => {
-        const confirmValue = prevState.confirmPassword.value;
-        return {
-          [name]: {
-            value, error: errorMessage
-          }, confirmPassword: {
-            value: confirmValue, error: passwordsError
-          }
-        }
-      })
-      :
-      this.setState({ [name]: { value, error: errorMessage } });
-  }
+    name === "password"
+      ? this.setState(prevState => {
+          const confirmValue = prevState.confirmPassword.value;
+          return {
+            [name]: {
+              value,
+              error: errorMessage
+            },
+            confirmPassword: {
+              value: confirmValue,
+              error: passwordsError
+            }
+          };
+        })
+      : this.setState({ [name]: { value, error: errorMessage } });
+  };
 
-  submitForm = (e) => {
+  submitForm = e => {
     e.preventDefault();
-    const {
-      name,
-      babyName,
-      nickName,
-      email,
-      password,
-    } = this.state;
+    const { name, babyName, nickName, email, password } = this.state;
 
     // check if there are any errors, then don't submit
     // if Empty fields but no errors in state
 
-    if ((Object.keys(this.state).some(key => this.state[key].error))) {
+    if (Object.keys(this.state).some(key => this.state[key].error)) {
       return;
     }
 
-    Object.keys(this.state).some(key => !(this.state[key].value))
-      ?
-      notification(
-        this.notificationDOMRef,
-        'warning',
-        'Please Fill all fields',
-        'Oops Sorry!',
-      )
-      :
-      // Success: submit form 
-    fetch('/api/v1/register', {
-      method: 'POST',
-      headers: { 'content-type': 'application/json' },
-      body: JSON.stringify({
-        data: {
-          name: name.value,
-          babyName: babyName.value,
-          nickName: nickName.value,
-          email: email.value,
-          password: password.value,
-        }
-      }),
-    }).then(response => response.json())
-      .then(result => {
-        this.setState({ loading: false });
-        //Error
-        if (result.error) return notification(
+    Object.keys(this.state).some(key => !this.state[key].value)
+      ? notification(
           this.notificationDOMRef,
-          'warning',
-          result.error,
-          'ERROR',
-        );
-        // Success
-        return new Promise(async (resolve, reject) => {
-          await this.props.setIsLogged({ auth: true, username: result.data.username });
-          this.props.history.push('/status')
-          resolve();
+          "warning",
+          "Please Fill all fields",
+          "Oops Sorry!"
+        )
+      : // Success: submit form
+        fetch("/api/v1/register", {
+          method: "POST",
+          headers: { "content-type": "application/json" },
+          body: JSON.stringify({
+            data: {
+              name: name.value,
+              babyName: babyName.value,
+              nickName: nickName.value,
+              email: email.value,
+              password: password.value
+            }
+          })
         })
-      })
-      .catch(error => {
-        this.setState({ loading: false });
-        notification(
-          this.notificationDOMRef,
-          'warning',
-          'Sorry, something went wrong. Please try again!',
-          'ERROR',
-        );
-      });
-  }
+          .then(response => response.json())
+          .then(result => {
+            this.setState({ loading: false });
+            //Error
+            if (result.error)
+              return notification(
+                this.notificationDOMRef,
+                "warning",
+                result.error,
+                "ERROR"
+              );
+            // Success
+            return new Promise(async (resolve, reject) => {
+              await this.props.setIsLogged({
+                auth: true,
+                username: result.data.username
+              });
+              this.props.history.push("/status");
+              resolve();
+            });
+          })
+          .catch(error => {
+            this.setState({ loading: false });
+            notification(
+              this.notificationDOMRef,
+              "warning",
+              "Sorry, something went wrong. Please try again!",
+              "ERROR"
+            );
+          });
+  };
 
   render() {
     const {
@@ -164,7 +159,7 @@ export default class SignUp extends Component {
       password,
       confirmPassword,
       nickName,
-      loading,
+      loading
     } = this.state;
 
     return (
@@ -172,6 +167,14 @@ export default class SignUp extends Component {
         <Header {...this.props} className='register minimal' />
         <main className='register-page'>
           <form className='register-page__form'>
+            <p className='register-page__disclaimer'>
+              Nova Foundation knows how precious the memory of you baby is. In
+              order to keep this information safe we have taken steps to secure
+              it. Please make a note of your password. Due to the prototype
+              nature of this app are unable to issue new passwords. We recomend
+              backing up any pictures uploaded. We hope you find the app
+              provides you with comfort, thank you for using it.
+            </p>
             <Input
               id='name'
               label='Your name'
@@ -204,7 +207,7 @@ export default class SignUp extends Component {
             <Error message={email.error} />
             <Input
               id='password'
-              label='Your password'
+              label='Your password (Please your password safe. Due to the prototype nature of this app are unable to issue new passwords. )'
               type='password'
               action={this.validateInput}
             ></Input>
@@ -216,14 +219,23 @@ export default class SignUp extends Component {
               action={this.validateInput}
             ></Input>
             <Error message={confirmPassword.error} />
-            {loading && <Loading className="small-loader" />}
+            {loading && <Loading className='small-loader' />}
             <Button
               name='Register'
               className='register__button'
-              onClick={this.submitForm} />
+              onClick={this.submitForm}
+            />
             <p className='register-page__login-message'>
               Have an account?
-            <span className='register-page__login-anchor' onClick={() => { this.props.history.push('/login') }}> Log in</span>
+              <span
+                className='register-page__login-anchor'
+                onClick={() => {
+                  this.props.history.push("/login");
+                }}
+              >
+                {" "}
+                Log in
+              </span>
             </p>
           </form>
         </main>
@@ -233,4 +245,3 @@ export default class SignUp extends Component {
     );
   }
 }
-

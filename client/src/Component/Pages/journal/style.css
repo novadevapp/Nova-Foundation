@@ -14,7 +14,7 @@
   font-family: roboto;
   font-size: 4vh;
   letter-spacing: 0.15px;
-  padding-right: .7em;
+  padding-right: 0.7em;
   display: inline-block;
   text-align: center;
 }
@@ -28,7 +28,7 @@
   border: 1px solid #eeeeee;
   width: 70%;
   margin: 0 auto 1em auto;
-  padding: .5em;
+  padding: 0.5em;
   border-radius: 3px;
   box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.1);
 }
@@ -51,11 +51,70 @@
   padding: 1em;
 }
 
-.thought__wrapper p{
-  padding-left: .5em;
+.thought__wrapper p {
+  padding-left: 0.5em;
 }
 
-.thought__title{
+.thought__title {
   font-size: 1.3em;
   font-weight: 500;
+}
+
+.journal-content {
+  text-align: left;
+  text-align: start;
+  padding: 1rem 2em;
+  font-family: Roboto;
+  font-weight: 300;
+  font-size: 1.3rem;
+  line-height: 1.5;
+  letter-spacing: 0.15px;
+  max-width: 900px;
+  color: #000000;
+  margin: auto;
+}
+
+.stories-icon {
+  display: block;
+  margin: auto;
+  height: 40vh;
+  max-width: 80vw;
+}
+
+/* for icon-m*/
+
+.st0 {
+  fill: #616161;
+}
+
+.st1 {
+  fill: #4ba1bc;
+}
+
+.st2 {
+  fill: #6fbcce;
+}
+
+.st3 {
+  fill: #404040;
+}
+
+.st4 {
+  fill: #767676;
+}
+
+.st5 {
+  fill: #ede5d9;
+}
+
+.st6 {
+  fill: #5a4d4b;
+}
+
+.st7 {
+  fill: #eed2c5;
+}
+
+.st8 {
+  fill: #e2b5a3;
 }
