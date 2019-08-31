@@ -1,26 +1,31 @@
-const admin = require("../../database/firebaseStorage/config");
-const axios = require("axios");
-const path = require("path");
+const insertPic = require("../../database/queries/insertPic");
 
 const postPicture = async (req, res) => {
   try {
-    const { file } = req.files;
-    const bucket = admin.storage().bucket();
-    let { id } = req.auth;
-    file.name = `${Date.now()}${path.extname(file.name)}`;
+    const { title } = req.body;
+    const userId = req.auth.id;
 
-    const options = {
-      action: "write",
-      expires: Date.now() + 60 * 60 * 1000,
-      version: "v4"
-    };
+    const image = {};
+    image.url = req.file.url;
+    image.id = req.file.public_id;
 
-    const imgeUrlRef = bucket.file(`/images/${id}/${file.name}`);
-    const [url] = await imgeUrlRef.getSignedUrl(options);
-    await axios.put(url, file.data);
-    res.send({ data: true });
-  } catch (err) {
-    res.status(500).send({ error: "Internale Server Error" });
+    console.log("this is the image", image);
+
+    const insertedPic = await insertPic({
+      title,
+      content: image.url,
+      public_id: image.id,
+      publisher: userId
+    });
+
+    if (insertedPic) {
+      return res.send({ data: { message: "Success" }, error: null });
+    }
+    // Error in Insert
+    throw Error("error");
+  } catch (error) {
+    // Error Case
+    res.status(500).send({ data: null, error: "Internal Server Error" });
   }
 };
 
