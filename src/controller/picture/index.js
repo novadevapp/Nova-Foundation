@@ -1,6 +1,6 @@
 const express = require("express");
 
-const pictures = require("./getPictures");
+const getPictures = require("./getPictures");
 const postPicture = require("./postPicture");
 const deletePicture = require("./deletePicture");
 const multer = require("multer");
@@ -20,7 +20,7 @@ const parser = multer({ storage: storage });
 
 route
   .route("/pictures")
-  .get(pictures)
+  .get(getPictures)
   .delete(deletePicture);
 
 route.post("/add-picture", parser.single("file"), postPicture);

@@ -1,20 +1,32 @@
-const { config, uploader } = require("cloudinary").v2;
-const path = require("path");
+const insertPic = require("../../database/queries/insertPic");
 
 const postPicture = async (req, res) => {
-  console.log(req.file);
-  const { title } = req.body;
-  let { id } = req.auth;
-  file.name = `${Date.now()}${path.extname(file.name)}`;
+  try {
+    const { title } = req.body;
+    const userId = req.auth.id;
 
-  const image = {};
-  image.url = req.file.url;
-  image.id = req.file.public_id;
+    const image = {};
+    image.url = req.file.url;
+    image.id = req.file.public_id;
 
-  console.log({ image });
-  // Image.create(image) // save image information in database
-  // .then(newImage => res.json(newImage))
-  //.catch(err => console.log(err));
+    console.log("this is the image", image);
+
+    const insertedPic = await insertPic({
+      title,
+      content: image.url,
+      public_id: image.id,
+      publisher: userId
+    });
+
+    if (insertedPic) {
+      return res.send({ data: { message: "Success" }, error: null });
+    }
+    // Error in Insert
+    throw Error("error");
+  } catch (error) {
+    // Error Case
+    res.status(500).send({ data: null, error: "Internal Server Error" });
+  }
 };
 
 module.exports = postPicture;

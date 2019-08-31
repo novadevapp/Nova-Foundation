@@ -4,6 +4,7 @@ const connect = require("../connection");
 const Poem = require("../../models/poems");
 const User = require("../../models/users");
 const Thought = require("../../models/thoughts");
+const Pictures = require("../../models/pictures");
 
 // This function is to rebuild our local & production db
 
@@ -19,6 +20,7 @@ const rebuildDB = () =>
       await User.deleteMany();
       await Poem.deleteMany();
       await Thought.deleteMany();
+      await Pictures.deleteMany();
 
       // set documents
 

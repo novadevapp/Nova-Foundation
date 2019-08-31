@@ -53,12 +53,12 @@ export default class Pictures extends Component {
 
   handleDelete = () => {
     const { imageURL, DeleteId } = this.state;
-    const { fileName } = imageURL[DeleteId];
+    const { public_id } = imageURL[DeleteId];
 
     fetch("/api/v1/pictures", {
       method: "DELETE",
       headers: { "content-type": "application/json" },
-      body: JSON.stringify({ data: { fileName } })
+      body: JSON.stringify({ data: { public_id } })
     })
       .then(res => res.json())
       .then(result => {
