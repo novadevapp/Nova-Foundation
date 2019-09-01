@@ -1,12 +1,10 @@
 import React from "react";
 import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
-import ReactNotification from "react-notifications-component";
 
 import SecureRoutes from "./Component/HOC/secureRoutes";
 import CheckRoute from "./Component/HOC/checkRoute";
 import { Landing, AboutUs, Login, Signup, FourOFour } from "./Component/Pages";
 import navLinksForUsers from "./navLinksForUsers";
-import notification from "./Component/helpers/notification";
 import Loading from "./Component/CommonComponent/Loading";
 
 import "./App.css";
@@ -21,7 +19,7 @@ const navLinksForVisitors = [
 function App() {
   const [isLogged, setIsLogged] = React.useState({ auth: false, username: "" });
   const [isLoading, setLoading] = React.useState(true);
-  const [error , setError] = React.useState('');
+  const [error, setError] = React.useState("");
 
   React.useEffect(props => {
     fetch("/api/v1/login-status")
@@ -36,14 +34,14 @@ function App() {
         }
       })
       .catch(err => {
-        setError('Error Please reload the page')
+        setError("Error Please reload the page");
         setLoading(false);
       });
     return () => undefined;
   }, []);
   return (
     <div className='App'>
-      {error && <p className="error">{error}</p>}
+      {error && <p className='error'>{error}</p>}
       {isLoading || error ? (
         isLoading && <Loading />
       ) : (

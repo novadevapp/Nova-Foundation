@@ -6,6 +6,7 @@ import Button from "../../CommonComponent/Button";
 import Loading from "../../CommonComponent/Loading";
 import Thoughts from "./thoughts";
 import AddIcon from "../../CommonComponent/AddIcon";
+import IconM from "./icon-m";
 import "./style.css";
 
 export default props => {
@@ -23,10 +24,10 @@ export default props => {
       .then(result => {
         if (result.auth === false) {
           return new Promise(async (resolve, reject) => {
-            await props.setIsLogged({ auth: false, username: '' });
-            props.history.push('/login');
+            await props.setIsLogged({ auth: false, username: "" });
+            props.history.push("/login");
             resolve();
-          })
+          });
         }
         setThoughts(result.data);
         setLoading(false);
@@ -41,6 +42,24 @@ export default props => {
           <h1 className='journal__title'> Journal</h1>
           <AddIcon onClick={handleClick} />
         </div>
+        <p className='journal-content'>
+          We encourage you to journal. It is a healthy way to heal as it gets
+          your emotions on the inside out onto paper or screen. Some experiences
+          are too painful for words, and drawing in a journal can be just as
+          cathartic. Studies have shown that journaling can improve sleep, and
+          reduce anxiety and stress. Journaling does not have to take long and
+          can take as little as 5 minutes a few times a week, giving you space
+          to connect with how you are feeling, and also connect with your baby.
+        </p>
+        <p className='journal-content'>
+          If you are not sure where to start you could write about why you chose
+          your baby's name, whether they have any symbols or animals, lessons or
+          knowledge your baby has taught you, how you are feeling or anything
+          else that is part of you or your baby's story. There is no right or
+          wrong with journaling, it is a space for you and only you to get your
+          inner thoughts out and connect with how you feel.
+        </p>
+        <IconM />
         {loading && (
           <div className='journal__loading'>
             <Loading />
@@ -50,8 +69,8 @@ export default props => {
         {thoughts.length ? (
           <Thoughts thoughts={thoughts} />
         ) : (
-            <p>You don't have any thing saved</p>
-          )}
+          <p>You don't have any thing saved</p>
+        )}
 
         <Button
           name='Back'
