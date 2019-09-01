@@ -43,7 +43,7 @@ You will need a .env, this shoud be provided by our team
 - **BackEnd**: Nodejs
 - **Server**: Expressjs
 - **Database**: MongoDB
-- **File storage**: Firebase
+- **Image hosting**: cloudinary
 - **Testing**: Jasmine.js
 
 ## Team
