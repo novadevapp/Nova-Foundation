@@ -11,12 +11,9 @@ import PersonalSpace from "./PersonalSpace";
 import PicturesPage from "./Pictures";
 import Poems from "./Poems";
 import Signup from "./Signup";
-import SingleExercises from "./SingleExercises";
 import SinglePoem from "./SinglePoem";
-import SingleStory from "./SingleStory";
 import Status from "./Status";
 import Stories from "./Stories";
-import Suggestion from "./Suggestion";
 import FourOFour from "./404";
 import Journal from "./journal";
 
@@ -34,12 +31,9 @@ export {
   PicturesPage,
   Poems,
   Signup,
-  SingleExercises,
   SinglePoem,
-  SingleStory,
   Status,
   Stories,
-  Suggestion,
   FourOFour,
   Journal
 };
