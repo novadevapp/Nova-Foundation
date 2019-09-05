@@ -45,17 +45,20 @@ class Menu extends Component {
           <li onClick={this.handleClick("/home")} className='menu__item'>
             NOVA HOME
           </li>
+          <li onClick={this.handleClick("/about-us")} className='menu__item'>
+            ABOUT NOVA
+          </li>
           <li onClick={this.handleClick("/information")} className='menu__item'>
             NOVA INFORMATION
-          </li>
-          <li onClick={this.handleClick("/stories")} className='menu__item'>
-            NOVA STORIES
           </li>
           <li
             onClick={this.handleClick("/personal-space")}
             className='menu__item'
           >
             MY PERSONAL CORNER
+          </li>
+          <li onClick={this.handleClick("/stories")} className='menu__item'>
+            NOVA STORIES
           </li>
           <li onClick={this.handleClick("/logout")} className='menu__item'>
             LOGOUT
@@ -69,6 +72,9 @@ class Menu extends Component {
         <li onClick={this.handleClick("/")} className='menu__item'>
           NOVA HOME
         </li>
+        <li onClick={this.handleClick("/about-us")} className='menu__item'>
+            ABOUT NOVA
+          </li>
         <li onClick={this.handleClick("/login")} className='menu__item'>
           LOGIN
         </li>
